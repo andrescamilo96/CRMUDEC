@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('index/index');
 });
+
+Route::resource('infopersonal','PersonalInformationController');
