@@ -28,7 +28,12 @@ Route::get('/', function () {
 });
 
 Route::resource('infopersonal','PersonalInformationController');
+
 Route::resource('usuarios','UsersController');
+
+Route::resource('infoacademica','AcademicInformationController');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
