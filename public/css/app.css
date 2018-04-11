@@ -8433,7 +8433,7 @@ input::-webkit-input-placeholder {
   margin: 0 auto;
   max-width: px;
   padding: 10px 40px;
-  background: #0318b1bf;
+  background: #009edf;
   color: #FFF;
   text-shadow: none;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.31);
@@ -8452,5 +8452,17 @@ span.input-group-addon i {
 .login-register {
   font-size: 11px;
   text-align: center;
+}
+
+#myCarousel .nav a small {
+  display: block;
+}
+
+#myCarousel .nav {
+  background: #eee;
+}
+
+#myCarousel .nav a {
+  border-radius: 0px;
 }
 
