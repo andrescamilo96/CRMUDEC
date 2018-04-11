@@ -31,6 +31,8 @@
 									<input type="text" class="form-control" name="name" id="name"  placeholder="Año Finalización estudios"/>
 								</div>
 					        </div>
+					    </div>
+					    <div class="col-md-6" style="">
 					        <div class="form-group" style="position: static;">
 					            <label for="input-id-5">Institución</label>
 					             <div class="input-group">

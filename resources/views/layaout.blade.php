@@ -30,6 +30,7 @@
             <li><a href="#">Pagina Universidad UDEC</a></li>
             <li><a href="#">Bolsa Empleo</a></li>
             <li><a href="{{ route('infopersonal.create') }}">Informacion Personal</a></li>
+            <li><a href="{{ route('infoacademica.create') }}">Informacion Académica</a></li>
           </ul>
         </li>
       </ul>
