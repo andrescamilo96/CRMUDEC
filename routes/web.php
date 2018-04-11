@@ -10,12 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*App\User::create([
+	'name'=> 'administrador',
+	'email'=>'administrador@gmail.com',
+	'password'=> bcrypt('123123'),
+	
+]);
+App\User::create([
+	'name'=> 'empresa',
+	'email'=>'empresa@gmail.com',
+	'password'=> bcrypt('123123'),
+	
+]);*/
 
 Route::get('/', function () {
     return view('index/index');
 });
 
 Route::resource('infopersonal','PersonalInformationController');
+Route::resource('usuarios','UsersController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -30,6 +30,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                 <input id="role_id" type="hidden" class="form-control" name="role_id" value="3" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
