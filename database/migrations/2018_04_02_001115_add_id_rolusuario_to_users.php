@@ -15,8 +15,8 @@ class AddIdRolusuarioToUsers extends Migration
     {
         Schema::table('users', function($table) {
             $table->string('cedulausuario', 50)->nullable();
-            $table->integer('roluser_id')->unsigned()->nullable();
-                $table->foreign('roluser_id')->references('id')->on('roles');
+            $table->integer('role_id')->unsigned()->nullable();
+                $table->foreign('role_id')->references('id')->on('roles');
         });
 
     }
