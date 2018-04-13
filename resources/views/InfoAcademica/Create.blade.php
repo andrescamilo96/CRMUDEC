@@ -54,14 +54,23 @@
 									<input type="file" class="form-control" name="name" id="name"  placeholder="Si sus estudios fueron realizados en el extranjero adjunte certificado de convalidación"/>
 								</div>
 					        </div>
+
 					        
 					    </div>
+ 					
 					    
 					</div>
-						
+						<div align="center">
+						<a href="#" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Guardar</a>
+						</div>
 					</form>
+
 				</div>
+
 			</div>
+
 		</div>
+
 </div>
+
 @stop
