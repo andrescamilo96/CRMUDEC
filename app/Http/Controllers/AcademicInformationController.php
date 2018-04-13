@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\RegistroEstudiantil;
+use App\Http\Requests\infoEstudiantilRequest;
 
 class AcademicInformationController extends Controller
 {
@@ -32,9 +34,14 @@ class AcademicInformationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(infoEstudiantilRequest $request)
     {
         //
+        
+        return $request->all();
+        //RegistroEstudiantil::create($request->all());
+        /*return $request ->input("nombre");Acceder a un campo especifico*/
+
     }
 
     /**

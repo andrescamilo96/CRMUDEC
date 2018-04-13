@@ -8466,3 +8466,12 @@ span.input-group-addon i {
   border-radius: 0px;
 }
 
+input:invalid {
+  border: 1px solid red;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
