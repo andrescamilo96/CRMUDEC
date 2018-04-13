@@ -29,6 +29,10 @@ Route::get('/', function () {
 
 Route::resource('infopersonal','PersonalInformationController');
 
+
+
+
+
 Route::resource('usuarios','UsersController');
 
 Route::resource('infoacademica','AcademicInformationController');
