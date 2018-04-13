@@ -5,81 +5,105 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Sign up once and watch any of our free demos.</h5>
-					<form class="" method="post" action="#">
+					<form class="" action="{{route('infopersonal.store')}}"  method="post"> 
+           			 {!! csrf_field() !!} 
 						
 						<div class="row">
 					    <div class="col-md-6" style="">
 					        <div class="form-group" style="position: static;">
-					        	<label for="input-id-4">Nombre Usuario</label>
+					        	<label for="user_id">Nombre Usuario</label> 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+									<input type="text" readonly="true" class="form-control" name="user_id" id="user_id" value="3"  placeholder="Enter your Name"/> 
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					            <label for="input-id-4">Año Graduacion</label>
+					            <label for="anograduacion">Año Graduacion</label> 
 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+									<input type="text" class="form-control" name="anograduacion" id="anograduacion"  placeholder="Año de Graduación"/> 
 								</div>
 					        </div>
+					        <div class="form-group" style="position: static;"> 
+                     			<label for="semestregraduacion">Semestre:</label> 
+								<div class="input-group"> 
+									<span class="input-group-addon"><i class="glyphicon glyphicon-hand-right" aria-hidden="true"></i></span> 
+									<select class="form-control" id="semestregraduacion" name="semestregraduacion"> 
+										<option value="1">I Semestre</option> 
+										<option value="2">II Semestre</option> 
+									</select> 
+								</div> 
+                  			</div> 
 					        <div class="form-group" style="position: static;">
-					            <label for="input-id-5">Direccion Residencia</label>
+					            <label for="residencia">Direccion Residencia</label> 
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+									<input type="text" class="form-control" name="residencia" id="residencia"  placeholder="Dirección Actual"/> 
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					        	 <label for="select-4">Estrato</label>
+					        	  <label for="estrato">Estrato Social</label> 
 					        	<div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-hand-right" aria-hidden="true"></i></span>
-					            <select class="form-control" id="select-4"></select>
+					             <input type="text" class="form-control" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico"/>
 					        	</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					            <label for="select-6">Sexo</label>
+					             <label for="sexo">Sexo</label> 
 					            <div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-tag" aria-hidden="true"></i></span>
-					            <select class="form-control" id="select-6"></select>
+					             <select class="form-control" id="sexo" name="sexo"> 
+			                        <option value="Masculino">Masculino</option> 
+			                        <option value="Femenino">Femenino</option> 
+			                      </select> 
 					        </div>
 					        </div>
 					    </div>
 					    <div class="col-md-6" style="">
 					        <div class="form-group" style="position: static;">
-					            <label for="input-id-3">Telefono</label>
+					            <label for="telefono">Telefono</label> 
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+									<input type="text" class="form-control" name="telefono" id="telefono"  placeholder="Telefono"/> 
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					            <label for="select-1">Ciudad Residencia</label>
+					             <label for="ciudadresidencia_id">Ciudad Residencia</label>
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
-					           		 <select class="form-control" id="select-1"></select>
+					           		 <select class="form-control" id="ciudadresidencia_id" name="ciudadresidencia_id"> 
+			                            <option value="1">Bogotá</option> 
+			                            <option value="2">Medellín</option> 
+			                            <option value="3">Cali</option> 
+			                          </select> 
 					           		</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					            <label for="select-3">Estado Civil</label>
+					           <label for="estadocivil">Estado Civil</label> 
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-heart" aria-hidden="true"></i></span>
-					            <select class="form-control" id="select-3"></select>
+					            <select class="form-control" id="estadocivil" name="estadocivil"> 
+			                        <option value="Soltero">Soltero</option> 
+			                        <option value="Casado">Casado</option> 
+			                      </select> 
 					        	</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					            <label for="select-5">Programa</label>
+					            <label for="programa_id">Programa</label> 
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></span>
-					            <select class="form-control" id="select-5"></select>
+					             <select class="form-control" id="programa_id" name="programa_id"> 
+			                        <option value="1">Administración de Empresas</option> 
+			                        <option value="2">Contaduria Pública</option> 
+			                      </select> 
 					        </div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					            <label for="select-5">Pefil</label>
+					             <label for="descripcionperfil">Perfil</label> 
 					             
 									
-					            <textarea class= "form-control" id="Perfil" name="Perfil" data-toggle="tooltip" title="Descripcion Corta de su perfil (max 250 caracteres)">
+					            <textarea class= "form-control" id="descripcionperfil" name="descripcionperfil" data-toggle="tooltip" title="Descripcion Corta de su perfil (max 250 caracteres)"> 
   								</textarea> 
   								
 					        
@@ -88,7 +112,7 @@
 					    </div>
 					</div>
 						<div align="center">
-					        	<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
+					        	<input type="submit" class="btn btn-success" >Guardar</input> 
 					        </div>
 					</form>
 				</div>
