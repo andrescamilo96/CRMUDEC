@@ -81,11 +81,15 @@
 									
 					            <textarea class= "form-control" id="Perfil" name="Perfil" data-toggle="tooltip" title="Descripcion Corta de su perfil (max 250 caracteres)">
   								</textarea> 
+  								
 					        
 					        </div>
+					        
 					    </div>
 					</div>
-						
+						<div align="center">
+					        	<button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
+					        </div>
 					</form>
 				</div>
 			</div>

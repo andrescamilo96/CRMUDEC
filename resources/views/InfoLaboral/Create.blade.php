@@ -84,6 +84,9 @@
 					    
 					    
 					</div>
+					<div align="center">
+					        	<button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
+					        </div>
 						
 					</form>
 				</div>
