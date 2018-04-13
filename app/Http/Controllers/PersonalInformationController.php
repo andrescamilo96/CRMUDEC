@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\InFormacionGraduado;
 
 class PersonalInformationController extends Controller
 {
@@ -25,7 +24,7 @@ class PersonalInformationController extends Controller
     public function create()
     {
         //
-        return view('infoPersonal.create');
+        return view('InfoPersonal.create');
     }
 
     /**
@@ -36,11 +35,7 @@ class PersonalInformationController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-        InFormacionGraduado::create($request->all());
-        return view('/home');
-
-
+        //
     }
 
     /**
