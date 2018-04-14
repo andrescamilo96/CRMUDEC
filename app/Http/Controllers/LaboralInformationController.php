@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\HistorialLaboral;
 
 class LaboralInformationController extends Controller
 {
@@ -34,7 +35,9 @@ class LaboralInformationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //return $request->all(); 
+        HistorialLaboral::create($request->all()); 
+        return view('/home'); 
     }
 
     /**
