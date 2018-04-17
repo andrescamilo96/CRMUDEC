@@ -15,6 +15,7 @@
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
 									<input type="text" readonly="true" class="form-control" name="user_id" id="user_id" value="3"  placeholder="Enter your Name"/> 
+									{!! $errors->first('user_id','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -22,7 +23,8 @@
 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="anograduacion" id="anograduacion"  placeholder="Año de Graduación"/> 
+									<input required type="number" class="form-control" name="anograduacion" id="anograduacion"  placeholder="Año de Graduación"  value="{{ old('anograduacion') }}" /> 
+									{!! $errors->first('anograduacion','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;"> 
@@ -32,21 +34,24 @@
 									<select class="form-control" id="semestregraduacion" name="semestregraduacion"> 
 										<option value="1">I Semestre</option> 
 										<option value="2">II Semestre</option> 
-									</select> 
+									</select>
+									{!! $errors->first('semestregraduacion','<span class=error >:message</span>') !!} 
 								</div> 
                   			</div> 
 					        <div class="form-group" style="position: static;">
 					            <label for="residencia">Direccion Residencia</label> 
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="residencia" id="residencia"  placeholder="Dirección Actual"/> 
+									<input required type="text" class="form-control" name="residencia" id="residencia"  placeholder="Dirección Actual"  value="{{ old('residencia') }}" />
+									{!! $errors->first('residencia','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
 					        	  <label for="estrato">Estrato Social</label> 
 					        	<div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-hand-right" aria-hidden="true"></i></span>
-					             <input type="text" class="form-control" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico"/>
+					             <input required type="text" class="form-control" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ old('estrato') }}" />
+					             {!! $errors->first('estrato','<span class=error >:message</span>') !!}
 					        	</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -57,6 +62,7 @@
 			                        <option value="Masculino">Masculino</option> 
 			                        <option value="Femenino">Femenino</option> 
 			                      </select> 
+			                      {!! $errors->first('sexo','<span class=error >:message</span>') !!}
 					        </div>
 					        </div>
 					    </div>
@@ -65,7 +71,8 @@
 					            <label for="telefono">Telefono</label> 
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="telefono" id="telefono"  placeholder="Telefono"/> 
+									<input required type="number" class="form-control" name="telefono" id="telefono"  placeholder="Telefono"  value="{{ old('telefono') }}" />
+									{!! $errors->first('telefono','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -77,6 +84,7 @@
 			                            <option value="2">Medellín</option> 
 			                            <option value="3">Cali</option> 
 			                          </select> 
+			                          {!! $errors->first('ciudadresidencia_id','<span class=error >:message</span>') !!}
 					           		</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -86,7 +94,8 @@
 					            <select class="form-control" id="estadocivil" name="estadocivil"> 
 			                        <option value="Soltero">Soltero</option> 
 			                        <option value="Casado">Casado</option> 
-			                      </select> 
+			                      </select>
+			                      {!! $errors->first('estadocivil','<span class=error >:message</span>') !!} 
 					        	</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -97,15 +106,16 @@
 			                        <option value="1">Administración de Empresas</option> 
 			                        <option value="2">Contaduria Pública</option> 
 			                      </select> 
+			                      {!! $errors->first('programa_id','<span class=error >:message</span>') !!}
 					        </div>
 					        </div>
 					        <div class="form-group" style="position: static;">
 					             <label for="descripcionperfil">Perfil</label> 
 					             
 									
-					            <textarea class= "form-control" id="descripcionperfil" name="descripcionperfil" data-toggle="tooltip" title="Descripcion Corta de su perfil (max 250 caracteres)"> 
+					            <textarea required class= "form-control" id="descripcionperfil" name="descripcionperfil" data-toggle="tooltip" title="Descripcion Corta de su perfil (max 250 caracteres)"  value="{{ old('descripcionperfil') }}" > 
   								</textarea> 
-  								
+  								{!! $errors->first('descripcionperfil','<span class=error >:message</span>') !!}
 					        
 					        </div>
 					        

@@ -128,8 +128,11 @@ span.input-group-addon i {
     border-radius:0px;
 }
 input:invalid {
-  border: 1px solid red;
+  border: 2px solid red;
 }
+input:valid{
+        border:2px solid green;   
+    }
 .error{
     color: red;
     font-size: 12px;

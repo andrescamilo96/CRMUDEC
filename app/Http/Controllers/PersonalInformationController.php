@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\InFormacionGraduado; 
+use App\Http\Requests\infoPersonalRequest;
 class PersonalInformationController extends Controller
 {
     /**
@@ -33,7 +34,7 @@ class PersonalInformationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(infoPersonalRequest $request)
     {
         // return $request->all(); 
         InFormacionGraduado::create($request->all()); 
