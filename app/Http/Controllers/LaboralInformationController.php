@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\HistorialLaboral;
-
+use App\Http\Requests\infoLaboralRequest;
 class LaboralInformationController extends Controller
 {
     /**
@@ -33,7 +33,7 @@ class LaboralInformationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(infoLaboralRequest $request)
     {
          //return $request->all(); 
         HistorialLaboral::create($request->all()); 

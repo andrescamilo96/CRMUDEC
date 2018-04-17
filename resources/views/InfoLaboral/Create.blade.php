@@ -15,13 +15,15 @@
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
 									<input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="3"  placeholder="Usuario"/>
+									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
 								</div>
 					        </div>				    	
 					        <div class="form-group" style="position: static;">
 					        	<label for="cargo">Cargo Laboral</label>
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="cargo" id="cargo"  placeholder="Cargo desempeñado en la empresa"/>
+									<input required type="text" class="form-control" name="cargo" id="cargo"  placeholder="Cargo desempeñado en la empresa"/>
+									{!! $errors->first('cargo','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -29,8 +31,9 @@
 					            <label for="descripcion">Descripción del Trabajo</label>
 					             
 									
-					            <textarea class= "form-control" id="descripcion" name="descripcion" data-toggle="tooltip" title="Funciones realizadas (max 250 caracteres)">
+					            <textarea required class= "form-control" id="descripcion" name="descripcion" data-toggle="tooltip" title="Funciones realizadas (max 250 caracteres)">
   								</textarea> 
+  								{!! $errors->first('descripcion','<span class=error >:message</span>') !!}
 					        
 					        </div>
 					        </div>
@@ -38,14 +41,16 @@
 					            <label for="empresa">Empresa</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="empresa" id="empresa"  placeholder="Empresa donde trabajó"/>
+									<input required type="text" class="form-control" name="empresa" id="empresa"  placeholder="Empresa donde trabajó"/>
+									{!! $errors->first('empresa','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
 					         <div class="form-group" style="position: static;">
 					            <label for="anoslaborados">Años Laborados</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="anoslaborados" id="anoslaborados"  placeholder="Cantidad de años laborados (en números, sin comas)"/>
+									<input required type="number" class="form-control" name="anoslaborados" id="anoslaborados"  placeholder="Cantidad de años laborados (en números, sin comas)"/>
+									{!! $errors->first('anoslaborados','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -66,7 +71,8 @@
 					            <label for="direccionempresa">Dirección Empresa</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-road" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="direccionempresa" id="direccionempresa"  placeholder="Dirección de la empresa"/>
+									<input  type="text" class="form-control" name="direccionempresa" id="direccionempresa"  placeholder="Dirección de la empresa"/>
+									{!! $errors->first('direccionempresa','<span class=error >:message</span>') !!}
 								</div>
 					    	</div>						    			    	
 					        <div class="form-group" style="position: static;">
@@ -85,14 +91,16 @@
 					            <label for="telefonoempresa">Telefono Empresa</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-globe" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="telefonoempresa" id="telefonoempresa"  placeholder="Telefono de Contacto"/>
+									<input type="number" class="form-control" name="telefonoempresa" id="telefonoempresa"  placeholder="Telefono de Contacto"/>
+									{!! $errors->first('telefonoempresa','<span class=error >:message</span>') !!}
 								</div>
 					    	</div>
 					    	<div class="form-group" style="position: static;">
 					            <label for="adjuntosoporte">Adjunto Certificado Laboral</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
-									<input type="file" class="form-control" name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte certificado Laboral en formato PDF"/>
+									<input required type="file" class="form-control" name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte certificado Laboral en formato PDF"/>
+									{!! $errors->first('adjuntosoporte','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
 					        
