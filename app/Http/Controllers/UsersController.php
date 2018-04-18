@@ -26,6 +26,7 @@ class UsersController extends Controller
     {
         //
          $users = \App\User::all();
+         //dd($users);
         return view('users.index',compact('users')); 
     }
 

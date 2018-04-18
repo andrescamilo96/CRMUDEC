@@ -5,7 +5,8 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Registro Información Laboral</h5>
-					<form class="" action="{{route('infolaboral.store')}}"  method="post"> 
+					<form class="" action="{{route('infolaboral.update',$registro->id)}}"  method="post">
+					{!! method_field('PUT') !!} 
            			 {!! csrf_field() !!} 
 						
 						<div class="row">
@@ -22,7 +23,7 @@
 					        	<label for="cargo">Cargo Laboral</label>
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input required type="text" class="form-control" name="cargo" id="cargo"  placeholder="Cargo desempeñado en la empresa"/>
+									<input required type="text" class="form-control" name="cargo" id="cargo"  placeholder="Cargo desempeñado en la empresa" value="{{ $registro->cargo }}"/>
 									{!! $errors->first('cargo','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
@@ -31,7 +32,7 @@
 					            <label for="descripcion">Descripción del Trabajo</label>
 					             
 									
-					            <textarea required class= "form-control" id="descripcion" name="descripcion" data-toggle="tooltip" title="Funciones realizadas (max 250 caracteres)">
+					            <textarea required class= "form-control" id="descripcion" name="descripcion" data-toggle="tooltip" title="Funciones realizadas (max 250 caracteres)">{{ $registro->descripcion }}
   								</textarea> 
   								{!! $errors->first('descripcion','<span class=error >:message</span>') !!}
 					        
@@ -41,7 +42,7 @@
 					            <label for="empresa">Empresa</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i></span>
-									<input required type="text" class="form-control" name="empresa" id="empresa"  placeholder="Empresa donde trabajó"/>
+									<input required type="text" class="form-control" name="empresa" id="empresa"  placeholder="Empresa donde trabajó" value="{{ $registro->empresa }}"/>
 									{!! $errors->first('empresa','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
@@ -49,7 +50,7 @@
 					            <label for="anoslaborados">Años Laborados</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
-									<input required type="number" class="form-control" name="anoslaborados" id="anoslaborados"  placeholder="Cantidad de años laborados (en números, sin comas)"/>
+									<input required type="number" class="form-control" name="anoslaborados" id="anoslaborados"  placeholder="Cantidad de años laborados (en números, sin comas)" value="{{ $registro->anoslaborados }}"/>
 									{!! $errors->first('anoslaborados','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
@@ -71,7 +72,7 @@
 					            <label for="direccionempresa">Dirección Empresa</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-road" aria-hidden="true"></i></span>
-									<input  type="text" class="form-control" name="direccionempresa" id="direccionempresa"  placeholder="Dirección de la empresa"/>
+									<input  type="text" class="form-control" name="direccionempresa" id="direccionempresa"  placeholder="Dirección de la empresa" value="{{ $registro->direccionempresa }}"/>
 									{!! $errors->first('direccionempresa','<span class=error >:message</span>') !!}
 								</div>
 					    	</div>						    			    	
@@ -91,7 +92,7 @@
 					            <label for="telefonoempresa">Telefono Empresa</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-globe" aria-hidden="true"></i></span>
-									<input type="number" class="form-control" name="telefonoempresa" id="telefonoempresa"  placeholder="Telefono de Contacto"/>
+									<input type="number" class="form-control" name="telefonoempresa" id="telefonoempresa"  placeholder="Telefono de Contacto" value="{{ $registro->telefonoempresa }}"/>
 									{!! $errors->first('telefonoempresa','<span class=error >:message</span>') !!}
 								</div>
 					    	</div>
@@ -99,7 +100,7 @@
 					            <label for="adjuntosoporte">Adjunto Certificado Laboral</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
-									<input required type="file" class="form-control" name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte certificado Laboral en formato PDF"/>
+									<input required type="file" class="form-control" name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte certificado Laboral en formato PDF" value="{{ $registro->adjuntosoporte }}"/>
 									{!! $errors->first('adjuntosoporte','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
@@ -109,7 +110,7 @@
 					    
 					</div>
 					<div align="center">
-					        	<input type="submit" class="btn btn-success" value="Guardar"></input> 
+					        	<input type="submit" class="btn btn-success" >Guardar</input> 
 					        </div>
 						
 					</form>

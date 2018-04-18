@@ -15,6 +15,10 @@ class LaboralInformationController extends Controller
     public function index()
     {
         //
+
+        $registros = HistorialLaboral::all();
+        //dd($registros);
+        return view('infolaboral.index',compact('registros'));
     }
 
     /**
@@ -37,7 +41,7 @@ class LaboralInformationController extends Controller
     {
          //return $request->all(); 
         HistorialLaboral::create($request->all()); 
-        return view('/home'); 
+        return redirect()->route('infolaboral.index');
     }
 
     /**
@@ -49,6 +53,8 @@ class LaboralInformationController extends Controller
     public function show($id)
     {
         //
+         $registro = HistorialLaboral::findOrFail($id);
+        return view('infolaboral.show',compact('registro'));
     }
 
     /**
@@ -60,6 +66,10 @@ class LaboralInformationController extends Controller
     public function edit($id)
     {
         //
+
+        $registro = HistorialLaboral::findOrFail($id);
+        //dd($registro);
+        return view('infolaboral.edit',compact('registro'));
     }
 
     /**
@@ -69,9 +79,14 @@ class LaboralInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(infoLaboralRequest $request, $id)
     {
         //
+        //Actualizamos
+        $registro = HistorialLaboral::findOrFail($id)->update($request->all());
+        
+        //Redireccionar
+        return redirect()->route('infolaboral.index');
     }
 
     /**
@@ -83,5 +98,7 @@ class LaboralInformationController extends Controller
     public function destroy($id)
     {
         //
+        $registro = HistorialLaboral::findOrFail($id)->delete();
+        return redirect()-> route('infolaboral.index');
     }
 }

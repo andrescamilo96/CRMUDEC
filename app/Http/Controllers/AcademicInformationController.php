@@ -16,6 +16,8 @@ class AcademicInformationController extends Controller
     public function index()
     {
         //
+        $registros = RegistroEstudiantil::all();
+        return view('infoacademica.index',compact('registros'));
     }
 
     /**
@@ -26,6 +28,7 @@ class AcademicInformationController extends Controller
     public function create()
     {
         return view('infoacademica.create');
+
     }
 
     /**
@@ -37,9 +40,10 @@ class AcademicInformationController extends Controller
     public function store(infoEstudiantilRequest $request)
     {
         //
+        RegistroEstudiantil::create($request->all());
+        //return $request->all();
+         return redirect()->route('infoacademica.index');
         
-        return $request->all();
-        //RegistroEstudiantil::create($request->all());
         /*return $request ->input("nombre");Acceder a un campo especifico*/
 
     }
@@ -53,6 +57,8 @@ class AcademicInformationController extends Controller
     public function show($id)
     {
         //
+         $registro = RegistroEstudiantil::findOrFail($id);
+        return view('infoacademica.show',compact('registro'));
     }
 
     /**
@@ -64,6 +70,8 @@ class AcademicInformationController extends Controller
     public function edit($id)
     {
         //
+        $registro = RegistroEstudiantil::findOrFail($id);
+        return view('infoacademica.edit',compact('registro'));
     }
 
     /**
@@ -73,9 +81,14 @@ class AcademicInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(infoEstudiantilRequest $request, $id)
     {
-        //
+        //Actualizamos
+        $registro = RegistroEstudiantil::findOrFail($id)->update($request->all());
+        
+        //Redireccionar
+        return redirect()->route('infoacademica.index');
+        
     }
 
     /**
@@ -87,5 +100,7 @@ class AcademicInformationController extends Controller
     public function destroy($id)
     {
         //
+         $registro = RegistroEstudiantil::findOrFail($id)->delete();
+        return redirect()-> route('infoacademica.index');
     }
 }

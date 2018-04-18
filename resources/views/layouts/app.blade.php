@@ -37,8 +37,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                        <li><a href="{{ route('infopersonal.create') }}">Informacion Personal</a></li>
-                       <li><a href="{{ route('infoacademica.create') }}">Registro Académico</a></li>
-                       <li><a href="{{ route('infolaboral.create') }}">Registro Laboral</a></li>
+                       <li><a href="{{ route('infoacademica.index') }}">Registro Académico</a></li>
+                       <li><a href="{{ route('infolaboral.index') }}">Registro Laboral</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

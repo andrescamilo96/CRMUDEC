@@ -25,7 +25,7 @@ class infoEstudiantilRequest extends FormRequest
     {
         return [
             'titulo' => 'required',
-            'anofinalizacion' => 'required|numeric|Max:4|Min:4',
+            'anofinalizacion' => 'required|numeric',
             'institucion' => 'required',
             'adjuntosoporte' => 'required',
             'usuario_id' => 'required',
