@@ -32,7 +32,7 @@
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
 									<input required type="text" class="form-control" name="titulo" id="titulo"  placeholder="Nombre del Título Obtenido" value="{{ old('titulo') }}" />
 									{!! $errors->first('titulo','<span class=error >:message</span>') !!}
-									<input type="hidden" class="form-control" name="usuario_id" id="usuario_id" hidden="true" value ="3" placeholder="Nombre del Título Obtenido"/>
+									<input type="hidden" class="form-control" name="usuario_id" id="usuario_id" hidden="true" value ="{{ Auth::user()->id }}" placeholder="Nombre del Título Obtenido"/>
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">

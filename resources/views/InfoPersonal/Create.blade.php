@@ -4,7 +4,7 @@
 	 	<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
-				<h5>Sign up once and watch any of our free demos.</h5>
+				<h5>Ingreso de información personal del Usuario</h5>
 					<form class="" action="{{route('infopersonal.store')}}"  method="post"> 
            			 {!! csrf_field() !!} 
 						
@@ -14,7 +14,8 @@
 					        	<label for="user_id">Nombre Usuario</label> 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" readonly="true" class="form-control" name="user_id" id="user_id" value="3"  placeholder="Enter your Name"/> 
+									<input type="text" readonly="true" class="form-control" name="usuario" id="usuario" value="{{ Auth::user()->name }}"  ></input>
+									<input type="hidden" readonly="true" class="form-control" name="user_id" id="user_id" value="{{ Auth::user()->id }}"  ></input>
 									{!! $errors->first('user_id','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
@@ -122,7 +123,7 @@
 					    </div>
 					</div>
 						<div align="center">
-					        	<input type="submit" class="btn btn-success" >Guardar</input> 
+					        	<input type="submit" class="btn btn-success" value="Guardar"></input> 
 					        </div>
 					</form>
 				</div>
