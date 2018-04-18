@@ -5,11 +5,25 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-
+                <div class="panel-heading">Register<br/>
+                </div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
+
+                        <div class="form-group">
+                        <h2>Seleccione Tipo de Usuario</h2>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                            &nbsp;&nbsp;&nbsp;<label class="radio-inline">
+                            <input type="radio" class="role_id" name="role_id" id="3" value="3"> Graduado </label>
+                            &nbsp;&nbsp;&nbsp;
+                            <label class="radio-inline">
+                            <input type="radio" class="role_id" name="role_id" id="2" value="2"> Empresa Externa </label>
+                            &nbsp;&nbsp;&nbsp;
+                            <label class="radio-inline">
+                            <input type="radio" class="role_id" name="role_id" id="4" value="4"> Funcionario UCundinamarca </label>
+                        
+                    </div>
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
@@ -30,7 +44,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-                                 <input id="role_id" type="hidden" class="form-control" name="role_id" value="3" required>
+                                 <!-- <input id="role_id" type="hidden" class="form-control" name="role_id" value="3" required> -->
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -69,10 +83,30 @@
                                 </button>
                             </div>
                         </div>
+                        <div id="modalEmpresarioUdec" 
+                            style="display: ;">
+                            <p>Hola Empresario</p>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".role_id").click(function(evento){
+            var valRol = $(this).val();
+            if(valRol==2){
+                $("#modalEmpresarioUdec").css("display","none");
+            }
+            else{
+                $("#modalEmpresarioUdec").css("display","none");   
+            }
+        });
+    });
+    
+
+</script>
 @endsection
