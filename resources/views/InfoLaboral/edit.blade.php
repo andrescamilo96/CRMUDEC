@@ -15,7 +15,7 @@
 					        	<label for="usuario_id">Nombre Usuario</label>
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="3"  placeholder="Usuario"/>
+									<input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  placeholder="Usuario"/>
 									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
 								</div>
 					        </div>				    	
