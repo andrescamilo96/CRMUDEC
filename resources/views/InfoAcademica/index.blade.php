@@ -45,7 +45,7 @@
 									<td>{{ $registro->institucion }}</td>
 									<td>{{ $registro->adjuntosoporte }}</td>
 									<td>{{ $registro->certificadoconvalidacion }}</td>
-									<td>{{ $registro->tipoestudio_id }}</td>
+									<td>{{ $registro->tipoestudio->tipoestudio }}</td>
 									
 									<td>
 										<a class="btn btn-xs btn-info" href="{{ route('infoacademica.edit',$registro->id) }}"><small>
