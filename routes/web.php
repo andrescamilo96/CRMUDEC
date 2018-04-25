@@ -33,7 +33,7 @@ Route::resource('usuarios','UsersController');
 
 Route::resource('infoacademica','AcademicInformationController');
 Route::resource('infolaboral','LaboralInformationController');
-
+Route::resource('admin','AdminController');
 
 
 Auth::routes();
