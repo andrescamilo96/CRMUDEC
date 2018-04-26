@@ -31,6 +31,7 @@
             <li><a href="#">Bolsa Empleo</a></li>
             <li><a href="{{ route('infopersonal.create') }}">Informacion Personal</a></li>
             <li><a href="{{ route('infoacademica.create') }}">Informacion Académica</a></li>
+            <li><a href="{{ route('solicitudes.create') }}">Solicitudes o Peticiones</a></li>
           </ul>
         </li>
       </ul>

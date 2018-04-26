@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Solicitud;
 
 class SolicitudesController extends Controller
 {
@@ -23,7 +24,7 @@ class SolicitudesController extends Controller
      */
     public function create()
     {
-        //
+         return view('solicitudes.create');
     }
 
     /**
@@ -34,7 +35,9 @@ class SolicitudesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //return $request->all(); 
+        Solicitud::create($request->all()); 
+        return redirect()->route('/index');
     }
 
     /**

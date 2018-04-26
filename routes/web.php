@@ -34,8 +34,10 @@ Route::resource('usuarios','UsersController');
 Route::resource('infoacademica','AcademicInformationController');
 Route::resource('infolaboral','LaboralInformationController');
 Route::resource('admin','AdminController');
+Route::resource('solicitudes','SolicitudesController');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
