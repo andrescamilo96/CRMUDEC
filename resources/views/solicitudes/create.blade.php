@@ -37,10 +37,10 @@
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					            <label for="telefonocontacto">Telefono de Contacto</label> 
+					            <label for="telefono">Telefono de Contacto</label> 
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
-									<input required type="text" class="form-control" name="telefonocontacto" id="telefonocontacto"  placeholder="Telefono de Contacto"  value="{{ old('telefono') }}" />
+									<input required type="text" class="form-control" name="telefono" id="telefono"  placeholder="Telefono de Contacto"  value="{{ old('telefono') }}" />
 									<!-- {!! $errors->first('telefonocontacto','<span class=error >:message</span>') !!}  -->
 								</div>
 								<div class="form-group" style="position: static;">

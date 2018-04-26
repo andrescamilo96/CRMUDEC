@@ -13,7 +13,11 @@ class DeleteTelFromsolicitudes extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('solicitudes', function (Blueprint $table) {
+            $table->dropColumn('telefonocontacto');
+            $table->string('telefono',100)->after('asunto');
+            
+        });        
     }
 
     /**
@@ -23,6 +27,9 @@ class DeleteTelFromsolicitudes extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('profiles', function (Blueprint $table) {            
+            $table->integer('telefonocontacto')->nullable()->after('asunto');
+            $table->dropColumn('telefono');
+        });
     }
 }

@@ -37,7 +37,7 @@ class SolicitudesController extends Controller
     {
         //return $request->all(); 
         Solicitud::create($request->all()); 
-        return redirect()->route('/index');
+        return view('/home');
     }
 
     /**

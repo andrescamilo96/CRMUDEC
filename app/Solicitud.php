@@ -11,5 +11,5 @@ class Solicitud extends Model
     {
     	return $this->belongsTo(User::class);
     }
-    protected $fillable = ['correo','asunto','telefonocontacto','solicitud','usuario_id','indrespuesta','solicitudrespuesta'];
+    protected $fillable = ['correo','asunto','telefono','solicitud','usuario_id','indrespuesta','solicitudrespuesta'];
 }
