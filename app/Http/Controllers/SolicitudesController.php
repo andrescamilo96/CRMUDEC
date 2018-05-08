@@ -7,6 +7,7 @@ use App\Solicitud;
 use DB;
 use Mail;
 
+use App\Http\Requests\solicitudesRequest;
 class SolicitudesController extends Controller
 {
     /**
@@ -43,7 +44,7 @@ class SolicitudesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(solicitudesRequest $request)
     {
         //return $request->all(); 
         Solicitud::create($request->all()); 

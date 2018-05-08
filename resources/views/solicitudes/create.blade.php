@@ -16,7 +16,7 @@
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
 									<input type="text" readonly="true" class="form-control" name="usuario" id="usuario" value="{{ Auth::user()->name }}"  ></input>
 									<input type="hidden" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  ></input>
-									<!-- {!! $errors->first('user_id','<span class=error >:message</span>') !!} -->
+									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -25,7 +25,7 @@
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
 									<input required type="email" class="form-control" name="correo" id="correo"  placeholder="Correo de Respuesta"  value="{{ old('correo') }}" /> 
-									<!-- {!! $errors->first('correo','<span class=error >:message</span>') !!} -->
+									{!! $errors->first('correo','<span class=error >:message</span>') !!}
 								</div>
 					        </div>					       
 					        <div class="form-group" style="position: static;">
@@ -33,15 +33,15 @@
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
 									<input required type="text" class="form-control" name="asunto" id="asunto"  placeholder="Asunto de Contacto"  value="{{ old('asunto') }}" />
-									<!-- {!! $errors->first('asunto','<span class=error >:message</span>') !!}  -->
+									{!! $errors->first('asunto','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
 					            <label for="telefono">Telefono de Contacto</label> 
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
-									<input required type="text" class="form-control" name="telefono" id="telefono"  placeholder="Telefono de Contacto"  value="{{ old('telefono') }}" />
-									<!-- {!! $errors->first('telefonocontacto','<span class=error >:message</span>') !!}  -->
+									<input required type="number" class="form-control" name="telefono" id="telefono"  placeholder="Telefono de Contacto"  value="{{ old('telefono') }}" />
+									{!! $errors->first('telefono','<span class=error >:message</span>') !!} 
 								</div>
 								<div class="form-group" style="position: static;">
 					             <label for="solicitud">Solicitud</label> 
@@ -49,8 +49,8 @@
 									
 					            <textarea required class= "form-control" id="solicitud" name="solicitud" data-toggle="tooltip" title="Descripción Solicitud"  value="{{ old('solicitud') }}" > 
   								</textarea> 
-  								<!-- {!! $errors->first('solicitud','<span class=error >:message</span>') !!} -->
-					        
+  								{!! $errors->first('solicitud','<span class=error >:message</span>') !!}
+					        	<input required type="hidden" class="form-control" name="indrespuesta" id="indrespuesta"    value="0" />
 					        </div>
 					        </div>
 					        
