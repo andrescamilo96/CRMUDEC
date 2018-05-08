@@ -21,7 +21,14 @@ App\User::create([
 	'email'=>'empresa@gmail.com',
 	'password'=> bcrypt('123123'),
 	
-]);*/
+]);
+App\User::create([
+	'name'=> 'graduado',
+	'email'=>'graduado@gmail.com',
+	'password'=> bcrypt('123123'),
+	
+]);
+*/
 
 Route::get('/', function () {
     return view('index/index');

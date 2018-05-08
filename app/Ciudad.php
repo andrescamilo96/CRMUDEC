@@ -14,7 +14,7 @@ class Ciudad extends Model
     	return $this->hasOne(InfoEmpleadoUdec::class);
     }
     public function historiallaboral(){
-    	return $this->hasOne(HistorialLaboral::class);
+    	return $this->hasMany(HistorialLaboral::class);
     }
     public function sedeuniversitaria(){
     	return $this->hasOne(SedeUniversitaria::class);

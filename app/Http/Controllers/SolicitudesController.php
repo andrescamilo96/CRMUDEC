@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Solicitud;
+use DB;
+use Mail;
 
 class SolicitudesController extends Controller
 {
@@ -15,6 +17,14 @@ class SolicitudesController extends Controller
     public function index()
     {
         //
+        $ind = 0;
+
+/*        $registro = db::table('solicitudes')->where('indrespuesta', $ind)->first();
+*/      $registro = Solicitud::where('indrespuesta','=',0)->get();
+        
+       
+         return view('solicitudes.index',compact('registro'));
+        
     }
 
     /**
@@ -60,6 +70,10 @@ class SolicitudesController extends Controller
     public function edit($id)
     {
         //
+          $registro = Solicitud::findOrFail($id);
+        //dd($registro);
+
+        return view('solicitudes.edit',compact('registro'));
     }
 
     /**
@@ -71,7 +85,21 @@ class SolicitudesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         //
+        //Actualizamos
+        $registro = Solicitud::findOrFail($id)->update($request->all());
+
+        $registro = Solicitud::findOrFail($id);
+        //Redireccionar
+        // dd($registro);
+       
+          Mail::Send('Emails.sendsolicitud',['msg'=> $registro], function($message) use($registro){
+            $message->to($registro->correo,$registro->usuario->name)->subject('MensajeCRMUDEC Faca--- No Reply');
+
+        });
+        ///////ENVIAR EMAIL///////////////////
+        flashy()->success('Tu mensaje ha sido enviado', '');
+         return redirect()->route('solicitudes.index');
     }
 
     /**

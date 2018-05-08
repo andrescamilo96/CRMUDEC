@@ -13,7 +13,7 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
-
+/*d50d9c93cfcb40fc7d7e10206611e701473086a6*/
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

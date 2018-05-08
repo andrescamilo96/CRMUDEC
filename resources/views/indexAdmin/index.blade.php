@@ -27,7 +27,9 @@
            <div class="col-md-3">
              <div class="well dash-box">
                <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 2129</h2>
-               <h4>Visitores</h4>
+               <h4>
+              
+            </h4>
              </div>
            </div>
           </div>

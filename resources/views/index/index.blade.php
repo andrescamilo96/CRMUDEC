@@ -51,6 +51,15 @@
 
 
     </div><!-- End Carousel -->
+
+     <div class="well dash-box">
+               <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Visitantes <a href="" title="contador de visitas para web"><img src="https://counter5.allfreecounter.com/private/contadorvisitasgratis.php?c=3wflxchbkch8em5s84nsjcbx7bspsm7p" border="0" title="contador de visitas para web" alt="contador de visitas para web"></a> </h2>
+               
+             
+             
+             </div>
+       
+    
 </div>
 
 
