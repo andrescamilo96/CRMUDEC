@@ -43,6 +43,9 @@ Route::resource('infolaboral','LaboralInformationController');
 Route::resource('admin','AdminController');
 Route::resource('solicitudes','SolicitudesController');
 
+Route::get('/notificaciones', 'NotificacionController@index')->name('notificaciones.index');
+Route::patch('notificaciones/{id}','NotificacionController@read')->name('notificaciones.read');
+Route::delete('notificaciones/{id}','NotificacionController@destroy')->name('notificaciones.destroy');
 
 Auth::routes();
 

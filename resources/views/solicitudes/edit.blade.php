@@ -9,7 +9,7 @@
 	 	
 			<div class="row main">
 				<div class="main-login main-center">
-				<h5 align="center">Estimado Administrador, en este espacio podrá responder  las Sugerencias, observaciones o Solicitudes del graduado. Por favor responda el formulario detalladamente para dar una respuesta adecuada a esta  solicitud. Recuerde que una copa sera enviada al correo del graduado</h5>
+				<h5 align="center">Estimado Administrador, en este espacio podrá responder  las Sugerencias, observaciones o Solicitudes del graduado. Por favor responda el formulario detalladamente para dar una respuesta adecuada a esta  solicitud. Recuerde que una copia sera enviada al correo del graduado</h5>
 					<form class="" action="{{route('solicitudes.update',$registro->id)}}"  method="post"> 
            			{!! method_field('PUT') !!} 
            			 {!! csrf_field() !!} 
@@ -20,7 +20,7 @@
 					        	<label for="user">Nombre Usuario</label> 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" readonly="true" class="form-control" name="usuario" id="usuario" value="{{$registro->usuario->name}}"  ></input>
+									{{-- <input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario" value="{{$registro->usuario->name}}"  ></input> --}}
 									<input type="hidden" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ $registro->usuario_id }}"  ></input>
 									<!-- {!! $errors->first('user_id','<span class=error >:message</span>') !!} -->
 								</div>
@@ -57,11 +57,12 @@
   								</textarea> 
   								<!-- {!! $errors->first('solicitud','<span class=error >:message</span>') !!} -->
 
-  								<div class="form-group" style="position: static;">
+  								<div class="form-group " style="position: static;">
 					             <label for="solicitud">Responder Solicitud</label> 
-					        	 <textarea required class= "form-control" id="respuesta" name="solicitudrespuesta" data-toggle="tooltip" title="Respuesta Solicitud max 250"  " > 
+					        	 <textarea required class= "form-control"  name="solicitudrespuesta" data-toggle="tooltip" title="Respuesta Solicitud max 250"  " > 
   								</textarea> {{ old('solicitudrespuesta') }}
-  								<!-- {!! $errors->first('solicitud','<span class=error >:message</span>') !!} -->
+  								<!-- {!! $errors->first('solicitudrespuesta','<span class=help-block >:message</span>') !!} -->
+
   								<input type="hidden" readonly="true" class="form-control" name="indrespuesta" id="indrespuesta" value="1"  ></input>
 									<!-- {!! $errors->first('user_id','<span class=error >:message</span>') !!} -->
   							</div>
@@ -72,7 +73,7 @@
 					    </div>
 					</div>
 						<div align="center">
-					        	<input type="submit" class="btn btn-success" value="Guardar"></input> 
+					        	<input type="submit" class="btn btn-success" value="Responder"></input> 
 					        </div>
 					</form>
 				</div>
