@@ -158,14 +158,15 @@
 										{{ $readNotification->data['text'] }}
 									</a>
 								</td>
+								
 								<td> 
 									{{ $readNotification->created_at }}
 								</td>
                                   <td>
-                                  	<form class="pull-right" action="{{  route('notificaciones.read',$readNotification->id)  }}" method="POST" >
+                                  	<form class="pull-right" action="{{  route('notificaciones.destroy',$readNotification->id)  }}" method="POST" >
 									{{ method_field('PATCH') }}
 									{{ csrf_field() }}
-									<button class="btn btn-danger btn-xs">
+									<button class="btn btn-danger btn-xs" tooltip="Borrar">
 										<i class="fa fa-trash" aria-hidden="true"></i>
 									</button>
 									
