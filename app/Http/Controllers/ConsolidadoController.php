@@ -4,32 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\InformacionGraduado;
+use App\RegistroEstudiantil;
+use App\HistorialLaboral;
+use PDF;
 
-
-class UsersController extends Controller
+class ConsolidadoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-      function __construct()
-    {
-       $this->middleware([
-
-            'auth',
-            'roles:admin'
-
-        ]);
-
-      
-    }
     public function index()
     {
         //
-         $users = User::where('role_id','=',3)->get(); 
-         //dd($users);
-        return view('users.index',compact('users')); 
     }
 
     /**
@@ -61,10 +50,17 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-         $user = User::findOrFail($id);
-        return view('users.show',compact('user'));
+        $user = User::findOrFail($id);
+        $infopersonal = InformacionGraduado::where('user_id','=',$id)->get(); 
+        $estudios = RegistroEstudiantil::where('usuario_id','=',$id)->get(); 
+        $historialaboral = HistorialLaboral::where('usuario_id','=',$id)->get(); 
+        /*return view('consolidado.show',compact('user'));*/
+        return view('consolidado.show', [
+            'infopersonal'=> $infopersonal,
+            'estudios'=> $estudios,
+            'historialaboral'=>$historialaboral, 
+            ],compact('user'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -73,7 +69,19 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+
+    }
+    public function pdf($id){
+        $user = User::findOrFail($id);
+        $infopersonal = InformacionGraduado::where('user_id','=',$id)->get(); 
+        $estudios = RegistroEstudiantil::where('usuario_id','=',$id)->get(); 
+        $historialaboral = HistorialLaboral::where('usuario_id','=',$id)->get(); 
+       
+        $view = view ('consolidado.pdf',['infopersonal'=> $infopersonal, 'estudios'=> $estudios,'historialaboral'=>$historialaboral],compact('user'));
+        $pdf=\App::make('dompdf.wrapper');
+        $pdf = PDF::loadHTML($view);
+        return $pdf->stream('consolidado.pdf');
     }
 
     /**

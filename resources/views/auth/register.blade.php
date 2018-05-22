@@ -11,7 +11,7 @@
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group">
+                        <div class="form-group" align="center">
                         <h2>Seleccione Tipo de Usuario</h2>
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                             &nbsp;&nbsp;&nbsp;<label class="radio-inline">
@@ -19,9 +19,11 @@
                             &nbsp;&nbsp;&nbsp;
                             <label class="radio-inline">
                             <input type="radio" class="role_id" name="role_id" id="2" value="2"> Empresa Externa </label>
-                            &nbsp;&nbsp;&nbsp;
-                            <label class="radio-inline">
-                            <input type="radio" class="role_id" name="role_id" id="4" value="4"> Funcionario UCundinamarca </label>
+                            @if ($errors->has('role_id'))
+                                <span class="help-block">
+                                    <strong>Seleccione su rol</strong>
+                                </span>
+                            @endif
                         
                     </div>
 
@@ -34,6 +36,19 @@
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('cedulausuario') ? ' has-error' : '' }}">
+                            <label for="cedulausuario" class="col-md-4 control-label">N. Identificación</label>
+
+                            <div class="col-md-6">
+                                <input id="cedulausuario" type="text" class="form-control" name="cedulausuario" value="{{ old('cedulausuario') }}" required autofocus>
+
+                                @if ($errors->has('cedulausuario'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cedulausuario') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -53,6 +68,7 @@
                                 @endif
                             </div>
                         </div>
+
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
@@ -79,14 +95,11 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    Registrarse
                                 </button>
                             </div>
                         </div>
-                        <div id="modalEmpresarioUdec" 
-                            style="display: ;">
-                            <p>Hola Empresario</p>
-                        </div>
+                        
                     </form>
                 </div>
             </div>
@@ -94,19 +107,5 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".role_id").click(function(evento){
-            var valRol = $(this).val();
-            if(valRol==2){
-                $("#modalEmpresarioUdec").css("display","none");
-            }
-            else{
-                $("#modalEmpresarioUdec").css("display","none");   
-            }
-        });
-    });
-    
 
-</script>
 @endsection

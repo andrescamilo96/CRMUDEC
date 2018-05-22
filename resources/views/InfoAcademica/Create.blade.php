@@ -5,14 +5,14 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Registro Información Académica</h5>
-					<form   action="{{ route('infoacademica.store') }}" method="post">
+					<form   action="{{ route('infoacademica.store') }}" method="post" enctype="multipart/form-data">
 						{!! csrf_field() !!}
 						<div class="row">
 					    <div class="col-md-6" style="">
 					    	<div class="form-group" style="position: static;">
 					            <label for="select-6">Tipo de Estudios</label>
 					            <div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-tag" aria-hidden="true"></i></span>
+								<span class="input-group-addon"><i class="glyphicon glyph	icon-tag" aria-hidden="true"></i></span>
 					            <select class="form-control" name ="tipoestudio_id" id="tipoestudio_id">
 					                <option value="1">Diplomado</option>
 					            	

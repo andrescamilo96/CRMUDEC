@@ -19,4 +19,7 @@ class Ciudad extends Model
     public function sedeuniversitaria(){
     	return $this->hasOne(SedeUniversitaria::class);
     }
+    public function informaciongraduado(){
+        return   $this->hasOne(InformacionGraduado::class);
+    }
 }

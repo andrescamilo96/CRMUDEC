@@ -176,7 +176,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        MercurySeries\Flashy\FlashyServiceProvider::class
+        MercurySeries\Flashy\FlashyServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -226,6 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Flashy' => MercurySeries\Flashy\Flashy::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

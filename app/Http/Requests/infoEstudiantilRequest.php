@@ -30,6 +30,8 @@ class infoEstudiantilRequest extends FormRequest
             'adjuntosoporte' => 'required',
             'usuario_id' => 'required',
             'tipoestudio_id' => 'required',
+            
+
         ];
     }
 }

@@ -22,12 +22,8 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+
+    /*protected $redirectTo = '/home';*/
 
     /**
      * Create a new controller instance.
@@ -51,6 +47,8 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'cedulausuario'=>'required|numeric|unique:users',
+            'role_id'=>'required|integer',
         ]);
     }
 
@@ -66,7 +64,17 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'cedulausuario'=> $data ['cedulausuario'],
             'role_id' => $data['role_id'],
         ]);
+    }
+    public function redirectPath()
+    {
+        if(auth()->user()->hasRoles(['empresa'])){
+            dd('Bienvenido Empresario');
+        }
+        if(auth()->user()->hasRoles(['graduado'])){
+            return'/home';
+        }
     }
 }

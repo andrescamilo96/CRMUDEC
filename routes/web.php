@@ -42,9 +42,14 @@ Route::resource('infoacademica','AcademicInformationController');
 Route::resource('infolaboral','LaboralInformationController');
 Route::resource('admin','AdminController');
 Route::resource('solicitudes','SolicitudesController');
+Route::resource('consolidado','ConsolidadoController');
+/*Route::pactch('pdf/{id}','ConsolidadoController@show')->name('consolidado.pdf');*/
+Route::get('pdf/{id}','ConsolidadoController@pdf')->name('consolidado.pdf');
+
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 

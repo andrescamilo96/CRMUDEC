@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RegistroEstudiantil extends Model
 {
      protected $table = 'registrosestudiantiles';
-     protected $fillable = ['titulo','anofinalizacion','institucion','tipoestudio_id','adjuntosoporte'];
+     protected $fillable = ['titulo','anofinalizacion','institucion','tipoestudio_id','adjuntosoporte','certificadoconvalidacion','usuario_id'];
      public function user(){
     	return $this->belongsTo(User::class);
     }

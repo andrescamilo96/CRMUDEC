@@ -39,9 +39,21 @@ class AcademicInformationController extends Controller
      */
     public function store(infoEstudiantilRequest $request)
     {
-        //
-        RegistroEstudiantil::create($request->all());
-        //return $request->all();
+        
+        //dd($request->all());
+        $registro = (new RegistroEstudiantil)->fill($request->all());
+        /*RegistroEstudiantil::create($request->all());*/
+        $usuario=$request->input('usuario_id');
+        if($request->hasFile('adjuntosoporte'))
+        {
+            $registro->adjuntosoporte = $request->file('adjuntosoporte')->store('public/'.$usuario.'/academico/soporte');      
+        }
+        if($request->hasFile('certificadoconvalidacion'))
+        {
+            $registro->certificadoconvalidacion = $request->file('certificadoconvalidacion')->store('public/'.$usuario.'/academico/convalidacion');
+        }   
+        
+        $registro->save();        
          return redirect()->route('infoacademica.index');
         
         /*return $request ->input("nombre");Acceder a un campo especifico*/

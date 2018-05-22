@@ -35,13 +35,23 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                       <li><a href="{{ route('infopersonal.create') }}">Informacion Personal</a></li>
-                       <li><a href="{{ route('infoacademica.index') }}">Registro Académico</a></li>
-                       <li><a href="{{ route('infolaboral.index') }}">Registro Laboral</a></li>
-                       <li><a href="{{ route('solicitudes.create') }}">Solicitudes o Peticiones</a></li>
-                    </ul>
-
+                    @guest
+                        <ul class="nav navbar-nav"></ul>
+                    @else
+                    @if (auth()->user()->hasroles(['graduado']))
+                        <ul class="nav navbar-nav">
+                           <li><a href="{{ route('infopersonal.create') }}">Informacion Personal</a></li>
+                           <li><a href="{{ route('infoacademica.index') }}">Registro Académico</a></li>
+                           <li><a href="{{ route('infolaboral.index') }}">Registro Laboral</a></li>
+                           <li><a href="{{ route('solicitudes.create') }}">Solicitudes o Peticiones</a></li>
+                        </ul>
+                    @endif
+                    @if (auth()->user()->hasroles(['admin']))
+                        <ul class="nav navbar-nav">
+                            <li><a  href="{{ route('usuarios.index')}}">Usuarios</a></li>
+                        </ul>
+                          @endif
+                    @endguest
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -49,10 +59,7 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                         @if (auth()->user()->hasroles(['admin']))
-                         <li class=""> 
-                              <a  href="{{ route('usuarios.index')}}">Usuarios</a></li>
-                          @endif
+                         
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
