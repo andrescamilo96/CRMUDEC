@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Solicitud;
 use DB;
 use Mail;
-
+use App\User;
 use App\Http\Requests\solicitudesRequest;
+use App\Notifications\SolicitudSent;
 class SolicitudesController extends Controller
 {
     /**
@@ -15,6 +16,9 @@ class SolicitudesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
@@ -60,6 +64,8 @@ class SolicitudesController extends Controller
     public function show($id)
     {
         //
+         $registro = Solicitud::findorfail($id);
+        return view('solicitudes.show',compact('registro'));
     }
 
     /**
@@ -88,11 +94,15 @@ class SolicitudesController extends Controller
     {
          //
         //Actualizamos
+       
         $registro = Solicitud::findOrFail($id)->update($request->all());
 
         $registro = Solicitud::findOrFail($id);
         //Redireccionar
-        // dd($registro);
+
+        $recipient = User::find($request->usuario_id);
+
+        $recipient->notify(new SolicitudSent($registro) );
        
           Mail::Send('Emails.sendsolicitud',['msg'=> $registro], function($message) use($registro){
             $message->to($registro->correo,$registro->usuario->name)->subject('MensajeCRMUDEC Faca--- No Reply');

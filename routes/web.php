@@ -47,6 +47,9 @@ Route::resource('consolidado','ConsolidadoController');
 Route::get('pdf/{id}','ConsolidadoController@pdf')->name('consolidado.pdf');
 
 
+Route::get('/notificaciones', 'NotificacionController@index')->name('notificaciones.index');
+Route::patch('notificaciones/{id}','NotificacionController@read')->name('notificaciones.read');
+Route::delete('notificaciones/{id}','NotificacionController@destroy')->name('notificaciones.destroy');
 
 Auth::routes();
 
