@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\InformacionEmpresa;
+use App\User;
 class InformacionPersonalEmpresaController extends Controller
 {
     /**
@@ -14,7 +15,10 @@ class InformacionPersonalEmpresaController extends Controller
     public function index()
     {
         //
-        return view('empresa.index');
+         $registro = InformacionEmpresa::where('validadorempresa','=',0)->get();
+        
+        
+        return view('empresa.index',compact('registro'));
     }
 
     /**
@@ -58,6 +62,11 @@ class InformacionPersonalEmpresaController extends Controller
     public function edit($id)
     {
         //
+        $registro = InformacionEmpresa::findOrFail($id);
+        //dd($registro);
+
+        return view('Empresa.edit',compact('registro'));
+        
 
     }
 
@@ -71,6 +80,9 @@ class InformacionPersonalEmpresaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $registro = InformacionEmpresa::findOrFail($id)->update($request->all());
+        flashy()->success('Empresa Validada con exito', '');
+         return redirect()->route('empresa.index');
     }
 
     /**
@@ -82,5 +94,10 @@ class InformacionPersonalEmpresaController extends Controller
     public function destroy($id)
     {
         //
+        InformacionEmpresa::findOrFail($id)->delete();
+
+       
+        flashy()->success('Registro eliminado exitosamente', '');
+        return redirect()->route('empresa.index');
     }
 }

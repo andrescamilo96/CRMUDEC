@@ -97,5 +97,8 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+        User::findOrFail($id)->delete();
+        flashy()->success('Registro eliminado exitosamente', '');
+        return redirect()->route('empresa.index');
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Solicitud;
 use \App\Post;
+use \App\User;
+use App\InformacionEmpresa;
 class AdminController extends Controller
 {
     /**
@@ -17,9 +19,13 @@ class AdminController extends Controller
         //
         $Solicitudes =  Solicitud::where('indrespuesta','=',0)->get();
         $Posts =  Post::all();
+        $InfoEmpresa = InformacionEmpresa::where('validadorempresa','=',0)->get();
+        $userGraduado = User::where('role_id','=',3)->get();
         return view('IndexAdmin.index',[
             'Solicitudes' =>$Solicitudes,
             'Posts' =>$Posts,
+            'InfoEmpresa' => $InfoEmpresa,
+            'userGraduado' => $userGraduado,
         ]);
     }
 

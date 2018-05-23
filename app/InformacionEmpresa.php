@@ -14,4 +14,5 @@ class InformacionEmpresa extends Model
     public function ciudad(){
     	return $this->belongsTo(Ciudad::class);
     }
+    protected $fillable = ['nit','razonsocial','direccion','sigla','usuario_id','telefono','ciudad_id','email','validadorempresa'];
 }

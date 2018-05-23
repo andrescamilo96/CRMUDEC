@@ -14,8 +14,8 @@
            </div>
            <div class="col-md-3">
              <div class="well dash-box">
-               <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 25</h2>
-               <h4>Usuarios</h4>
+               <h2><a href="{{ route('usuarios.index') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>{{ $userGraduado->count() }}</h2>
+               <h4>Graduados</h4></a>
              </div>
            </div>
            <div class="col-md-3">
@@ -27,7 +27,7 @@
            </div>
            <div class="col-md-3">
              <div class="well dash-box">
-               <h2><a href="{{ route('empresa.index') }}"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 2129</h2>
+               <h2><a href="{{ route('empresa.index') }}"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> {{ $InfoEmpresa->count() }}</h2>
                <h4>Empresas</h4></a>
              </div>
            </div>
