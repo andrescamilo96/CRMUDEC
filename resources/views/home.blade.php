@@ -12,109 +12,47 @@
         <div class="carousel-inner">
             <div class="item active">
                     <ul class="thumbnails">
-                        <li class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+                        
+                             @foreach($Posts as $Post )
+                                
+                                <li class="col-sm-3">
+                                 <div class="fff">
+                                    <div class="thumbnail">
+                                        <a href="{{ route('posts.show',$Post->id) }}"><img src="http://icons.iconarchive.com/icons/pelfusion/folded-flat/128/News-icon.png" alt=""></a>
+                                    </div>
+                                    <div class="caption">
+                                        <h4>{{ $Post->Titulo }}</h4> 
+                                        <a class="btn btn-mini" href="{{ route('posts.show',$Post->id) }}">» Leer Mas</a>
+                                    </div>
                                 </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                                </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                                </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                                </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
+                               </li>
+
+                               
+                             @endforeach
+                        
                     </ul>
               </div><!-- /Slide1 --> 
-            <div class="item">
+             <div class="item">
                     <ul class="thumbnails">
-                        <li class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+                          @foreach($Posts as $Post )
+                                
+                                <li class="col-sm-3">
+                                 <div class="fff">
+                                    <div class="thumbnail">
+                                        <a href="#"><img src="http://icons.iconarchive.com/icons/pelfusion/folded-flat/128/News-icon.png" alt=""></a>
+                                    </div>
+                                    <div class="caption">
+                                        <h4>{{ $Post->Titulo }}</h4> 
+                                        <a class="btn btn-mini" href="#">» Leer Mas</a>
+                                    </div>
                                 </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                                </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                                </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-                            <div class="fff">
-                                <div class="thumbnail">
-                                    <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                                </div>
-                                <div class="caption">
-                                    <h4>Praesent commodo</h4>
-                                    <p>Nullam Condimentum Nibh Etiam Sem</p>
-                                    <a class="btn btn-mini" href="#">» Read More</a>
-                                </div>
-                            </div>
-                        </li>
+                               </li>
+
+                               
+                             @endforeach
                     </ul>
               </div><!-- /Slide2 --> 
-            <div class="item">
+           {{--  <div class="item">
                     <ul class="thumbnails">
                         <li class="col-sm-3">   
                             <div class="fff">
@@ -165,7 +103,7 @@
                             </div>
                         </li>
                     </ul>
-              </div><!-- /Slide3 --> 
+              </div> --}}
         </div>
         
        
