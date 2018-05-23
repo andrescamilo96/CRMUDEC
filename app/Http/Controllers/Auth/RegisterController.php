@@ -71,8 +71,7 @@ class RegisterController extends Controller
     public function redirectPath()
     {
         if(auth()->user()->hasRoles(['empresa'])){
-            dd('Bienvenido Empresario');
-        }
+            return 'empresa'
         if(auth()->user()->hasRoles(['graduado'])){
             return'/home';
         }

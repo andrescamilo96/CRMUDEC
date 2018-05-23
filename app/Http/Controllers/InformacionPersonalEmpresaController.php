@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\infoPersonalEmpresaRequest;
 use App\InformacionEmpresa;
 use App\User;
 class InformacionPersonalEmpresaController extends Controller
@@ -28,7 +29,7 @@ class InformacionPersonalEmpresaController extends Controller
      */
     public function create()
     {
-        //
+        return view('empresa.create');
     }
 
     /**
@@ -39,7 +40,9 @@ class InformacionPersonalEmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        InformacionEmpresa::create($request->all()); 
+        return view('empresa.index');
     }
 
     /**

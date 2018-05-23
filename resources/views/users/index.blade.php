@@ -40,12 +40,12 @@
 									<td >{{ $user->email }}</td>
 									<td >{{ $user->role->display_name }}</td>
 									<td align="center">
-										<a class="btn btn-primary " href="{{ route('consolidado.pdf',$user->id) }}">
+										<a class="btn btn-primary " href="{{ route('consolidado.pdf',$user->id) }}" target="blank">
 											<small><i class="glyphicon glyphicon-download-alt "></i></small>
 										</a>
 										</td>
 									<td align="center">
-										<a class="btn btn-danger " href="" target="blank"> 								
+										<a class="btn btn-danger " href="" > 								
 											<small><i class="glyphicon glyphicon-bullhorn "></i></small>
 										</a>
 										</td>
