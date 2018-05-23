@@ -1,162 +1,141 @@
 
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Hoja de vida</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		table{
+			
+    		border-collapse: collapse;
+			width: 100%;
+		}
+		td, th {
+		    border: 1px solid #dddddd;
+		    text-align: left;
+		    padding: 8px;
+		}
+
+	</style>
+	 
+  
 </head>
 <body>
-	<div class="fondo">
+	
 		<div class="container">
-			<div class="row main">
-				<div class="main-login main-center">
-					<h3>Consolidado Hoja de vida</h3>
-
-					<div class="row">
-						<h5>Información Básica</h5>
-					    <div class="col-md-12" style="">	
-					    	<div class="form-group" style="position: static;">
-					        	<label for="name">Usuario:</label>
-									<input readonly="true" type="text" class="form-control" name="name" id="name"  placeholder="Nombre del usuario" value="{{ $user->name }}" />									
-					        </div>
-					    </div>
+			
+				 <div class="panel panel-default">
+				      <div class="panel-heading" align="center"><h3><strong>Consolidado Hoja de Vida</strong> </h3></div>
+				      <div class="panel-body">
+				 </div>			      
+					<!-- <strong><h3 align="center"></h3></strong> -->
+					<table >
+						<tr>
+							<th style="width: 10%;">Nombre</td>
+							<td align="left" style="padding: 8px; width:90%;"> {{ $user->name }}</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<th style="width: 15%;">Documento</td>
+							<td style="width: 35%;">{{ $user->cedulausuario }}</td>
+							<th style="width: 10%;">Email</td>
+							<td style="width: 40%;">{{ $user->email }}</td>
+						</tr>
+					</table>			
 					
-					    <div class="col-md-6" style="">	
-					        <div class="form-group" style="position: static;">
-					        	<label for="input-id-4">Cédula:</label>
-									<input readonly="true" type="text" class="form-control" name="cedulausuario" id="cedulausuario"  placeholder="Cédula Usuario" value="{{ $user->cedulausuario }}" />									
-					        </div>
-					    </div>
-					    <div class="col-md-6" style="">	
-					        <div class="form-group" style="position: static;">
-					        	<label for="email">Correo Electrónico</label>
-									<input readonly="true" type="text" class="form-control" name="email" id="email"  placeholder="Correo usuario" value="{{ $user->email }}" />									
-					        </div>
-					    </div>
-					</div>			    					
 									
 					    @foreach ($infopersonal as $infopersonal)
-					    	<div class="col-md-12" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="descripcionperfil">Perfil:</label>										
-										<input readonly="true" type="textarea" class="form-control" name="descripcionperfil" id="descripcionperfil"  placeholder="" value="{{ $infopersonal->descripcionperfil }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="anograduacion">Año de Graduación:</label>										
-										<input readonly="true" type="text" class="form-control" name="anograduacion" id="anograduacion"  placeholder="" value="{{ $infopersonal->telefono }}" />
-						        </div>
-						    </div>
-						    <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="estadocivil">Semestre:</label>										
-										<input readonly="true" type="text" class="form-control" name="semestre" id="semestre"  placeholder="" value="{{ $infopersonal->semestregraduacion }}" />
-						        </div>
-					        </div>
-					    	<div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="telefono">Telefono:</label>										
-										<input readonly="true" type="text" class="form-control" name="telefono" id="telefono"  placeholder="" value="{{ $infopersonal->telefono }}" />
-						        </div>
-						    </div>
-						    <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="estadocivil">Estado Civil:</label>										
-										<input readonly="true" type="text" class="form-control" name="estadocivil" id="estadocivil"  placeholder="" value="{{ $infopersonal->estadocivil }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-12" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="residencia">Dirección Residencia:</label>										
-										<input readonly="true" type="textbox" class="form-control" name="residencia" id="residencia"  placeholder="" value="{{ $infopersonal->residencia }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="ciudadresidencia_id">Ciudad Residencia:</label>										
-										<input readonly="true" type="text" class="form-control" name="ciudadresidencia_id" id="ciudadresidencia_id"  placeholder="" value="{{ $infopersonal->ciudadresidencia_id }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="estrato">Estrato SocioEconómico:</label>										
-										<input readonly="true" type="text" class="form-control" name="estrato" id="estrato"  placeholder="" value="{{ $infopersonal->estrato }}" />
-						        </div>
-					        </div>
+					    <table>
+					    	<tr>
+					    	<th style="width: 20%;">Residencia</td>
+					    	<td style="width: 30%;">{{ $infopersonal->residencia }}</td>
+					    	<th style="width: 20%;">Ciudad</td>
+					    	<td style="width: 30%;">{{ $infopersonal->ciudadresidencia_id }}</td>
+					    	</tr>
+					    </table>
+					    <table>
+					    	<tr>
+					    	<th style="width: 10%;">Telefono</td>
+					    	<td style="width: 30%;">{{ $infopersonal->telefono }}</td>
+					    	<th style="width: 25%;">Año Graduación</td>
+					    	<td style="width: 10%;">{{ $infopersonal->anograduacion }}</td>
+					    	<th style="width: 15%;">Semestre</td>
+					    	<td style="width: 10%;">{{ $infopersonal->semestregraduacion }}</td>
+					    	</tr>
+					    </table>
+					    <br/>
+					    <table>
+					    	<tr>
+					    		<th style="width: 100%;">Perfil</td>					    		
+					    	</tr>
+					    	<tr>
+					    		<td style="width: 100%;">{{ $infopersonal->descripcionperfil }}</td>
+					    	</tr>
+					    </table>
+					    	
 					    @endforeach    
-						<h5>Información Académica</h5>
+					</div>
+      
+   				 		 <div class="panel panel-default">
+						      <div class="panel-heading"><h3>Estudios </h3></div>
+						      <div class="panel-body">
+						 </div>
+						<!-- <h3>Estudios</h3> -->
 						@foreach ($estudios as $estudios)
-							<div class="col-md-12" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="titulo">Título Obtenido:</label>										
-										<input readonly="true" type="text" class="form-control" name="titulo" id="titulo"  placeholder="" value="{{ $estudios->titulo }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="estrato">Institución:</label>										
-										<input readonly="true" type="text" class="form-control" name="institucion" id="institucion"  placeholder="" value="{{ $estudios->institucion }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="anofinalizacion">Año de Finalización:</label>										
-										<input readonly="true" type="text" class="form-control" name="anofinalizacion" id="anofinalizacion"  placeholder="" value="{{ $estudios->anofinalizacion }}" />
-						        </div>
-					        </div>
+							<table>
+						    	<tr>
+							    	<td style="width: 30%;color:#34495E;">{{ $estudios->anofinalizacion }}</td>
+							    	<th style="width: 70%;">{{ $estudios->titulo }}</td>
+					    		</tr>
+					   		 </table>
+					   		 <table>
+						    	<tr>
+							    	<td style="width: 30%;color:#34495E;"></td>
+							    	<th style="width: 70%;">{{ $estudios->institucion }}</td>
+					    		</tr>
+					   		 </table>
+					   		 <br/>
+							
 						@endforeach    
-						<h5>Información Laboral</h5>
+						<div class="panel panel-default">
+						      <div class="panel-heading"><h3>Experiencia Laboral </h3></div>
+						      <div class="panel-body">
+						 </div>
+						<!-- <h3>Experiencia Laboral</h3> -->
 						@foreach ($historialaboral as $historialaboral)
-							<div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="empresa">Empresa:</label>										
-										<input readonly="true" type="text" class="form-control" name="empresa" id="empresa"  placeholder="" value="{{ $historialaboral->empresa }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="cargo">Cargo Desempeñado:</label>										
-										<input readonly="true" type="text" class="form-control" name="cargo" id="cargo"  placeholder="" value="{{ $historialaboral->cargo }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-12" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="empresa">Descripción Cargo:</label>										
-										<textarea readonly="true" class="form-control" name="descripcion" id="descripcion"  placeholder="" >
-											{{ $historialaboral->descripcion }}
-										</textarea>
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="cargo">Dirección Empresa:</label>										
-										<input readonly="true" type="textbox" class="form-control" name="direccionempresa" id="direccionempresa"  placeholder="" value="{{ $historialaboral->direccionempresa }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="cargo">Ciudad:</label>										
-										<input readonly="true" type="text" class="form-control" name="ciudadempresa_id" id="ciudadempresa_id"  placeholder="" value="{{ $historialaboral->ciudadempresa_id }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="cargo">Telefono Empresa:</label>										
-										<input readonly="true" type="text" class="form-control" name="telefonoempresa" id="telefonoempresa"  placeholder="" value="{{ $historialaboral->telefonoempresa }}" />
-						        </div>
-					        </div>
-					        <div class="col-md-6" style="">
-						        <div class="form-group" style="position: static;">
-						        	<label for="cargo">Años Laborados:</label>										
-										<input readonly="true" type="text" class="form-control" name="anoslaborados" id="anoslaborados"  placeholder="" value="{{ $historialaboral->anoslaborados }}" />
-						        </div>
-					        </div>
+							<table>
+						    	<tr>
+						    		<th style="width: 100%;">{{ $historialaboral->empresa }}</td>					    	
+						    	</tr>
+					    	</table>
+					    	<table>
+						    	<tr>
+						    		<td style="width: 30%;">{{ $historialaboral->direccionempresa }}</td>					    	
+						    		<td style="width: 30%;">{{ $historialaboral->ciudadempresa_id }}</td>
+						    		<td style="width: 40%;">Contacto: {{ $historialaboral->telefonoempresa }}</td>
+
+						    	</tr>
+					    	</table>
+					    	<table>
+						    	<tr>
+						    		<td style="width: 30%;">Cargo: {{ $historialaboral->cargo }} </td>					    	
+						    		<td style="width: 70%;">{{ $historialaboral->descripcion }}</td>
+						    	</tr>
+					    	</table>
+							<br/>
+					        
+					        
 
 						@endforeach
-					</div>
-			</div>
+					
+			
 		</div>			
-	</div>
+	
 
 
 </body>

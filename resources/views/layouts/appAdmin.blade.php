@@ -109,7 +109,7 @@
               <a href="{{ route('solicitudes.index') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Solicitudes  </a>
               
               <a href="{{ route('posts.create') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Crear Posts</a>
-              <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">12</span></a>
+              <a href="{{ route('usuarios.index')}}" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios <span class="badge">12</span></a>
             </div>
 
                 <div class="well">
