@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 @section('Contenido')
 
-<div class="container">
+<div class="container" style="width:100%;">
     <h1>GRADUADOS</h1>
     	<div class="row">
 			
@@ -17,7 +17,7 @@
 					<div class="panel-body">
 						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Buscar" />
 					</div>
-					<table  class="table table-hover" id="dev-table">
+					<table  class="table table-hover" id="dev-table" >
 						<thead>
 							<tr>
 								<th></th>
@@ -25,29 +25,29 @@
 								<th>Email</th>
 								<th>Rol</th>
 								<th align="center">Consolidado</th>
-								<th>Notificar</th>
+								<th align="center">Notificar</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach($users as $user)
 								<tr>
 									<td align="Center"> 
-										<a class="btn btn-xs btn-warning" href="{{ route('usuarios.show',$user->id) }}">
-											<small><i class="glyphicon glyphicon-user"></i></small>
+										<a class="btn btn-xs btn-warning" href="{{ route('consolidado.show',$user->id) }}">
+											<small><i class="glyphicon glyphicon-search "></i></small>
 										</a>
 																					
-										<td>{{ $user->name }} </td>
-										<td >{{ $user->email }}</td>
-										<td >{{ $user->role->display_name }}</td>
-										<td><a class="btn btn-primary " href="{{ route('consolidado.show',$user->id) }}"> &nbsp;	&nbsp;	&nbsp;	
-												<small><i class="glyphicon glyphicon-search "></i></small>
-												&nbsp;	&nbsp;	&nbsp;		
-											</a>
+									<td>{{ $user->name }} </td>
+									<td >{{ $user->email }}</td>
+									<td >{{ $user->role->display_name }}</td>
+									<td align="center">
+										<a class="btn btn-primary " href="{{ route('consolidado.pdf',$user->id) }}">
+											<small><i class="glyphicon glyphicon-download-alt "></i></small>
+										</a>
 										</td>
-										<td><a class="btn btn-danger " href="{{ route('consolidado.pdf',$user->id) }}" target="blank"> &nbsp;	&nbsp;	&nbsp;	
-												<small><i class="glyphicon glyphicon-download-alt "></i></small>
-												&nbsp;	&nbsp;	&nbsp;		
-											</a>
+									<td align="center">
+										<a class="btn btn-danger " href="" target="blank"> 								
+											<small><i class="glyphicon glyphicon-bullhorn "></i></small>
+										</a>
 										</td>
 																					
 								</tr>
@@ -57,9 +57,9 @@
 					</table>
 
 				</div>
-				<div align="right">							
+				<!-- <div align="right" >							
 					<a class="btn btn-xs btn-success" href=""><small><i class="glyphicon glyphicon-plus"></i></small> Agregar </a>
-				</div>
+				</div> -->
 			</div>
 		
 	</div>
