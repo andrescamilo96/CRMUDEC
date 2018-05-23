@@ -46,10 +46,11 @@
 								<div class="form-group" style="position: static;">
 					             <label for="solicitud">Solicitud</label> 
 					             
-									
-					            <textarea required class= "form-control" id="solicitud" name="solicitud" data-toggle="tooltip" title="Descripción Solicitud"  value="{{ old('solicitud') }}" > 
+					             <div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span> <textarea required class= "form-control" id="solicitud" name="solicitud" data-toggle="tooltip" title="Descripción Solicitud"  value="{{ old('solicitud') }}" > 
   								</textarea> 
   								{!! $errors->first('solicitud','<span class=error >:message</span>') !!}
+  							    </div>
 					        	<input required type="hidden" class="form-control" name="indrespuesta" id="indrespuesta"    value="0" />
 					        </div>
 					        </div>

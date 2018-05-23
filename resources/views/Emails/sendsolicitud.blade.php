@@ -6,10 +6,10 @@
 <body>
 <H1>CRM UDEC FACATATIVA</H1>
 <p>
-	Nombre: {{ $msg->usuario->name }}<br>
+	Hola Sr(a): {{ $msg->usuario->name }}<br>
 
-	Email: {{ $msg->correo }}<br>
+	Tienes una nueva notificacion del CRM UDEC Facatativa<br>
 </p>
-<h2>Mensaje: {{ $msg->solicitudrespuesta }}</h2>
+
 </body>
 </html>

@@ -65,9 +65,9 @@
                               <a  href="{{ route('usuarios.index')}}">Usuarios</a></li>
                           @endif
                           <li>
-                             <a href="{{ route('notificaciones.index') }}">Notificaciones
+                             <a href="{{ route('notificaciones.index') }}">Notificaciones   
                             @if($count = Auth::user()->unreadNotifications->count())
-                                <span class="label label-info pull-right">{{ $count }}</span>
+                                <span class="label label-danger pull-10">  {{ $count }}</span>
                             @endif
                             </a>
                           </li>
