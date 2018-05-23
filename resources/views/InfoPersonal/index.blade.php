@@ -4,10 +4,8 @@
 	 	<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
-				<h5>Ingreso de información personal del Usuario</h5>
-					<form class="" action="{{route('infopersonal.store')}}"  method="post"> 
-           			 {!! csrf_field() !!} 
-						
+				<h5>Registro de información personal del Usuario</h5>				
+					@foreach ($registros as $registro)	
 						<div class="row">
 					    <div class="col-md-6" style="">
 					        <div class="form-group" style="position: static;">
@@ -24,7 +22,7 @@
 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
-									<input required type="number" class="form-control" name="anograduacion" id="anograduacion"  placeholder="Año de Graduación"  value="{{ old('anograduacion') }}" /> 
+									<input required type="number" readonly="true" class="form-control" name="anograduacion" id="anograduacion"  placeholder="Año de Graduación"  value="{{ $registro->anograduacion }}" /> 
 									{!! $errors->first('anograduacion','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
@@ -32,10 +30,7 @@
                      			<label for="semestregraduacion">Semestre:</label> 
 								<div class="input-group"> 
 									<span class="input-group-addon"><i class="glyphicon glyphicon-hand-right" aria-hidden="true"></i></span> 
-									<select class="form-control" id="semestregraduacion" name="semestregraduacion"> 
-										<option value="1">I Semestre</option> 
-										<option value="2">II Semestre</option> 
-									</select>
+									<input required type="number" readonly="true" class="form-control" name="anograduacion" id="anograduacion"  placeholder="Año de Graduación"  value="{{ $registro->semestregraduacion }}" />
 									{!! $errors->first('semestregraduacion','<span class=error >:message</span>') !!} 
 								</div> 
                   			</div> 
@@ -43,7 +38,7 @@
 					            <label for="residencia">Direccion Residencia</label> 
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
-									<input required type="text" class="form-control" name="residencia" id="residencia"  placeholder="Dirección Actual"  value="{{ old('residencia') }}" />
+									<input required type="text" readonly="true" class="form-control" name="residencia" id="residencia"  placeholder="Dirección Actual"  value="{{ $registro->residencia  }}" />
 									{!! $errors->first('residencia','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
@@ -51,7 +46,7 @@
 					        	  <label for="estrato">Estrato Social</label> 
 					        	<div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-hand-right" aria-hidden="true"></i></span>
-					             <input required type="text" class="form-control" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ old('estrato') }}" />
+					             <input required type="text" class="form-control" readonly="true" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ $registro->estrato  }}" />
 					             {!! $errors->first('estrato','<span class=error >:message</span>') !!}
 					        	</div>
 					        </div>
@@ -59,10 +54,7 @@
 					             <label for="sexo">Genero</label> 
 					            <div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-tag" aria-hidden="true"></i></span>
-					             <select class="form-control" id="sexo" name="sexo"> 
-			                        <option value="Masculino">Masculino</option> 
-			                        <option value="Femenino">Femenino</option> 
-			                      </select> 
+					             <input required type="text" class="form-control" readonly="true" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ $registro->sexo  }}" />
 			                      {!! $errors->first('sexo','<span class=error >:message</span>') !!}
 					        </div>
 					        </div>
@@ -72,7 +64,7 @@
 					            <label for="telefono">Telefono</label> 
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
-									<input required type="number" class="form-control" name="telefono" id="telefono"  placeholder="Telefono"  value="{{ old('telefono') }}" />
+									<input required type="text" class="form-control" readonly="true" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ $registro->telefono  }}" />
 									{!! $errors->first('telefono','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
@@ -80,11 +72,7 @@
 					             <label for="ciudadresidencia_id">Ciudad Residencia</label>
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
-					           		 <select class="form-control" id="ciudadresidencia_id" name="ciudadresidencia_id"> 
-			                            <option value="1">Bogotá</option> 
-			                            <option value="2">Medellín</option> 
-			                            <option value="3">Cali</option> 
-			                          </select> 
+					           		 <input required type="text" class="form-control" readonly="true" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ $registro->ciudadresidencia_id  }}" />
 			                          {!! $errors->first('ciudadresidencia_id','<span class=error >:message</span>') !!}
 					           		</div>
 					        </div>
@@ -92,10 +80,7 @@
 					           <label for="estadocivil">Estado Civil</label> 
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-heart" aria-hidden="true"></i></span>
-					            <select class="form-control" id="estadocivil" name="estadocivil"> 
-			                        <option value="Soltero">Soltero</option> 
-			                        <option value="Casado">Casado</option> 
-			                      </select>
+					            <input required type="text" class="form-control" readonly="true" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ $registro->estadocivil  }}" />
 			                      {!! $errors->first('estadocivil','<span class=error >:message</span>') !!} 
 					        	</div>
 					        </div>
@@ -103,10 +88,7 @@
 					            <label for="programa_id">Programa</label> 
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></span>
-					             <select class="form-control" id="programa_id" name="programa_id"> 
-			                        <option value="1">Administración de Empresas</option> 
-			                        <option value="2">Contaduria Pública</option> 
-			                      </select> 
+					             <input required type="text" class="form-control" readonly="true" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ $registro->programa->programa  }}" /> 
 			                      {!! $errors->first('programa_id','<span class=error >:message</span>') !!}
 					        </div>
 					        </div>
@@ -114,7 +96,7 @@
 					             <label for="descripcionperfil">Perfil</label> 
 					             
 									
-					            <textarea required class= "form-control" id="descripcionperfil" name="descripcionperfil" data-toggle="tooltip" title="Descripcion Corta de su perfil (max 250 caracteres)"  value="{{ old('descripcionperfil') }}" > 
+					            <textarea readonly="true" required class= "form-control" id="descripcion" name="descripcion" data-toggle="tooltip" title="Funciones realizadas (max 250 caracteres)">{{ $registro->descripcionperfil }}
   								</textarea> 
   								{!! $errors->first('descripcionperfil','<span class=error >:message</span>') !!}
 					        
@@ -123,9 +105,10 @@
 					    </div>
 					</div>
 						<div align="center">
-					        	<input type="submit" class="btn btn-success" value="Guardar"></input> 
+					        	<a class="btn btn-info" href="{{ route('infopersonal.edit',$registro->id) }}"><small>
+											<i class="glyphicon glyphicon-pencil"></i></small> Editar</a>
 					        </div>
-					</form>
+				@endforeach
 				</div>
 			</div>
 		</div>

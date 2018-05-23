@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\RegistroEstudiantil;
 use App\Http\Requests\infoEstudiantilRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AcademicInformationController extends Controller
 {
@@ -15,8 +16,9 @@ class AcademicInformationController extends Controller
      */
     public function index()
     {
-        //
-        $registros = RegistroEstudiantil::all();
+        $iduser = Auth::id();
+
+        $registros = RegistroEstudiantil::where('usuario_id','=',$iduser)->get(); ;
         return view('infoacademica.index',compact('registros'));
     }
 

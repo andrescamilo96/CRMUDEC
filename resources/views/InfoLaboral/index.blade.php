@@ -48,7 +48,11 @@
 									<td>{{ $registro->anoslaborados }}</td>
 									<td>{{ $registro->rangoingresos }}</td>
 									<td>{{ $registro->direccionempresa }}</td>
-									<td>{{ $registro->adjuntosoporte }}</td>
+									<td align="center">
+										<a class="btn btn-warning " href="{{ $registro->adjuntosoporte }}" target="blank">
+											<small><i class="glyphicon glyphicon-file "></i></small>
+										</a>
+									</td>
 									<td>{{ $registro->telefonoempresa }}</td>
 									<td>{{ $registro->ciudadempresa_id }}</td>
 
