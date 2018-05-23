@@ -4,8 +4,9 @@
 	 	<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
-				<h5>Ingreso de información personal del Usuario</h5>
-					<form class="" action="{{route('infopersonal.store')}}"  method="post"> 
+				<h5>Actualización Información Personal</h5>
+					<form class="" action="{{route('infopersonal.update',$registro->id)}}"  method="post"> 
+					{!! method_field('PUT') !!}
            			 {!! csrf_field() !!} 
 						
 						<div class="row">
@@ -24,7 +25,7 @@
 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
-									<input required type="number" class="form-control" name="anograduacion" id="anograduacion"  placeholder="Año de Graduación"  value="{{ old('anograduacion') }}" /> 
+									<input required type="number" class="form-control" name="anograduacion" id="anograduacion"  placeholder="Año de Graduación"  value="{{$registro->anograduacion }}" /> 
 									{!! $errors->first('anograduacion','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
@@ -33,8 +34,14 @@
 								<div class="input-group"> 
 									<span class="input-group-addon"><i class="glyphicon glyphicon-hand-right" aria-hidden="true"></i></span> 
 									<select class="form-control" id="semestregraduacion" name="semestregraduacion"> 
-										<option value="1">I Semestre</option> 
+									@if($registro->semestre == 1 )
+										<option value="1" selected>I Semestre</option> 
 										<option value="2">II Semestre</option> 
+									@else
+										<option value="1">I Semestre</option> 
+										<option value="2" selected>II Semestre</option> 
+									@endif
+										
 									</select>
 									{!! $errors->first('semestregraduacion','<span class=error >:message</span>') !!} 
 								</div> 
@@ -43,7 +50,7 @@
 					            <label for="residencia">Direccion Residencia</label> 
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
-									<input required type="text" class="form-control" name="residencia" id="residencia"  placeholder="Dirección Actual"  value="{{ old('residencia') }}" />
+									<input required type="text" class="form-control" name="residencia" id="residencia"  placeholder="Dirección Actual"  value="{{ $registro->residencia }}" />
 									{!! $errors->first('residencia','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
@@ -51,7 +58,7 @@
 					        	  <label for="estrato">Estrato Social</label> 
 					        	<div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-hand-right" aria-hidden="true"></i></span>
-					             <input required type="text" class="form-control" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ old('estrato') }}" />
+					             <input required type="text" class="form-control" name="estrato" id="estrato"  placeholder="Estrato Socioeconomico" value="{{ $registro->estrato }}" />
 					             {!! $errors->first('estrato','<span class=error >:message</span>') !!}
 					        	</div>
 					        </div>
@@ -60,8 +67,15 @@
 					            <div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-tag" aria-hidden="true"></i></span>
 					             <select class="form-control" id="sexo" name="sexo"> 
-			                        <option value="Masculino">Masculino</option> 
-			                        <option value="Femenino">Femenino</option> 
+					             @if($registro->sexo == 'Masculino' )
+					             	<option value="Masculino" selected>Masculino</option> 
+			                        <option value="Femenino">Femenino</option>
+								 @else
+								 	<option value="Masculino">Masculino</option> 
+			                        <option value="Femenino" selected>Femenino</option>
+								 @endif
+
+			                         
 			                      </select> 
 			                      {!! $errors->first('sexo','<span class=error >:message</span>') !!}
 					        </div>
@@ -72,7 +86,7 @@
 					            <label for="telefono">Telefono</label> 
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
-									<input required type="number" class="form-control" name="telefono" id="telefono"  placeholder="Telefono"  value="{{ old('telefono') }}" />
+									<input required type="number" class="form-control" name="telefono" id="telefono"  placeholder="Telefono"  value="{{ $registro->telefono }}" />
 									{!! $errors->first('telefono','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
@@ -93,8 +107,14 @@
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-heart" aria-hidden="true"></i></span>
 					            <select class="form-control" id="estadocivil" name="estadocivil"> 
-			                        <option value="Soltero">Soltero</option> 
-			                        <option value="Casado">Casado</option> 
+					            	@if($registro->estadocivil == 'Soltero')
+					            		<option value="Soltero" selected>Soltero</option> 
+			                        	<option value="Casado">Casado</option>
+									@else
+										<option value="Soltero">Soltero</option> 
+			                        	<option value="Casado" selected>Casado</option>
+									@endif
+			                         
 			                      </select>
 			                      {!! $errors->first('estadocivil','<span class=error >:message</span>') !!} 
 					        	</div>
@@ -104,8 +124,7 @@
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></span>
 					             <select class="form-control" id="programa_id" name="programa_id"> 
-			                        <option value="1">Administración de Empresas</option> 
-			                        <option value="2">Contaduria Pública</option> 
+			                        <option value="1">Administración de Empresas</option> 			                        
 			                      </select> 
 			                      {!! $errors->first('programa_id','<span class=error >:message</span>') !!}
 					        </div>
@@ -114,7 +133,7 @@
 					             <label for="descripcionperfil">Perfil</label> 
 					             
 									
-					            <textarea required class= "form-control" id="descripcionperfil" name="descripcionperfil" data-toggle="tooltip" title="Descripcion Corta de su perfil (max 250 caracteres)"  value="{{ old('descripcionperfil') }}" > 
+					            <textarea required class= "form-control" id="descripcionperfil" name="descripcionperfil" data-toggle="tooltip" title="Descripcion Corta de su perfil (max 250 caracteres)"  value="{{ old('descripcionperfil') }}" > {{ $registro->descripcionperfil }}
   								</textarea> 
   								{!! $errors->first('descripcionperfil','<span class=error >:message</span>') !!}
 					        

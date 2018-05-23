@@ -43,8 +43,16 @@
 									</td>
 									<td>{{ $registro->anofinalizacion }}</td>
 									<td>{{ $registro->institucion }}</td>
-									<td>{{ $registro->adjuntosoporte }}</td>
-									<td>{{ $registro->certificadoconvalidacion }}</td>
+									<td align="center">
+									<a class="btn btn-warning " href="{{ $registro->adjuntosoporte }}" target="blank">
+											<small><i class="glyphicon glyphicon-file "></i></small>
+										</a>
+									</td>
+									<td align="center">
+										<a class="btn btn-danger " href="{{ $registro->certificadoconvalidacion }}" target="blank">
+											<small><i class="glyphicon glyphicon-file "></i></small>
+										</a>
+									</td>
 									<td>{{ $registro->tipoestudio->tipoestudio }}</td>
 									
 									<td>

@@ -41,7 +41,7 @@
                     @else
                     @if (auth()->user()->hasroles(['graduado']))
                         <ul class="nav navbar-nav">
-                           <li><a href="{{ route('infopersonal.create') }}">Informacion Personal</a></li>
+                           <li><a href="{{ route('infopersonal.index') }}">Informacion Personal</a></li>
                            <li><a href="{{ route('infoacademica.index') }}">Registro Académico</a></li>
                            <li><a href="{{ route('infolaboral.index') }}">Registro Laboral</a></li>
                            <li><a href="{{ route('solicitudes.create') }}">Solicitudes o Peticiones</a></li>

@@ -10,20 +10,15 @@
 						
 						<div class="row">
 					    <div class="col-md-6" style="">	
-					    	<div class="form-group" style="position: static;">
-					        	<label for="usuario_id">Nombre Usuario</label>
-					            	<div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  placeholder="Usuario"/>
-									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
-								</div>
-					        </div>				    	
+					    				    	
 					        <div class="form-group" style="position: static;">
 					        	<label for="cargo">Cargo Laboral</label>
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
 									<input required type="text" class="form-control" name="cargo" id="cargo"  placeholder="Cargo desempeñado en la empresa"/>
 									{!! $errors->first('cargo','<span class=error >:message</span>') !!}
+									<input type="hidden" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  placeholder="Usuario"/>
+									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">

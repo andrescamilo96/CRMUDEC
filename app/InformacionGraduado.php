@@ -13,5 +13,8 @@ class InformacionGraduado extends Model
     public function ciudad(){
     	return $this->belongsTo(Ciudad::class);
     }
+    public function programa(){
+    	return $this->belongsTo(ProgramaAcademico::class);
+    }
     protected $fillable = ['telefono','anograduacion','semestregraduacion','residencia','estadocivil','estrato','sexo','descripcionperfil','user_id','programa_id','ciudadresidencia_id']; 
 }
