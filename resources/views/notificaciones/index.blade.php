@@ -62,16 +62,19 @@
 														<input required type="number" class="form-control" name="telefono" id="telefono"  placeholder="Telefono de Contacto"  value="{{ old('telefono') }}" />
 														{!! $errors->first('telefono','<span class=error >:message</span>') !!} 
 													</div>
-													<div class="form-group" style="position: static;">
+												</div>
+												<div class="form-group" style="position: static;">
 										             <label for="solicitud">Solicitud</label> 
-										             
-														
-										            <textarea required class= "form-control" id="solicitud" name="solicitud" data-toggle="tooltip" title="Descripción Solicitud"  value="{{ old('solicitud') }}" > 
+										             													
+										             <div class="input-group">
+													<span class="input-group-addon"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i></span> 
+													<textarea required class= "form-control" id="solicitud" name="solicitud" data-toggle="tooltip" title="Descripción Solicitud"  value="{{ old('solicitud') }}" > 
 					  								</textarea> 
 					  								{!! $errors->first('solicitud','<span class=error >:message</span>') !!}
+					  							    </div>
 										        	<input required type="hidden" class="form-control" name="indrespuesta" id="indrespuesta"    value="0" />
 										        </div>
-										        </div>
+										        
 										        
 										        
 										    
@@ -99,6 +102,11 @@
                              </div>  
                          </div>
                           <table class="table table-inbox table-hover">
+                          	<tr>
+                          	<th >Asunto</th>
+                          	
+                          	
+                          	</tr>
                             <tbody>
                             @foreach ($unreadNotifications as $unreadNotification)
                               <tr class="unread">
@@ -107,11 +115,15 @@
 										{{ $unreadNotification->data['text'] }}
 									</a>
 								</td>
+								
                                   <td class="view-message  text-right">
                                   	<form class="pull-right" action="{{  route('notificaciones.read',$unreadNotification->id)  }}" method="POST" >
 									{{ method_field('PATCH') }}
 									{{ csrf_field() }}
-									<button class="btn btn-danger btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></button>
+									<button title="Marcar Como Leido" class="btn btn-danger btn-xs">
+										<i class="fa fa-eye" aria-hidden="true"></i>
+										
+									</button>
 						
 								</form></td>
                                  
@@ -158,16 +170,17 @@
 										{{ $readNotification->data['text'] }}
 									</a>
 								</td>
-								
+
 								<td> 
 									{{ $readNotification->created_at }}
 								</td>
                                   <td>
                                   	<form class="pull-right" action="{{  route('notificaciones.destroy',$readNotification->id)  }}" method="POST" >
-									{{ method_field('PATCH') }}
+									{{ method_field('DELETE') }}
 									{{ csrf_field() }}
-									<button class="btn btn-danger btn-xs" tooltip="Borrar">
+									<button title="Borrar"  class="btn btn-danger btn-xs" tooltip="Borrar">
 										<i class="fa fa-trash" aria-hidden="true"></i>
+										
 									</button>
 									
 								</form>

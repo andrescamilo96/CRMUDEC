@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \App\Solicitud;
 class AdminController extends Controller
 {
     /**
@@ -14,7 +14,9 @@ class AdminController extends Controller
     public function index()
     {
         //
-        return view('IndexAdmin.index');
+        $Solicitudes =  Solicitud::where('indrespuesta','=',0)->get();
+        
+        return view('IndexAdmin.index',compact('Solicitudes'));
     }
 
     /**

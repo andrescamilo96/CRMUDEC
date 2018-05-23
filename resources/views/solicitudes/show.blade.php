@@ -94,8 +94,9 @@
                           
                              <div class="btn-group">
                                  <a  href="{{ route('notificaciones.index') }}" class="btn mini tooltips">
-                                     <i class=" fa fa-refresh"></i>
+                                     <i class=" fa fa-arrow-circle-left"></i>
                                  </a>
+                                
                              </div>  
                          </div>
                           <table class="table table-inbox table-hover">
