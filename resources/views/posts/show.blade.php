@@ -3,7 +3,7 @@
 <div class="post" id="post1">
     <div class="caption">
         <div class="author">
-            <img src="https://randomuser.me/api/portraits/men/73.jpg" alt="" class="avatar">  
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyxi3ggbJf-7kTYcpV-mCW0hsRySYIctC10fP66XYyJa0Rc9ELDg" alt="" class="avatar">  
             <div class="name"><a>@CRMADMONFACATIVA</a></div><br/>
             <div class="meta"><i class="glyphicon glyphicon-calendar"></i> {{ $post->created_at }} <i class="glyphicon glyphicon-map-marker"></i> puplic</div>
         </div> 

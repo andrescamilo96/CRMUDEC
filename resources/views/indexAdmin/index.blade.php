@@ -27,10 +27,8 @@
            </div>
            <div class="col-md-3">
              <div class="well dash-box">
-               <h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 2129</h2>
-               <h4>
-              
-            </h4>
+               <h2><a href="{{ route('empresa.index') }}"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 2129</h2>
+               <h4>Empresas</h4></a>
              </div>
            </div>
           </div>
