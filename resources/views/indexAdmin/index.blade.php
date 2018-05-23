@@ -2,14 +2,14 @@
 @section('Contenido')
 
  <div class="panel panel-default">
-          <div class="panel-heading" style="background-color:  #095f59;">
+           <div class="panel-heading" style="background-color:  #02adff;">
             <h3 class="panel-title">Menu Principal</h3>
           </div>
           <div class="panel-body">
            <div class="col-md-3">
              <div class="well dash-box">
-               <h2><span class="glyphicon glyphicon-check" aria-hidden="true"></span> {{ $Solicitudes->count() }}</h2>
-               <h4>Solicitudes</h4>
+               <h2><a href="{{ route('solicitudes.index') }}"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> {{ $Solicitudes->count() }}</h2>
+               <h4>Solicitudes</h4></a>
              </div>
            </div>
            <div class="col-md-3">
@@ -20,8 +20,9 @@
            </div>
            <div class="col-md-3">
              <div class="well dash-box">
-               <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>126</h2>
-               <h4>Posts</h4>
+               <h2><a href="{{ route('posts.index') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> {{ $Posts->count() }}</h2>
+               <h4>Posts</h4></a>
+
              </div>
            </div>
            <div class="col-md-3">
@@ -34,43 +35,7 @@
            </div>
           </div>
         </div>
-        <!--Latest User-->
-        <div class="panel panel-default">
-          <div class="panel-heading"style="background-color:  #095f59;>
-            <h3 class="panel-title">Latest Users</h3>
-          </div>
-          <div class="panel-body">
-            <table class="table table-striped table-hover">
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Joined</th>
-              </tr>
-
-            <tr>
-              <td>Madhav Prasad</td>
-              <td>mr.madhavprasad@gmail.com</td>
-              <td>Dec 13,2014</td>
-            </tr>
-            <tr>
-              <td>Nagendra Kushwaha</td>
-              <td>nkushwaha822@gmail.com</td>
-              <td>Feb 15,2014</td>
-            </tr>
-            <tr>
-              <td>Arun Kumar</td>
-              <td>kumarun@yahoo.com</td>
-              <td>Aug 17, 2015</td>
-            </tr>
-            <tr>
-              <td>Nabin Singh</td>
-              <td>singhNavs@outlook.com</td>
-              <td>March 08,2016</td>
-            </tr>
-            </table>
-
-          </div>
-        </div>
+       
 
               </div>
             </div>

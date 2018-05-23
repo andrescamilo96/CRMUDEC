@@ -43,6 +43,7 @@ Route::resource('infolaboral','LaboralInformationController');
 Route::resource('admin','AdminController');
 Route::resource('solicitudes','SolicitudesController');
 Route::resource('consolidado','ConsolidadoController');
+Route::resource('posts','PostController');
 /*Route::pactch('pdf/{id}','ConsolidadoController@show')->name('consolidado.pdf');*/
 Route::get('pdf/{id}','ConsolidadoController@pdf')->name('consolidado.pdf');
 

@@ -104,10 +104,10 @@ class SolicitudesController extends Controller
 
         $recipient->notify(new SolicitudSent($registro) );
        
-          Mail::Send('Emails.sendsolicitud',['msg'=> $registro], function($message) use($registro){
+         /* Mail::Send('Emails.sendsolicitud',['msg'=> $registro], function($message) use($registro){
             $message->to($registro->correo,$registro->usuario->name)->subject('MensajeCRMUDEC Faca--- No Reply');
 
-        });
+        });*/
         ///////ENVIAR EMAIL///////////////////
         flashy()->success('Tu mensaje ha sido enviado', '');
          return redirect()->route('solicitudes.index');

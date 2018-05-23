@@ -6,21 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-
-class SolicitudSent extends Notification
+use App\Post;
+class PostPublished extends Notification
 {
-    protected $registro;
+    protected $post;
+
     use Queueable;
-    
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($registro)
+    public function __construct(Post $post)
     {
         //
-        $this->registro = $registro; 
+        $this->post = $post;    
     }
 
     /**
@@ -31,7 +32,7 @@ class SolicitudSent extends Notification
      */
     public function via($notifiable)
     {
-        return ['Mail','database'];
+        return ['mail','database'];
     }
 
     /**
@@ -43,10 +44,10 @@ class SolicitudSent extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting($notifiable->name . ",")
-                    ->subject('Mensaje CRM Facatativa -NoReply')
-                    ->line('Nueva Notificacion')
-                    ->action('click aqui para ver el mensaje', url('solicitudes.show',$this->registro))
+                   
+                    ->subject('Nuevo Post publicado')
+                    ->line($notifiable->name . ", hemos publicado un nuevo post")
+                    ->action('Click Aqui para ver el mensaje', route('posts.show' , $this->post))
                     ->line('Gracias Por leernos.!');
     }
 
@@ -59,10 +60,9 @@ class SolicitudSent extends Notification
     public function toArray($notifiable)
     {
         return [
-
-             'link' => route('solicitudes.show',$this->registro->id),
-             'text' => "Has recibido un  mensaje dando respuesta a tu solicitud"
-
+            //
+            'link' =>route('posts.show',$this->post),
+            'text' =>"Hemos Publicado un nuevo Post " .$this->post->Titulo
         ];
     }
 }

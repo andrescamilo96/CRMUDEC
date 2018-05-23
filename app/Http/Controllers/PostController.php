@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
-use \App\Solicitud;
-use \App\Post;
-class AdminController extends Controller
+
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index()
     {
         //
-        $Solicitudes =  Solicitud::where('indrespuesta','=',0)->get();
-        $Posts =  Post::all();
-        return view('IndexAdmin.index',[
-            'Solicitudes' =>$Solicitudes,
-            'Posts' =>$Posts,
-        ]);
+         $registro = Post::all();
+         return view('posts.index',compact('registro'));
     }
 
     /**
@@ -31,6 +30,7 @@ class AdminController extends Controller
     public function create()
     {
         //
+        return view('posts.create');
     }
 
     /**
@@ -42,26 +42,33 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+        Post::create($request->all());
+        flashy()->success('Noticia publicada exitosamente', '');
+        return redirect()->route('admin.index');
+        
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
         //
+        
+        return view('posts.show',compact('post'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
         //
     }
@@ -70,10 +77,10 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -81,11 +88,15 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+        
+        Post::findOrFail($id)->delete();
+        flashy()->success('Registro eliminado exitosamente', '');
+        return redirect()->route('posts.index');
     }
 }
