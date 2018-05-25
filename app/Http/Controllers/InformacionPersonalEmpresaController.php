@@ -15,11 +15,13 @@ class InformacionPersonalEmpresaController extends Controller
      */
     public function index()
     {
-        //
-         $registro = InformacionEmpresa::where('validadorempresa','=',0)->get();
+         
+        $registro = InformacionEmpresa::where('validadorempresa','=',0)->get();
         
         
         return view('empresa.index',compact('registro'));
+         
+        /*return view('indexempresa.index');*/
     }
 
     /**

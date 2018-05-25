@@ -42,7 +42,7 @@ class LoginController extends Controller
             return'/admin';
         }
         if(auth()->user()->hasRoles(['empresa'])){
-            return'/empresa';
+            return  '/empresa';
         }
         if(auth()->user()->hasRoles(['graduado'])){
             return'/home';
