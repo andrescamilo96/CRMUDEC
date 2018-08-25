@@ -12,7 +12,7 @@
 					        	<label for="user_id">Nombre Usuario</label> 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" readonly="true" class="form-control" name="usuario" id="usuario" value="{{ Auth::user()->name }}"  ></input>
+									<input type="text" readonly="true" class="form-control" name="usuario" id="usuario" value="{{$registro->user->name }}"  ></input>
 									<input type="hidden" readonly="true" class="form-control" name="user_id" id="user_id" value="{{ Auth::user()->id }}"  ></input>
 									{!! $errors->first('user_id','<span class=error >:message</span>') !!}
 								</div>
