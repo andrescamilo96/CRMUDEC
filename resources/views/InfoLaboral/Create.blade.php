@@ -75,9 +75,11 @@
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-globe" aria-hidden="true"></i></span>
 									<select class="form-control" id="ciudadempresa_id" name="ciudadempresa_id">
-					            	<option value="1">Bogota</option>
-					            	<option value="2">Medellin</option>
-					            	<option value="3">Cali</option>
+										@foreach ($ciudades as $ciudad )
+										<option value= "{{$ciudad->id}}">{{$ciudad->ciudad}}</option>
+										@endforeach
+					            					            	
+
 					            </select>
 								</div>
 					    	</div>

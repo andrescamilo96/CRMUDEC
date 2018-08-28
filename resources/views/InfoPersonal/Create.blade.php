@@ -81,11 +81,12 @@
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
 					           		 <select class="form-control" id="ciudadresidencia_id" name="ciudadresidencia_id"> 
-			                            <option value="1">Bogotá</option> 
-			                            <option value="2">Medellín</option> 
-			                            <option value="3">Cali</option> 
+					           		 	@foreach ($ciudades as $ciudad )
+										<option value= "{{$ciudad->id}}">{{$ciudad->ciudad}}</option>
+										@endforeach
 			                          </select> 
 			                          {!! $errors->first('ciudadresidencia_id','<span class=error >:message</span>') !!}
+			                          
 					           		</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
