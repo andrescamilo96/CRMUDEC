@@ -74,6 +74,7 @@
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-globe" aria-hidden="true"></i></span>
 									<input type="number" class="form-control" name="telefono" id="telefono"  placeholder="Telefono de Contacto"/>
+									<input type="hidden" class="form-control" name="validadorempresa" id="validadorempresa"  placeholder="validadorempresa" value="0" />
 									{!! $errors->first('telefono','<span class=error >:message</span>') !!}
 								</div>
 					    	</div>
