@@ -5,7 +5,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Ingreso de información personal del Usuario</h5>
-					<form class="" action="{{route('infopersonal.store')}}"  method="post"> 
+					 <form class="" action="{{route('infopersonal.store')}}"  method="post"> 
            			 {!! csrf_field() !!} 
 						
 						<div class="row">
@@ -126,7 +126,7 @@
 						<div align="center">
 					        	<input type="submit" class="btn btn-success" value="Guardar"></input> 
 					        </div>
-					</form>
+					</form> 
 				</div>
 			</div>
 		</div>

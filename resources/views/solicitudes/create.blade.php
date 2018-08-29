@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('Contenido')
-<div class ="fondo">
+
 	 	<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
@@ -65,5 +65,5 @@
 				</div>
 			</div>
 		</div>
-</div>
+
 @stop
