@@ -13,8 +13,9 @@
           	@foreach ($registros as $registro)
 	         	@if($registro->validadorempresa == 0)
 	         		<div align="center"><h2>Estimado empresario, su información aún no ha sido validada después de 48 horas, Contacte la Administración de la Universidad, o corrija la información ingresada</div>
-	         		<a href="">Editar Información Básica Empresa</a>
+	         		<a href="{{ route('indexempresa.edit',$registro->id) }}">Editar Información Básica Empresa</a>
 	         	@elseif($registro->validadorempresa !=0)
+	         		<a href="{{ route('indexempresa.edit', $registro->id) }}"></a>
 	         		<a href="">Listar Usuarios</a>
 	         	@endif
 

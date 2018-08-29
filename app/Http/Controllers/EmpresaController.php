@@ -22,11 +22,11 @@ class EmpresaController extends Controller
         
         if ($registros->count()==0){
             return view('empresa.create');
-            /*dd($cantidad);*/
+            
         }
         else if($registros->count() > 0){
             return view('indexempresa.index',compact('registros'));
-            /*dd($cantidad);*/
+            
         }                    
         
     }
@@ -71,7 +71,9 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $registro = InformacionEmpresa::findOrFail($id);
+        //dd($registro);
+        return view('indexempresa.edit',compact('registro'));
     }
 
     /**
@@ -83,7 +85,10 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $registro = InformacionEmpresa::findOrFail($id)->update($request->all());
+        
+        //Redireccionar
+        return redirect()->route('indexempresa.index');
     }
 
     /**
