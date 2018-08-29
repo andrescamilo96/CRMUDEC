@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\InFormacionGraduado; 
+use App\Ciudad; 
 use App\Http\Requests\infoPersonalRequest;
 use Illuminate\Support\Facades\Auth;
 class PersonalInformationController extends Controller
@@ -17,8 +18,9 @@ class PersonalInformationController extends Controller
     {
         $iduser = Auth::id();
         $registros = InFormacionGraduado::where('user_id','=',$iduser)->get();
+        $ciudades = Ciudad::all();
         if(count($registros)==0){
-            return view('infoPersonal.create',compact('registros'));    
+            return view('infoPersonal.create',compact('registros','ciudades'));    
         }
         return view('infoPersonal.index',compact('registros'));
     }
@@ -31,7 +33,9 @@ class PersonalInformationController extends Controller
     public function create()
     {
         //
-        return view('infoPersonal.create'); 
+        $ciudades = Ciudad::all();
+        
+        return view('infoPersonal.create',compact('ciudades')); 
     }
 
     /**
@@ -67,8 +71,9 @@ class PersonalInformationController extends Controller
     public function edit($id)
     {
         $registro = InFormacionGraduado::findOrFail($id);
+        $ciudades = Ciudad::all();
         //dd($registro);
-        return view('infoPersonal.edit',compact('registro'));
+        return view('infoPersonal.edit',compact('registro','ciudades'));
     }
 
     /**

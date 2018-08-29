@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\HistorialLaboral;
+use App\Ciudad;
 use App\Http\Requests\infoLaboralRequest;
 use Illuminate\Support\Facades\Auth;
 class LaboralInformationController extends Controller
@@ -18,7 +19,9 @@ class LaboralInformationController extends Controller
         //
         $iduser = Auth::id();
         $registros = HistorialLaboral::where('usuario_id','=',$iduser)->get(); 
+        
         return view('infolaboral.index',compact('registros'));
+
     }
 
     /**
@@ -28,7 +31,8 @@ class LaboralInformationController extends Controller
      */
     public function create()
     {
-        return view('infolaboral.create');
+        $ciudades = Ciudad::all();
+        return view('infolaboral.create',compact('ciudades'));
     }
 
     /**
