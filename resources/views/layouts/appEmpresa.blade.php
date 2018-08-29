@@ -29,11 +29,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="{{ route('empresa.index') }}">Empresario CRMUDEC</a>
+                  <a class="navbar-brand" href="{{ route('indexempresa.index') }}">Empresario CRMUDEC</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ route('empresa.index') }}">Inicio</a></li>
+                    <li class="active"><a href="{{ route('indexempresa.index') }}">Inicio</a></li>
                     
                   </ul>
 
@@ -108,12 +108,12 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="list-group">
-              <a href="{{ route('admin.index') }}" class="list-group-item active main-color-bg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              <a href="{{ route('indexempresa.index') }}" class="list-group-item active main-color-bg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 Control Usuarios<span class="badge"></span>
               </a>
               <a href="{{ route('solicitudes.index') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Solicitudes  </a>
               
-              <a href="{{ route('posts.create') }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Crear Posts</a>
+              <a href="{{ route('indexempresa.edit', $registro->id) }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar Información Básica Empresa</a>
               <a href="{{ route('usuarios.index')}}" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios <span class="badge">12</span></a>
             </div>
 
