@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\infoPersonalEmpresaRequest;
 use Illuminate\Support\Facades\Auth;
 use App\InformacionEmpresa;
 use App\User;
-class InformacionPersonalEmpresaController extends Controller
+class EmpresaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +15,20 @@ class InformacionPersonalEmpresaController extends Controller
      */
     public function index()
     {
+         $iduser = Auth::id();
+
+        $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get(); 
          
-        $registro = InformacionEmpresa::where('validadorempresa','=',0)->get();
         
+        if ($registros->count()==0){
+            return view('empresa.create');
+            /*dd($cantidad);*/
+        }
+        else if($registros->count() > 0){
+            return view('indexempresa.index',compact('registros'));
+            /*dd($cantidad);*/
+        }                    
         
-        return view('empresa.index',compact('registro'));
-         
-        /*return view('indexempresa.index');*/
     }
 
     /**
@@ -32,7 +38,7 @@ class InformacionPersonalEmpresaController extends Controller
      */
     public function create()
     {
-        return view('empresa.create');
+        //
     }
 
     /**
@@ -43,12 +49,7 @@ class InformacionPersonalEmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
-        InformacionEmpresa::create($request->all()); 
-        $iduser = Auth::id();
-
-        $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get(); 
-        return view('indexempresa.index',compact('registros'));
+        //
     }
 
     /**
@@ -71,12 +72,6 @@ class InformacionPersonalEmpresaController extends Controller
     public function edit($id)
     {
         //
-        $registro = InformacionEmpresa::findOrFail($id);
-        //dd($registro);
-
-        return view('Empresa.edit',compact('registro'));
-        
-
     }
 
     /**
@@ -89,9 +84,6 @@ class InformacionPersonalEmpresaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $registro = InformacionEmpresa::findOrFail($id)->update($request->all());
-        flashy()->success('Empresa Validada con exito', '');
-         return redirect()->route('empresa.index');
     }
 
     /**
@@ -103,10 +95,6 @@ class InformacionPersonalEmpresaController extends Controller
     public function destroy($id)
     {
         //
-        InformacionEmpresa::findOrFail($id)->delete();
-
-       
-        flashy()->success('Registro eliminado exitosamente', '');
-        return redirect()->route('empresa.index');
     }
+        
 }
