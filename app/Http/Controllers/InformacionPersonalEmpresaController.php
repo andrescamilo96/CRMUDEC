@@ -14,6 +14,18 @@ class InformacionPersonalEmpresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+       $this->middleware([
+
+            'auth',
+            'roles:empresa,admin',
+            
+
+        ]);
+
+      
+    }
     public function index()
     {
          

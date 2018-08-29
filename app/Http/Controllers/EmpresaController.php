@@ -13,6 +13,18 @@ class EmpresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+       $this->middleware([
+
+            'auth',
+            'roles:empresa',
+            
+
+        ]);
+
+      
+    }
     public function index()
     {
          $iduser = Auth::id();

@@ -12,11 +12,17 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+   function __construct()
     {
-        $this->middleware('auth');
-    }
+       $this->middleware([
 
+            'auth',
+            'roles:graduado'
+
+        ]);
+
+      
+    }
     /**
      * Show the application dashboard.
      *
@@ -31,14 +37,19 @@ class HomeController extends Controller
             return view('/indexAdmin.index');
         }
 
+        if(Auth::user()->hasRoles(['graduado'])){
+             $Posts = Post::latest()->take(4)->get();
+             return view('/home.home',compact('Posts'));
+        }
+
        //$Posts = Post::all(); 
 
-        $Posts = Post::latest()->take(4)->get();
+       
         //dd($Post);
 
 
         /*$Post = Post::select("posts.*")->whereBetween('created', ['2018-02-01', '2018-02-10'])->get();*/
 
-        return view('home',compact('Posts'));
+        
     }
 }
