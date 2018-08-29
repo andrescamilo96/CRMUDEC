@@ -12,8 +12,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+      <!--//booststrap end-->
+      <!-- font-awesome icons -->
+     
+      <!-- //For Text About slider -->
+      <!-- For Service pie-chart -->
+      
+      <!--//For Service pie-chart -->
+      <!--stylesheets-->
+     
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
@@ -29,7 +39,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/home') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -98,7 +108,24 @@
 
         @yield('Contenido')
     </div>
+      <div class="footer">
+      <div class="container">
+              <a href='#'><i class="fa fa-twitch fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-facebook fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-twitter fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-youtube-play fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-rss fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-vine fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-flickr fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-linkedin fa-3x fa-fw"></i></a>
+            </span>
+            <footer>
+         <p>©2018 Universidad Cundinamarcar | Administracion Empresas Extension Facatativa <a target="_blank">CRM-UDEC</a></p>
+      </footer>
+      </div>
 
+    </div>
+     
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" src="https://counter5.allfreecounter.com/private/counter.js?c=3wflxchbkch8em5s84nsjcbx7bspsm7p&down=async">
         
