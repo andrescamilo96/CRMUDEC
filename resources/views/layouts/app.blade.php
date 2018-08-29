@@ -7,7 +7,13 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="cache-control" content="no-store" />
+<meta http-equiv="cache-control" content="must-revalidate" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
@@ -37,11 +43,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
+                     @guest
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                    @else
+                    @if (auth()->user()->hasroles(['graduado']))
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    @endif
+                    @endguest
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

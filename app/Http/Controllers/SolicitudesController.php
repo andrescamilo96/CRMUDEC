@@ -7,6 +7,7 @@ use App\Solicitud;
 use DB;
 use Mail;
 use App\User;
+use App\Post;
 use App\Http\Requests\solicitudesRequest;
 use App\Notifications\SolicitudSent;
 class SolicitudesController extends Controller
@@ -16,8 +17,16 @@ class SolicitudesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(){
-        $this->middleware('auth');
+    function __construct()
+    {
+       $this->middleware([
+
+            'auth',
+            'roles:admin,empresa,graduado'
+
+        ]);
+
+      
     }
     public function index()
     {
@@ -50,9 +59,17 @@ class SolicitudesController extends Controller
      */
     public function store(solicitudesRequest $request)
     {
-        //return $request->all(); 
+        //return $request->all();
+        $Posts = Post::latest()->take(4)->get();
+        //dd($Post);
+
+
+        /*$Post = Post::select("posts.*")->whereBetween('created', ['2018-02-01', '2018-02-10'])->get();*/
+
+        
         Solicitud::create($request->all()); 
-        return view('/home');
+        return view('home',compact('Posts'));
+        
     }
 
     /**

@@ -12,8 +12,16 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(){
-        $this->middleware('auth');
+    function __construct()
+    {
+       $this->middleware([
+
+            'auth',
+            'roles:admin,graduado'
+
+        ]);
+
+      
     }
     public function index()
     {

@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use Redirect;
 class CheckRol
 {
     /**
@@ -26,7 +26,7 @@ class CheckRol
             }
     
    
-        return redirect('/');
+        return Redirect::back();
     
     }
 }

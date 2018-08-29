@@ -11,9 +11,16 @@ class NotificacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(){
+     function __construct()
+    {
+       $this->middleware([
 
-        $this->middleware('auth');
+            'auth',
+            'roles:admin,empresa,graduado'
+
+        ]);
+
+      
     }
 
     public function index()
