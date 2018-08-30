@@ -36,7 +36,35 @@
             		</div>
 	         	@elseif($registro->validadorempresa !=0)	         		
 	         		<input type="hidden" value="{{$registro->id}}"></input>
-	         		<a href="{{ route('indexempresa.edit',$registro->id) }}">Editar Información Básica Empresa</a>
+	        		<!-- code start -->
+				<div class="twPc-div">
+				    <a class="twPc-bg twPc-block"></a>
+
+					<div>
+						
+						<a title="{{$registro->sigla}}"  class="twPc-avatarLink">
+							<img alt="{{$registro->sigla}}" src="http://icons.iconarchive.com/icons/designcontest/ecommerce-business/128/company-building-icon.png" class="twPc-avatarImg">
+						</a>
+
+						<div class="twPc-divUser">
+							<div class="twPc-divName">
+								<a href="{{route('indexempresa.index')}}">{{$registro->razonsocial}}</a>
+								<br>
+								<a>Nit:</a>
+								
+								<a>{{$registro->nit}}</a>
+								<br>
+							</div>
+							
+							<span>
+								<a><span>{{ $registro->email}}</span></a>
+							</span>
+						
+						</div>
+
+						
+					</div>
+				</div>
 	         	@endif
 
 	         	
