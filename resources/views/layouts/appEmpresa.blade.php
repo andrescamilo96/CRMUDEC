@@ -147,10 +147,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}">
-     
-    
-
-
+    </script>
+    <script type="text/javascript">
+       $(document).ready(function () {
+        $("#myModal").modal()
+    });
     </script>
     @include('flashy::message')
 </body>
