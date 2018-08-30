@@ -111,9 +111,9 @@
               <a href="{{ route('indexempresa.index') }}" class="list-group-item active main-color-bg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 Control Usuarios<span class="badge"></span>
               </a>
-              <a href="{{ route('solicitudes.index') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Solicitudes  </a>
+              <a href="{{ route('solicitudes.create') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Solicitudes  </a>
               
-              <a href="{{ route('indexempresa.edit', $registro->id) }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar Información Básica Empresa</a>
+             
               <a href="{{ route('usuarios.index')}}" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios <span class="badge">12</span></a>
             </div>
 

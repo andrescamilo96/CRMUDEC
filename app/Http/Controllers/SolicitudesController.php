@@ -10,6 +10,7 @@ use App\User;
 use App\Post;
 use App\Http\Requests\solicitudesRequest;
 use App\Notifications\SolicitudSent;
+use Illuminate\Support\Facades\Auth;
 class SolicitudesController extends Controller
 {
     /**
@@ -48,7 +49,17 @@ class SolicitudesController extends Controller
      */
     public function create()
     {
-         return view('solicitudes.create');
+          if(Auth::user()->hasRoles(['graduado']))
+        {
+
+            return view('solicitudes.create');
+        }
+        if(Auth::user()->hasRoles(['empresa']))
+        {
+
+            return view('solicitudes.createEmpresa');
+        }
+         
     }
 
     /**

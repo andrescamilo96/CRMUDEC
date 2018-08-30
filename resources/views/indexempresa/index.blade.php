@@ -16,7 +16,7 @@
 	         		<a href="{{ route('indexempresa.edit',$registro->id) }}">Editar Información Básica Empresa</a>
 	         	@elseif($registro->validadorempresa !=0)	         		
 	         		<input type="hidden" value="{{$registro->id}}"></input>
-	         		
+	         		<a href="{{ route('indexempresa.edit',$registro->id) }}">Editar Información Básica Empresa</a>
 	         	@endif
 
 	         	
