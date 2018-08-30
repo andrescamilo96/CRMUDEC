@@ -11,6 +11,8 @@ use App\Post;
 use App\Http\Requests\solicitudesRequest;
 use App\Notifications\SolicitudSent;
 use Illuminate\Support\Facades\Auth;
+use App\InformacionEmpresa;
+
 class SolicitudesController extends Controller
 {
     /**
@@ -56,8 +58,10 @@ class SolicitudesController extends Controller
         }
         if(Auth::user()->hasRoles(['empresa']))
         {
+            $iduser = Auth::id();
 
-            return view('solicitudes.createEmpresa');
+            $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get(); 
+            return view('solicitudes.createEmpresa',compact('registros'));
         }
          
     }
@@ -76,10 +80,21 @@ class SolicitudesController extends Controller
 
 
         /*$Post = Post::select("posts.*")->whereBetween('created', ['2018-02-01', '2018-02-10'])->get();*/
-
         
         Solicitud::create($request->all()); 
-        return view('home',compact('Posts'));
+
+        if(Auth::user()->hasRoles(['empresa']))
+        {
+             $iduser = Auth::id();
+
+            $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get();
+            return view('indexempresa.index',compact('registros'));
+        }
+        if(Auth::user()->hasRoles(['graduado']))
+        {
+            return view('home.home',compact('Posts'));
+        }
+        
         
     }
 

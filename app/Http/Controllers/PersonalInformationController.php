@@ -59,7 +59,7 @@ class PersonalInformationController extends Controller
     {
         // return $request->all(); 
         InFormacionGraduado::create($request->all()); 
-        return view('/home'); 
+        return view('home.home'); 
     }
 
     /**
