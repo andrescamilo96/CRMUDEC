@@ -15,7 +15,7 @@
 					        	<label for="nit">Nit Empresa</label>
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input required type="text" class="form-control" name="nit" id="nit"  placeholder="Nit de la Empresa"/>
+									<input required type="number" class="form-control" name="nit" id="nit"  placeholder="Nit de la Empresa"/>
 									{!! $errors->first('cargo','<span class=error >:message</span>') !!}
 									<input type="hidden" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  placeholder="Usuario"/>
 									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
