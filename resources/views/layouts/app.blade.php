@@ -133,7 +133,7 @@
               <a href='#'><i class="fa fa-linkedin fa-3x fa-fw"></i></a>
             </span>
             <footer>
-         <p>©2018 Universidad Cundinamarcar | Administracion Empresas Extension Facatativa <a target="_blank">CRM-UDEC</a></p>
+         <p>©2018 Universidad Cundinamarca | Administracion Empresas Extension Facatativa <a target="_blank">CRM-UDEC</a></p>
       </footer>
       </div>
 

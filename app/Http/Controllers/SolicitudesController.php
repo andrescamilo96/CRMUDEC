@@ -10,6 +10,9 @@ use App\User;
 use App\Post;
 use App\Http\Requests\solicitudesRequest;
 use App\Notifications\SolicitudSent;
+use Illuminate\Support\Facades\Auth;
+use App\InformacionEmpresa;
+
 class SolicitudesController extends Controller
 {
     /**
@@ -48,7 +51,19 @@ class SolicitudesController extends Controller
      */
     public function create()
     {
-         return view('solicitudes.create');
+          if(Auth::user()->hasRoles(['graduado']))
+        {
+
+            return view('solicitudes.create');
+        }
+        if(Auth::user()->hasRoles(['empresa']))
+        {
+            $iduser = Auth::id();
+
+            $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get(); 
+            return view('solicitudes.createEmpresa',compact('registros'));
+        }
+         
     }
 
     /**
@@ -65,10 +80,21 @@ class SolicitudesController extends Controller
 
 
         /*$Post = Post::select("posts.*")->whereBetween('created', ['2018-02-01', '2018-02-10'])->get();*/
-
         
         Solicitud::create($request->all()); 
-        return view('home',compact('Posts'));
+
+        if(Auth::user()->hasRoles(['empresa']))
+        {
+             $iduser = Auth::id();
+
+            $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get();
+            return view('indexempresa.index',compact('registros'));
+        }
+        if(Auth::user()->hasRoles(['graduado']))
+        {
+            return view('home.home',compact('Posts'));
+        }
+        
         
     }
 
@@ -81,8 +107,17 @@ class SolicitudesController extends Controller
     public function show($id)
     {
         //
+
          $registro = Solicitud::findorfail($id);
-        return view('solicitudes.show',compact('registro'));
+         if(Auth::user()->hasRoles(['empresa']))
+        {
+                return view('solicitudes.showEmpresa',compact('registro'));
+        }
+        if(Auth::user()->hasRoles(['graduado']))
+        {
+            return view('solicitudes.show',compact('registro'));
+        }
+        
     }
 
     /**

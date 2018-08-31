@@ -7,6 +7,7 @@ use App\Http\Requests\infoPersonalEmpresaRequest;
 use Illuminate\Support\Facades\Auth;
 use App\InformacionEmpresa;
 use App\User;
+
 class InformacionPersonalEmpresaController extends Controller
 {
     /**
@@ -31,8 +32,18 @@ class InformacionPersonalEmpresaController extends Controller
          
         $registro = InformacionEmpresa::where('validadorempresa','=',0)->get();
         
-        
-        return view('empresa.index',compact('registro'));
+        if(Auth::user()->hasRoles(['empresa']))
+        {
+             $iduser = Auth::id();
+
+            $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get();
+            return view('indexempresa.index',compact('registros'));
+        }
+         if(Auth::user()->hasRoles(['admin']))
+        {
+             return view('empresa.index',compact('registro'));
+        }
+       
          
         /*return view('indexempresa.index');*/
     }

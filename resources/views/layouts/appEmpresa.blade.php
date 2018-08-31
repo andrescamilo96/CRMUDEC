@@ -111,10 +111,13 @@
               <a href="{{ route('indexempresa.index') }}" class="list-group-item active main-color-bg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                 Control Usuarios<span class="badge"></span>
               </a>
-              <a href="{{ route('solicitudes.index') }}" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Solicitudes  </a>
-              
-              <a href="{{ route('indexempresa.edit', $registro->id) }}" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar Información Básica Empresa</a>
-              <a href="{{ route('usuarios.index')}}" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios <span class="badge">13</span></a>
+                          
+               <a href="{{ route('notificaciones.index') }}" class="list-group-item"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span> Notificaciones
+               @if($count = Auth::user()->unreadNotifications->count())
+                <span class="label label-danger pull-10">  {{ $count }}</span>
+
+               @endif 
+              </a>
             </div>
 
                 <div class="well">
@@ -150,9 +153,11 @@
     </script>
     <script type="text/javascript">
        $(document).ready(function () {
-        $("#myModal").modal()
+        $("#myModal2").modal()
     });
+       
     </script>
+
     @include('flashy::message')
 </body>
 </html>

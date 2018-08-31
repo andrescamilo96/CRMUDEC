@@ -11,8 +11,39 @@
           <div class="panel-body">
 
           	@foreach ($registros as $registro)
-	         	@if($registro->validadorempresa == 0)    
-	         		<div id="myModal" class="modal fade" role="dialog">
+	         	@if($registro->validadorempresa == 0)
+	         	<input type="hidden" value="{{$registro->id}}"></input>
+	        		<!-- code start -->
+				<div class="twPc-div">
+				    <a class="twPc-bg twPc-block"></a>
+
+					<div>
+						
+						<a title="{{$registro->sigla}}"  class="twPc-avatarLink">
+							<img alt="{{$registro->sigla}}" src="http://icons.iconarchive.com/icons/designcontest/ecommerce-business/128/company-building-icon.png" class="twPc-avatarImg">
+						</a>
+
+						<div class="twPc-divUser">
+							<div class="twPc-divName">
+								<a data-toggle="tooltip" title="Editar" href="{{ route('indexempresa.edit', $registro->id) }}">{{$registro->razonsocial}}
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+								<br>
+								<a>Nit:</a>
+								
+								<a>{{$registro->nit}}</a>
+								<br>
+							</div>
+							
+							<span>
+								<a><span>{{ $registro->email}}</span></a>
+							</span>
+						
+						</div>
+
+						
+					</div>
+				</div>    
+	         		<div id="myModal2" class="modal fade" role="dialog">
 	         			<div class="modal-dialog">    				                    
 		                    <div class="modal-content">
 		                        <div class="modal-header">
@@ -29,15 +60,44 @@
 
 		                        </div>
 		                        <div class="modal-footer">
-		                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button> -->
+		                             {{-- <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button> --}}
 		                        </div>
 		                    </div>
 		                </div>
             		</div>
 	         	@elseif($registro->validadorempresa !=0)	         		
 	         		<input type="hidden" value="{{$registro->id}}"></input>
-	         		<h1>Hola</h1>
-	         		
+	        		<!-- code start -->
+				<div class="twPc-div">
+				    <a class="twPc-bg twPc-block"></a>
+
+					<div>
+						
+						<a title="{{$registro->sigla}}"  class="twPc-avatarLink">
+							<img alt="{{$registro->sigla}}" src="http://icons.iconarchive.com/icons/designcontest/ecommerce-business/128/company-building-icon.png" class="twPc-avatarImg">
+						</a>
+
+						<div class="twPc-divUser">
+							<div class="twPc-divName">
+								<a data-toggle="tooltip" title="Editar"  href="{{ route('indexempresa.edit', $registro->id) }}">{{$registro->razonsocial}}
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+								
+								<br>
+								<a>Nit:</a>
+								
+								<a>{{$registro->nit}}</a>
+								<br>
+							</div>
+							
+							<span>
+								<a><span>{{ $registro->email}}</span></a>
+							</span>
+						
+						</div>
+
+						
+					</div>
+				</div>
 	         	@endif
 
 	         	
