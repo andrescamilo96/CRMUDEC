@@ -107,8 +107,17 @@ class SolicitudesController extends Controller
     public function show($id)
     {
         //
+
          $registro = Solicitud::findorfail($id);
-        return view('solicitudes.show',compact('registro'));
+         if(Auth::user()->hasRoles(['empresa']))
+        {
+                return view('solicitudes.showEmpresa',compact('registro'));
+        }
+        if(Auth::user()->hasRoles(['graduado']))
+        {
+            return view('solicitudes.show',compact('registro'));
+        }
+        
     }
 
     /**

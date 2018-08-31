@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Notifications\DataBaseNotification; 
+use Illuminate\Support\Facades\Auth;
+use App\InformacionEmpresa;
 class NotificacionController extends Controller
 {
     /**
@@ -26,13 +28,29 @@ class NotificacionController extends Controller
     public function index()
     {
         //
-     
-        return view('notificaciones.index',[
+        if(Auth::user()->hasRoles(['graduado']))
+        {
+             return view('notificaciones.index',[
 
             'unreadNotifications' => auth()->user()->unreadNotifications,
             'readNotifications' => auth()->user()->readNotifications
 
-        ]);
+            ]);
+        }
+         if(Auth::user()->hasRoles(['empresa']))
+        {
+             $iduser = Auth::id();
+
+            $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get(); 
+             return view('notificaciones.indexEmpresa',compact('registros'),[
+
+            'unreadNotifications' => auth()->user()->unreadNotifications,
+            'readNotifications' => auth()->user()->readNotifications
+            
+
+            ]);
+        }
+       
 
     }
    
