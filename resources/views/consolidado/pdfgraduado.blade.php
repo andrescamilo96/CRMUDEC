@@ -32,7 +32,7 @@
 				      <div class="panel-heading" align="center"><h3><strong>Consolidado Hoja de Vida</strong> </h3></div>
 				      <div class="panel-body">
 				 </div>			      
-					<!-- <strong><h3 align="center"></h3></strong> -->
+					
 					<table >
 						<tr>
 							<th style="width: 10%;">Nombre</td>
@@ -42,9 +42,7 @@
 					<table>
 						<tr>
 							<th style="width: 15%;">Documento</td>
-							<td style="width: 35%;">{{ $user->cedulausuario }}</td>
-							<th style="width: 10%;">Email</td>
-							<td style="width: 40%;">{{ $user->email }}</td>
+							<td style="width: 35%;">{{ $user->cedulausuario }}</td>							
 						</tr>
 					</table>			
 					
@@ -59,9 +57,7 @@
 					    	</tr>
 					    </table>
 					    <table>
-					    	<tr>
-					    	<th style="width: 10%;">Telefono</td>
-					    	<td style="width: 30%;">{{ $infopersonal->telefono }}</td>
+					    	<tr>					    	
 					    	<th style="width: 25%;">Año Graduación</td>
 					    	<td style="width: 10%;">{{ $infopersonal->anograduacion }}</td>
 					    	<th style="width: 15%;">Semestre</td>
@@ -78,9 +74,9 @@
 					    	</tr>
 					    </table>
 					    	
-					    @endforeach  
-					    <br/>  
+					    @endforeach    
 					</div>
+					</br>
       
    				 		 <div class="panel panel-default">
 						      <div class="panel-heading"><h3>Estudios </h3></div>
@@ -102,8 +98,8 @@
 					   		 </table>
 					   		 
 							
-						@endforeach  
-						<br/>  
+						@endforeach   
+						<br/> 
 						<div class="panel panel-default">
 						      <div class="panel-heading"><h3>Experiencia Laboral </h3></div>
 						      <div class="panel-body">
@@ -128,11 +124,7 @@
 						    		<td style="width: 30%;">Cargo: {{ $historialaboral->cargo }} </td>					    	
 						    		<td style="width: 70%;">{{ $historialaboral->descripcion }}</td>
 						    	</tr>
-					    	</table>
-							
-					        
-					        
-
+					    	</table>										        
 						@endforeach
 						<br/>
 					
