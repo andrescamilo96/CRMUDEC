@@ -59,3 +59,6 @@ Auth::routes();
 Route::resource('home', 'HomeController');
 
 
+Route::get('/usuarios/notificacion/{id}', 'UsersController@Notificar')->name('usuarios.notificar');
+
+
