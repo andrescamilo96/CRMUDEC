@@ -44,7 +44,7 @@
 									<td>{{ $registro->anofinalizacion }}</td>
 									<td>{{ $registro->institucion }}</td>
 									<td align="center">
-									<a class="btn btn-warning " onclick="OpenSoporte('/storage/{{ $registro->adjuntosoporte }}')" target="blank">					<small><i class="glyphicon glyphicon-file "></i></small>
+									<a class="btn btn-warning " onclick="OpenSoporte('{{Storage::url($registro->adjuntosoporte) }}')" target="blank">					<small><i class="glyphicon glyphicon-file "></i></small>
 										</a>
 									</td>
 									<td align="center">
