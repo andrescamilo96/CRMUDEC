@@ -44,7 +44,8 @@
 									<td>{{ $registro->anofinalizacion }}</td>
 									<td>{{ $registro->institucion }}</td>
 									<td align="center">
-									<a class="btn btn-warning " href="{{ $registro->adjuntosoporte }}" target="blank">
+									<!-- <a class="btn btn-warning " onclick="OpenSoporte('/storage/{{ $registro->adjuntosoporte }}')" target="blank"> -->									
+									<a href="javascript:OpenSoporte('/storage/{{ $registro->adjuntosoporte }}');" target="blank">link</a>
 											<small><i class="glyphicon glyphicon-file "></i></small>
 										</a>
 									</td>
@@ -81,6 +82,11 @@
 			</div>
 		
 	</div>
-	
+	<script type="text/javascript">
+	function OpenSoporte(ruta){
+    window.open(ruta);
+  }
+	</script>
+
 
 @stop

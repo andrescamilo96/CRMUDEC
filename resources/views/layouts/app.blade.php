@@ -143,6 +143,8 @@
     <script src="{{ asset('js/app.js') }}" src="https://counter5.allfreecounter.com/private/counter.js?c=3wflxchbkch8em5s84nsjcbx7bspsm7p&down=async">
         
 
+
+
     </script>
     @include('flashy::message')
 </body>
