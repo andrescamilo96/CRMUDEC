@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
-
+use App\Notifications\UserNotification;
 
 class UsersController extends Controller
 {
@@ -110,5 +110,18 @@ class UsersController extends Controller
         User::findOrFail($id)->delete();
         flashy()->success('Registro eliminado exitosamente', '');
         return redirect()->route('empresa.index');
+    }
+
+    public function Notificar($id)
+    {
+        $registro = User::findOrFail($id);
+        //Redireccionar
+        
+        $recipient = User::find($registro->id);
+
+        $recipient->notify(new UserNotification($registro) );
+       $users = User::where('role_id','=',3)->get();
+        flashy()->success('Graduado Notificado con exito', '');
+       return view('users.index',compact('users')); 
     }
 }

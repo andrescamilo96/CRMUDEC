@@ -45,7 +45,7 @@
 										</a>
 										</td>
 									<td align="center">
-										<a class="btn btn-danger " href="" > 								
+										<a class="btn btn-danger " href="{{route('usuarios.notificar',$user->id) }}" > 								
 											<small><i class="glyphicon glyphicon-bullhorn "></i></small>
 										</a>
 										</td>
