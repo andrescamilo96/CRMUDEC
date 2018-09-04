@@ -8,6 +8,7 @@ use App\InformacionGraduado;
 use App\RegistroEstudiantil;
 use App\HistorialLaboral;
 use PDF;
+use Illuminate\Support\Facades\Auth;
 
 class ConsolidadoController extends Controller
 {
@@ -66,11 +67,23 @@ class ConsolidadoController extends Controller
         $estudios = RegistroEstudiantil::where('usuario_id','=',$id)->get(); 
         $historialaboral = HistorialLaboral::where('usuario_id','=',$id)->get(); 
         /*return view('consolidado.show',compact('user'));*/
-        return view('consolidado.show', [
+        
+        if(Auth::user()->hasRoles(['empresa']))
+        {  
+            return view('consolidado.showgraduado', [
             'infopersonal'=> $infopersonal,
             'estudios'=> $estudios,
             'historialaboral'=>$historialaboral, 
             ],compact('user'));
+        }
+        if(Auth::user()->hasRoles(['admin']))
+        {  
+            return view('consolidado.show', [
+            'infopersonal'=> $infopersonal,
+            'estudios'=> $estudios,
+            'historialaboral'=>$historialaboral, 
+            ],compact('user'));
+        }
     }
     /**
      * Show the form for editing the specified resource.
@@ -84,15 +97,31 @@ class ConsolidadoController extends Controller
 
     }
     public function pdf($id){
-        $user = User::findOrFail($id);
-        $infopersonal = InformacionGraduado::where('user_id','=',$id)->get(); 
-        $estudios = RegistroEstudiantil::where('usuario_id','=',$id)->get(); 
-        $historialaboral = HistorialLaboral::where('usuario_id','=',$id)->get(); 
+        if(Auth::user()->hasRoles(['empresa']))
+        {              
+             $user = User::findOrFail($id);
+            $infopersonal = InformacionGraduado::where('user_id','=',$id)->get(); 
+            $estudios = RegistroEstudiantil::where('usuario_id','=',$id)->get(); 
+            $historialaboral = HistorialLaboral::where('usuario_id','=',$id)->get(); 
+           
+            $view = view ('consolidado.pdfgraduado',['infopersonal'=> $infopersonal, 'estudios'=> $estudios,'historialaboral'=>$historialaboral],compact('user'));
+            $pdf=\App::make('dompdf.wrapper');
+            $pdf = PDF::loadHTML($view);
+            return $pdf->stream('consolidado.pdfgraduado');
+        }
+        if(Auth::user()->hasRoles(['admin']))
+        {  
+             $user = User::findOrFail($id);
+            $infopersonal = InformacionGraduado::where('user_id','=',$id)->get(); 
+            $estudios = RegistroEstudiantil::where('usuario_id','=',$id)->get(); 
+            $historialaboral = HistorialLaboral::where('usuario_id','=',$id)->get(); 
+           
+            $view = view ('consolidado.pdf',['infopersonal'=> $infopersonal, 'estudios'=> $estudios,'historialaboral'=>$historialaboral],compact('user'));
+            $pdf=\App::make('dompdf.wrapper');
+            $pdf = PDF::loadHTML($view);
+            return $pdf->stream('consolidado.pdf');
+        }
        
-        $view = view ('consolidado.pdf',['infopersonal'=> $infopersonal, 'estudios'=> $estudios,'historialaboral'=>$historialaboral],compact('user'));
-        $pdf=\App::make('dompdf.wrapper');
-        $pdf = PDF::loadHTML($view);
-        return $pdf->stream('consolidado.pdf');
     }
 
     /**

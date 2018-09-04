@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class UsersController extends Controller
@@ -27,9 +28,18 @@ class UsersController extends Controller
     public function index()
     {
         //
-         $users = User::where('role_id','=',3)->get(); 
-         //dd($users);
-        return view('users.index',compact('users')); 
+        $users = User::where('role_id','=',3)->get(); 
+        if(Auth::user()->hasRoles(['empresa']))
+        {            
+            return view('users.indexEmpresa',compact('users')); 
+        }
+        if(Auth::user()->hasRoles(['admin']))
+        {
+            return view('users.index',compact('users'));    
+        }
+         
+         
+        
     }
 
     /**

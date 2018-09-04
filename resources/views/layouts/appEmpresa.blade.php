@@ -118,6 +118,7 @@
 
                @endif 
               </a>
+              <a href="{{ route('usuarios.index')}}" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios <span class="badge">12</span></a>
             </div>
 
                 <div class="well">
