@@ -111,6 +111,7 @@
                             @foreach ($unreadNotifications as $unreadNotification)
                               <tr class="unread">
                                  <td>
+                                 	
 									<a href="{{ $unreadNotification->data['link'] }}">
 										{{ $unreadNotification->data['text'] }}
 									</a>

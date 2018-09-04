@@ -86,6 +86,7 @@ class EmpresaController extends Controller
         $registro = InformacionEmpresa::findOrFail($id);
         //dd($registro);
         return view('indexempresa.edit',compact('registro'));
+        
     }
 
     /**

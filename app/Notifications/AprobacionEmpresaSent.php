@@ -7,11 +7,11 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class SolicitudSent extends Notification
+class AprobacionEmpresaSent extends Notification
 {
     protected $registro;
     use Queueable;
-    
+
     /**
      * Create a new notification instance.
      *
@@ -42,11 +42,11 @@ class SolicitudSent extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+         return (new MailMessage)
                     ->greeting($notifiable->name . ",")
                     ->subject('Mensaje CRM Facatativa -NoReply')
-                    ->line('Nueva Notificacion')
-                    ->action('click aqui para ver el mensaje', url('solicitudes.show',$this->registro))
+                    ->line('Empresa Aprobada con exito ahora puedes entrar a los servicios que te ofrecemos')
+                    ->action('click aqui para iniciar sesion', url('indexempresa.index'))
                     ->line('Gracias Por leernos.!');
     }
 
@@ -58,12 +58,11 @@ class SolicitudSent extends Notification
      */
     public function toArray($notifiable)
     {
-         return [
+       return [
 
-             'link' => route('solicitudes.show',$this->registro->id),
-             'text' => "Has recibido un  mensaje dando respuesta a tu solicitud"
+             'link' => route('indexempresa.index'),
+             'text' => "Su empresa ha sido aprobada con exito"
 
         ];
-       
     }
 }

@@ -29,7 +29,7 @@ class NotifyUsersAboutNewPost implements ShouldQueue
      */
     public function handle(PostCreated $event)
     {
-        $users = User::all();
+        $users = User::where('role_id','=',3)->get();
 
         Notification::send($users, new PostPublished($event->post));
         //var_dump('Post Creado');

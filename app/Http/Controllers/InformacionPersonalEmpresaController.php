@@ -7,7 +7,8 @@ use App\Http\Requests\infoPersonalEmpresaRequest;
 use Illuminate\Support\Facades\Auth;
 use App\InformacionEmpresa;
 use App\User;
-
+use App\Notifications\AprobacionEmpresaSent;
+use App\Notifications\DesAprobacionEmpresaSent;
 class InformacionPersonalEmpresaController extends Controller
 {
     /**
@@ -113,6 +114,10 @@ class InformacionPersonalEmpresaController extends Controller
     {
         //
         $registro = InformacionEmpresa::findOrFail($id)->update($request->all());
+
+        $registro = InformacionEmpresa::findOrFail($id);
+        $recipient = User::find($request->usuario_id);
+        $recipient->notify(new AprobacionEmpresaSent($registro) );
         flashy()->success('Empresa Validada con exito', '');
          return redirect()->route('empresa.index');
     }
@@ -126,9 +131,14 @@ class InformacionPersonalEmpresaController extends Controller
     public function destroy($id)
     {
         //
-        InformacionEmpresa::findOrFail($id)->delete();
-
        
+
+        $registro = InformacionEmpresa::findOrFail($id);
+        
+        $recipient = User::find($registro->usuario_id);
+        //dd($recipient);
+        $recipient->notify(new DesAprobacionEmpresaSent($registro) );
+        InformacionEmpresa::findOrFail($id)->delete();
         flashy()->success('Registro eliminado exitosamente', '');
         return redirect()->route('empresa.index');
     }
