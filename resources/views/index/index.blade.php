@@ -124,7 +124,7 @@
                               <div class="upper-info text-left">
                                  <h5>GRADUADOS ADMINISTRACIÓN DE EMPRESAS</h5>
                                  <div class="bottom-info">
-                                    <h4>UNIVERSIDAD CUNDINAMARCA EXTENSIÓN FACATATIVÁ</h4>
+                                    <h4>Udec Extensión Facatativá</h4>
                                  </div>
                               </div>
                               
