@@ -57,9 +57,8 @@
 					            <div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i></span>
 					            <select readonly="true" class="form-control" id="rangoingresos" name="rangoingresos">
-					            	<option value="Entre 1 y 2 SMLV">Entre 1 y 2 SMLV</option>
-					            	<option value="Entre 3 y 4 SMLV">Entre 3 y 4 SMLV</option>
-					            	<option value="Superior a 4 SMLV">Superior a 4 SMLV</option>
+					            	<option value="{{ $registro->rangoingresos }}">{{ $registro->rangoingresos }}</option>
+					            	
 					            </select>
 					        </div>
 					        </div>

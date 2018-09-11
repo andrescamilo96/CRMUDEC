@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\InFormacionGraduado; 
 use App\Ciudad; 
+use App\ProgramaAcademico;
 use App\Http\Requests\infoPersonalRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Post;
 class PersonalInformationController extends Controller
 {
     /**
@@ -28,12 +31,22 @@ class PersonalInformationController extends Controller
     public function index()
     {
         $iduser = Auth::id();
-        $registros = InFormacionGraduado::where('user_id','=',$iduser)->get();
-        $ciudades = Ciudad::all();
+        $registros = InFormacionGraduado::where('user_id','=',$iduser)->first();
+        
+        
         if(count($registros)==0){
-            return view('infoPersonal.create',compact('registros','ciudades'));    
+            $ciudades = Ciudad::all();
+            $programas = ProgramaAcademico::all();
+
+            return view('infoPersonal.create',['ciudades'=>$ciudades,'programas'=>$programas],compact('registros'));    
         }
-        return view('infoPersonal.index',compact('registros'));
+        if(count($registros)>0)
+        {
+            $ciudades = DB::table('ciudades')->where('id',$registros->ciudadresidencia_id)->first();     
+            return view('infoPersonal.index',['ciudades'=>$ciudades],compact('registros'));    
+        }
+        
+        
     }
 
     /**
@@ -59,7 +72,8 @@ class PersonalInformationController extends Controller
     {
         // return $request->all(); 
         InFormacionGraduado::create($request->all()); 
-        return view('home.home'); 
+        $Posts = Post::latest()->take(4)->get();
+        return view('home.home',compact('Posts'));
     }
 
     /**
@@ -94,7 +108,7 @@ class PersonalInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(infoPersonalRequest $request, $id)
     {
         $registro = InFormacionGraduado::findOrFail($id)->update($request->all());
         

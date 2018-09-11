@@ -143,6 +143,7 @@
 					</div>
 						<div align="center">
 					        	<input type="submit" class="btn btn-success" value="Guardar"></input> 
+					        	<a 	href="{{ route('infopersonal.index') }}" type="submit" class="btn btn-default" >Regresar</a> 
 					        </div>
 					</form>
 				</div>

@@ -39,7 +39,7 @@ class HomeController extends Controller
 
         if(Auth::user()->hasRoles(['graduado'])){
              $Posts = Post::latest()->take(4)->get();
-             return view('/home.home',compact('Posts'));
+             return view('home.home',compact('Posts'));
         }
 
        //$Posts = Post::all(); 
