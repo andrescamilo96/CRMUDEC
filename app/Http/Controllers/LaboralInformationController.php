@@ -7,6 +7,7 @@ use App\HistorialLaboral;
 use App\Ciudad;
 use App\Http\Requests\infoLaboralRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class LaboralInformationController extends Controller
 {
     /**
@@ -76,7 +77,8 @@ class LaboralInformationController extends Controller
     {
         //
          $registro = HistorialLaboral::findOrFail($id);
-        return view('infolaboral.show',compact('registro'));
+         $ciudades = DB::table('ciudades')->where('id',$registro->ciudadempresa_id)->get();       
+        return view('infolaboral.show',['ciudades'=>$ciudades],compact('registro'));
     }
 
     /**

@@ -122,9 +122,9 @@
                         <div class="container">
                            <div class="slider-info ">
                               <div class="upper-info text-left">
-                                 <h5>Follow Your Dream</h5>
+                                 <h5>GRADUADOS ADMINISTRACIÓN DE EMPRESAS</h5>
                                  <div class="bottom-info">
-                                    <h4>Build Your Future</h4>
+                                    <h4>Udec Extensión Facatativá</h4>
                                  </div>
                               </div>
                               

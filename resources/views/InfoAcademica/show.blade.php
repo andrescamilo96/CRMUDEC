@@ -13,8 +13,8 @@
 					            <div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-tag" aria-hidden="true"></i></span>
 					            <select readonly="true" class="form-control" name ="tipoestudio_id" id="tipoestudio_id">
-					                <option value="1">{{ $registro->tipoestudio_id }}</option>
-					            	</select>
+					                <option value="{{ $registro->tipoestudio->id }}">{{ $registro->tipoestudio->tipoestudio }}</option>
+					            </select>
 					            	
 					        </div>
 					        </div>
@@ -49,17 +49,19 @@
 					        </div>
 					        <div class="form-group" style="position: static;">
 					            <label for="input-id-5">Adjunto Soporte</label>
-					             <div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
-									<input readonly="true" type="file" class="form-control"  name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte su certificado de graduación o finalización del estudio realizado" value="{{ $registro->adjuntosoporte }}"/ >
+					             <div class="input-group">									
+									<a class="btn btn-success " onclick="OpenConvalidacion('{{Storage::url($registro->adjuntosoporte) }}')" target="blank">
+											<small><i class="glyphicon glyphicon-file "></i></small>
+									</a>
 									
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
 					            <label for="input-id-5">Certificado Convalidación</label>
-					             <div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
-									<input readonly="true" type="file" class="form-control" name="certificadoconvalidacion" id="certificadoconvalidacion"  placeholder="Si sus estudios fueron realizados en el extranjero adjunte certificado de convalidación" value="{{ $registro->certificadoconvalidacion }}"/>
+					             <div class="input-group">									
+									<a class="btn btn-success " onclick="OpenConvalidacion('{{Storage::url($registro->certificadoconvalidacion) }}')" target="blank">
+											<small><i class="glyphicon glyphicon-file "></i></small>
+									</a>
 								</div>
 					        </div>
 
@@ -69,7 +71,7 @@
 					    
 					</div>
 						<div align="center">
-					        	<a class="btn btn-success" href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-success" >Regresar</a> 
+					        	<a 	href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-default" >Regresar</a> 
 					        </div>
 					
 
@@ -80,4 +82,14 @@
 		</div>
 
 </div>
+<script type="text/javascript">
+	function OpenSoporte(ruta)
+	{
+    	window.open(ruta);
+  	}
+  	function OpenConvalidacion(ruta)
+  	{
+  		window.open(ruta)
+  	}
+	</script>
 @stop

@@ -15,7 +15,7 @@
 					        	<label for="usuario_id">Nombre Usuario</label>
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  placeholder="Usuario"/>
+									<input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->name }}"  placeholder="Usuario"/>
 									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
 								</div>
 					        </div>				    	
@@ -109,9 +109,13 @@
 					    
 					    
 					</div>
-					<div align="center">
-					        	<input type="submit" class="btn btn-success" >Guardar</input> 
+							<div align="center">
+					        	<input type="submit" class="btn btn-success" ></input> 
+					        	<a 	href="{{ route('infolaboral.index') }}" type="submit" class="btn btn-default" >Regresar</a> 
 					        </div>
+					        
+					        	
+					        
 						
 					</form>
 				</div>

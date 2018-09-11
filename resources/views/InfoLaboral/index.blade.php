@@ -22,15 +22,12 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th>Cargo</th>
-								<th>Descripcion</th>
+								<th>Cargo</th>								
 								<th>Empresa</th>
-								<th>Años Laborados</th>
-								<th>Rango Ingresos</th>
-								<th>Direccion </th>
-								<th>Adjunto Soporte</th>
+								<th>Años Laborados</th>								
+								
 								<th>Telefono </th>
-								<th>Ciudad </th>
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -43,18 +40,10 @@
 									<td>		
 										{{ $registro->cargo }}
 									</td>
-									<td>{{ $registro->descripcion }}</td>
+									
 									<td>{{ $registro->empresa }}</td>
-									<td>{{ $registro->anoslaborados }}</td>
-									<td>{{ $registro->rangoingresos }}</td>
-									<td>{{ $registro->direccionempresa }}</td>
-									<td align="center">
-										<a class="btn btn-warning " href="{{ $registro->adjuntosoporte }}" target="blank">
-											<small><i class="glyphicon glyphicon-file "></i></small>
-										</a>
-									</td>
+									<td>{{ $registro->anoslaborados }}</td>																	
 									<td>{{ $registro->telefonoempresa }}</td>
-									<td>{{ $registro->ciudadempresa_id }}</td>
 
 									<td>
 										<a class="btn btn-xs btn-info" href="{{ route('infolaboral.edit',$registro->id) }}"><small>

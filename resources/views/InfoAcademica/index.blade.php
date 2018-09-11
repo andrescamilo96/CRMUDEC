@@ -23,10 +23,9 @@
 							<tr>
 								<th></th>
 								<th>Titulo</th>
-								<th>Año Finalizacion</th>
+								
 								<th>Institucion</th>
-								<th>Adjunto Soporte</th>
-								<th>Certificado Convalidacion</th>
+								
 								<th>Tipo Estudio</th>
 								
 							</tr>
@@ -41,17 +40,9 @@
 									<td>		
 										{{ $registro->titulo }}
 									</td>
-									<td>{{ $registro->anofinalizacion }}</td>
+									
 									<td>{{ $registro->institucion }}</td>
-									<td align="center">
-									<a class="btn btn-warning " onclick="OpenSoporte('{{Storage::url($registro->adjuntosoporte) }}')" target="blank">					<small><i class="glyphicon glyphicon-file "></i></small>
-										</a>
-									</td>
-									<td align="center">
-										<a class="btn btn-danger " href="{{ $registro->certificadoconvalidacion }}" target="blank">
-											<small><i class="glyphicon glyphicon-file "></i></small>
-										</a>
-									</td>
+									
 									<td>{{ $registro->tipoestudio->tipoestudio }}</td>
 									
 									<td>
@@ -80,11 +71,6 @@
 			</div>
 		
 	</div>
-	<script type="text/javascript">
-	function OpenSoporte(ruta){
-    window.open(ruta);
-  }
-	</script>
 
 
 @stop
