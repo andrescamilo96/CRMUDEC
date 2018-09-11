@@ -3,47 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Solicitud;
-use \App\Post;
-use \App\User;
-use \App\Ciudad;
-use App\InformacionEmpresa;
 use App\TipoEstudio;
-class AdminController extends Controller
+class TipoEstudiosController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-   function __construct()
-    {
-       $this->middleware([
-
-            'auth',
-            'roles:admin',
-            
-        ]);
-
-      
-    }
     public function index()
     {
         //
-        $Solicitudes =  Solicitud::where('indrespuesta','=',0)->get();
-        $Posts =  Post::all();
-        $InfoEmpresa = InformacionEmpresa::where('validadorempresa','=',0)->get();
-        $userGraduado = User::where('role_id','=',3)->get();
-        $Ciudad = Ciudad::all();
-        $TipoEstudios = TipoEstudio::all();
-        return view('IndexAdmin.index',[
-            'Solicitudes' =>$Solicitudes,
-            'Posts' =>$Posts,
-            'InfoEmpresa' => $InfoEmpresa,
-            'userGraduado' => $userGraduado,
-            'Ciudad' => $Ciudad,
-            'TipoEstudios' => $TipoEstudios,
-        ]);
+        $tipoestudios = TipoEstudio::all();
+        return view('TipoEstudios.index',compact('tipoestudios'));
     }
 
     /**
@@ -54,6 +26,7 @@ class AdminController extends Controller
     public function create()
     {
         //
+        return view('TipoEstudios.create');
     }
 
     /**
@@ -65,6 +38,11 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+         TipoEstudio::create($request->all());
+        $tipoestudios = TipoEstudio::all();
+        flashy()->success('Tipo de Estudio  creado exitosamente', '');
+        return redirect()->route('TipoEstudios.index',compact('tipoestudios'));
+        //return view('TipoEstudios.index',compact('tipoestudios'));
     }
 
     /**
@@ -87,6 +65,10 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
+         $registro = TipoEstudio::findOrFail($id);
+        //dd($registro);
+
+        return view('TipoEstudios.edit',compact('registro'));
     }
 
     /**
@@ -99,6 +81,9 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+         $registro = TipoEstudio::findOrFail($id)->update($request->all());
+         flashy()->success('Tipo Estudio actualizado con exito', '');
+         return redirect()->route('tipoestudios.index');
     }
 
     /**
@@ -110,5 +95,8 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+        $registro = TipoEstudio::findOrFail($id)->delete();
+        flashy()->success('Tipo estudio eliminado exitosamente', '');
+        return redirect()-> route('tipoestudios.index');
     }
 }

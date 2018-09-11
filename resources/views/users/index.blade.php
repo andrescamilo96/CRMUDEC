@@ -2,7 +2,7 @@
 @section('Contenido')
 
 <div class="container" style="width:100%;">
-    <h1>GRADUADOS</h1>
+    
     	<div class="row">
 			
 				<div class="panel panel-primary">

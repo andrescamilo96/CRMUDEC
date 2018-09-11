@@ -14,7 +14,7 @@
            </div>
            <div class="col-md-3">
              <div class="well dash-box">
-               <h2><a href="{{ route('usuarios.index') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>{{ $userGraduado->count() }}</h2>
+               <h2><a href="{{ route('usuarios.index') }}"><span class="glyphicon glyphicon-education" aria-hidden="true"></span>{{ $userGraduado->count() }}</h2>
                <h4>Graduados</h4></a>
              </div>
            </div>
@@ -31,6 +31,21 @@
                <h4>Empresas</h4></a>
              </div>
            </div>
+           <div class="col-md-3">
+             <div class="well dash-box">
+               <h2><a href="{{ route('ciudades.index') }}"><span class="glyphicon glyphicon-road" aria-hidden="true"></span> {{ $Ciudad->count() }} </h2>
+               <h4>Ciudades</h4></a>
+
+             </div>
+           </div>
+           <div class="col-md-3">
+             <div class="well dash-box">
+               <h2><a href="{{ route('tipoestudios.index') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> {{ $TipoEstudios->count() }} </h2>
+               <h4>Tipo Estudios</h4></a>
+
+             </div>
+           </div>
+
           </div>
         </div>
        

@@ -30,7 +30,7 @@
      
 </head>
 
-<body>
+<body onload="nobackbutton();">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -146,6 +146,13 @@
 
 
     </script>
+    <script>
+    function nobackbutton(){ 
+   window.location.hash="no-back-button";
+   window.location.hash="Again-No-back-button" //chrome
+   window.onhashchange=function(){window.location.hash="no-back-button";}
+}
+</script>
     @include('flashy::message')
 </body>
 </html>

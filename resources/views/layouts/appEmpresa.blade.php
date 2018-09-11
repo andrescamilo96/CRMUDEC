@@ -19,7 +19,7 @@
             <!-- Styles -->
             <link href="{{ asset('cssAdmin/app.css') }}" rel="stylesheet">
         </head>
-        <body>
+        <body onload="nobackbutton();">
            <nav class="navbar navbar-default">
               <div class="container">
                 <div class="navbar-header">
@@ -158,7 +158,13 @@
     });
        
     </script>
-
+      <script>
+    function nobackbutton(){ 
+   window.location.hash="no-back-button";
+   window.location.hash="Again-No-back-button" //chrome
+   window.onhashchange=function(){window.location.hash="no-back-button";}
+  }
+</script>
     @include('flashy::message')
 </body>
 </html>

@@ -72,7 +72,8 @@ class InformacionPersonalEmpresaController extends Controller
         $iduser = Auth::id();
 
         $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get(); 
-        return view('indexempresa.index',compact('registros'));
+        //return view('indexempresa.index',compact('registros'));
+        return redirect()->route('indexempresa.index',compact('registros'));
     }
 
     /**

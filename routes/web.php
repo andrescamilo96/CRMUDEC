@@ -46,6 +46,8 @@ Route::resource('consolidado','ConsolidadoController');
 Route::resource('posts','PostController');
 Route::resource('indexempresa','EmpresaController');
 Route::resource('empresa','InformacionPersonalEmpresaController');
+Route::resource('ciudades','CiudadesController');
+Route::resource('tipoestudios','TipoEstudiosController');
 /*Route::pactch('pdf/{id}','ConsolidadoController@show')->name('consolidado.pdf');*/
 Route::get('pdf/{id}','ConsolidadoController@pdf')->name('consolidado.pdf');
 

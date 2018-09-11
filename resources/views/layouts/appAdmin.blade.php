@@ -19,7 +19,7 @@
             <!-- Styles -->
             <link href="{{ asset('cssAdmin/app.css') }}" rel="stylesheet">
         </head>
-        <body>
+        <body  onload="nobackbutton();">
            <nav class="navbar navbar-default">
               <div class="container">
                 <div class="navbar-header">
@@ -137,7 +137,9 @@
             @yield('Contenido')
 
           <footer id="footer">
-            <p>Copyright : Madhav Prasad<br>2017</p>
+            
+         <p>©2018 Universidad Cundinamarca | Administracion Empresas Extension Facatativa <a target="_blank">CRM-UDEC</a>
+      
           </footer>
 
                     <!-- Right Side Of Navbar -->
@@ -153,6 +155,13 @@
 
 
     </script>
+    <script>
+    function nobackbutton(){ 
+   window.location.hash="no-back-button";
+   window.location.hash="Again-No-back-button" //chrome
+   window.onhashchange=function(){window.location.hash="no-back-button";}
+}
+</script>
     @include('flashy::message')
 </body>
 </html>

@@ -3,47 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Solicitud;
-use \App\Post;
-use \App\User;
-use \App\Ciudad;
-use App\InformacionEmpresa;
-use App\TipoEstudio;
-class AdminController extends Controller
+use App\Ciudad;
+
+class CiudadesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-   function __construct()
-    {
-       $this->middleware([
-
-            'auth',
-            'roles:admin',
-            
-        ]);
-
-      
-    }
     public function index()
     {
         //
-        $Solicitudes =  Solicitud::where('indrespuesta','=',0)->get();
-        $Posts =  Post::all();
-        $InfoEmpresa = InformacionEmpresa::where('validadorempresa','=',0)->get();
-        $userGraduado = User::where('role_id','=',3)->get();
-        $Ciudad = Ciudad::all();
-        $TipoEstudios = TipoEstudio::all();
-        return view('IndexAdmin.index',[
-            'Solicitudes' =>$Solicitudes,
-            'Posts' =>$Posts,
-            'InfoEmpresa' => $InfoEmpresa,
-            'userGraduado' => $userGraduado,
-            'Ciudad' => $Ciudad,
-            'TipoEstudios' => $TipoEstudios,
-        ]);
+        $ciudades = Ciudad::all();
+        return view('ciudades.index',compact('ciudades'));
     }
 
     /**
@@ -54,6 +27,7 @@ class AdminController extends Controller
     public function create()
     {
         //
+        return view('ciudades.create');
     }
 
     /**
@@ -65,6 +39,13 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+
+        Ciudad::create($request->all());
+        $ciudades = Ciudad::all();
+        flashy()->success('Ciudad creada exitosamente', '');
+        //flash('Ciudad creada exitosamente!')->success();
+        //return view('ciudades.index',compact('ciudades'));
+         return redirect()->route('ciudades.index',compact('ciudades'));
     }
 
     /**
@@ -87,6 +68,10 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
+          $registro = Ciudad::findOrFail($id);
+        //dd($registro);
+
+        return view('ciudades.edit',compact('registro'));
     }
 
     /**
@@ -99,6 +84,9 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $registro = Ciudad::findOrFail($id)->update($request->all());
+         flashy()->success('Ciudad actualizada con exito', '');
+         return redirect()->route('ciudades.index');
     }
 
     /**
@@ -110,5 +98,8 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+        $registro = Ciudad::findOrFail($id)->delete();
+        flashy()->success('Ciudad eliminada exitosamente', '');
+        return redirect()-> route('ciudades.index');
     }
 }

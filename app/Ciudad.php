@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ciudad extends Model
 {
+      protected $fillable = [
+        'ciudad'
+    ];
     protected $table = 'ciudades';
     public function informacionempresa(){
     	return $this->hasOne(InformacionEmpresa::class);
