@@ -122,9 +122,9 @@
                         <div class="container">
                            <div class="slider-info ">
                               <div class="upper-info text-left">
-                                 <h5>UNIVERSIDAD CUNDINAMARCA EXTENSIÓN FACATATIVÁ</h5>
+                                 <h5>GRADUADOS ADMINISTRACIÓN DE EMPRESAS</h5>
                                  <div class="bottom-info">
-                                    <h4>GRADUADOS ADMINISTRACIÓN DE EMPRESAS/h4>
+                                    <h4>UNIVERSIDAD CUNDINAMARCA EXTENSIÓN FACATATIVÁ</h4>
                                  </div>
                               </div>
                               
