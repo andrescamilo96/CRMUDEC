@@ -48,7 +48,7 @@
 										</a>
 									</td>
 									<td align="center">
-										<a class="btn btn-danger " href="{{ $registro->certificadoconvalidacion }}" target="blank">
+										<a class="btn btn-danger " onclick="OpenConvalidacion('{{Storage::url($registro->certificadoconvalidacion) }}')" target="blank">
 											<small><i class="glyphicon glyphicon-file "></i></small>
 										</a>
 									</td>
@@ -81,9 +81,14 @@
 		
 	</div>
 	<script type="text/javascript">
-	function OpenSoporte(ruta){
-    window.open(ruta);
-  }
+	function OpenSoporte(ruta)
+	{
+    	window.open(ruta);
+  	}
+  	function OpenConvalidacion(ruta)
+  	{
+  		window.open(ruta)
+  	}
 	</script>
 
 

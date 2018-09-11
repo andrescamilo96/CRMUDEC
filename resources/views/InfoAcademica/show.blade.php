@@ -69,7 +69,7 @@
 					    
 					</div>
 						<div align="center">
-					        	<a class="btn btn-success" href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-success" >Regresar</a> 
+					        	<a 	href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-default" >Regresar</a> 
 					        </div>
 					
 
