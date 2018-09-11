@@ -14,7 +14,7 @@
 					        	<label for="usuario_id">Nombre Usuario</label>
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="3"  placeholder="Usuario"/>
+									<input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{Auth::user()->name}}"  placeholder="Usuario"/>
 									
 								</div>
 					        </div>				    	
@@ -79,9 +79,9 @@
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-globe" aria-hidden="true"></i></span>
 									<select readonly="true" class="form-control" id="ciudadempresa_id" name="ciudadempresa_id">
-					            	<option value="1">Bogota</option>
-					            	<option value="2">Medellin</option>
-					            	<option value="3">Cali</option>
+					            		@foreach ($ciudades as $ciudades )					            		
+											<option value= "{{$ciudades->id}}">{{$ciudades->ciudad}}</option>
+										@endforeach
 					            </select>
 								</div>
 					    	</div>
@@ -94,11 +94,12 @@
 									
 								</div>
 					    	</div>
-					    	<div class="form-group" style="position: static;">
-					            <label for="adjuntosoporte">Adjunto Certificado Laboral</label>
-					             <div class="input-group">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
-									<input readonly="true" required type="file" class="form-control" name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte certificado Laboral en formato PDF" value="{{ $registro->adjuntosoporte }}"/>
+					    	 <div class="form-group" style="position: static;">
+					            <label for="input-id-5">Adjunto Certificado Laboral</label>
+					             <div class="input-group">									
+									<a class="btn btn-success " onclick="OpenSoporte('{{Storage::url($registro->adjuntosoporte) }}')" target="blank">
+											<small><i class="glyphicon glyphicon-file "></i></small>
+									</a>
 									
 								</div>
 					        </div>
@@ -108,7 +109,7 @@
 					    
 					</div>
 					<div align="center">
-					        	<a class="btn btn-success" href="{{ route('infolaboral.index') }}" type="submit" class="btn btn-success" >Regresar</a> 
+					        	<a class="btn btn-success" href="{{ route('infolaboral.index') }}" type="submit" class="btn btn-default" >Regresar</a> 
 					        </div>
 						
 					
@@ -117,4 +118,10 @@
 			</div>
 		</div>
 </div>
+<script type="text/javascript">
+	function OpenSoporte(ruta)
+	{
+    	window.open(ruta);
+  	}
+</script>
 @stop

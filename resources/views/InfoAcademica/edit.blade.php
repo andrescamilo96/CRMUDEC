@@ -15,16 +15,9 @@
 					            <label for="select-6">Tipo de Estudios</label>
 					            <div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-tag" aria-hidden="true"></i></span>
-					            <select class="form-control" name ="tipoestudio_id" id="tipoestudio_id">
-					                <option value="1">Diplomado</option>
-					            	
-					            	<option value="2" >Certificacion</option>
-					            	 <option value="3">Especializacion</option>
-					            	
-					            	<option value="4" >Maestria</option>
-					            	<option value="5" >Doctorado</option>
-					            	
-					            	</select>
+					            <select readonly="true" class="form-control" name ="tipoestudio_id" id="tipoestudio_id">
+					                <option value="{{ $registro->tipoestudio->id }}">{{ $registro->tipoestudio->tipoestudio }}</option>
+					            </select>
 					            	{{ $errors->first('tipoestudio_id') }}
 					        </div>
 					        </div>
@@ -79,11 +72,13 @@
  					
 					    
 					</div>
-						<div align="center">
-							
-						<input class ="btn btn-success" type="submit" value="Enviar"></input>
-						
+						<div align="center">							
+							<input class ="btn btn-success" type="submit" value="Enviar"></input>						
+							<a 	href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-default" >Regresar</a> 
 						</div>
+						<div align="center">
+					        	
+					    </div>
 					</form>
 
 				</div>
