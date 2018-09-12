@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\informaciongraduado; 
 use App\ciudad; 
+use App\ProgramaAcademico;
 use App\Http\Requests\infoPersonalRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Post;
 class PersonalInformationController extends Controller
 {
     /**
@@ -29,11 +32,19 @@ class PersonalInformationController extends Controller
     {
         $iduser = Auth::id();
         $registros = informaciongraduado::where('user_id','=',$iduser)->get();
-        $ciudades = ciudad::all();
         if(count($registros)==0){
-            return view('infopersonal.create',compact('registros','ciudades'));    
+            $ciudades = Ciudad::all();
+            $programas = ProgramaAcademico::all();
+
+            return view('infoPersonal.create',['ciudades'=>$ciudades,'programas'=>$programas],compact('registros'));    
         }
-        return view('infopersonal.index',compact('registros'));
+        if(count($registros)>0)
+        {
+            $ciudades = DB::table('ciudades')->where('id',$registros->ciudadresidencia_id)->first();     
+            return view('infoPersonal.index',['ciudades'=>$ciudades],compact('registros'));    
+        }
+        
+        
     }
 
     /**
@@ -59,7 +70,8 @@ class PersonalInformationController extends Controller
     {
         // return $request->all(); 
         informaciongraduado::create($request->all()); 
-        return view('home.home'); 
+        $Posts = Post::latest()->take(4)->get();
+        return view('home.home',compact('Posts'));
     }
 
     /**
@@ -94,7 +106,7 @@ class PersonalInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(infoPersonalRequest $request, $id)
     {
         $registro = informaciongraduado::findOrFail($id)->update($request->all());
         

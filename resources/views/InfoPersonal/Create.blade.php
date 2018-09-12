@@ -105,8 +105,9 @@
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></span>
 					             <select class="form-control" id="programa_id" name="programa_id"> 
-			                        <option value="1">Administración de Empresas</option> 
-			                        <option value="2">Contaduria Pública</option> 
+			                        	@foreach ($programas as $programa )
+										<option value= "{{$programa->id}}">{{$programa->programa}}</option>
+										@endforeach
 			                      </select> 
 			                      {!! $errors->first('programa_id','<span class=error >:message</span>') !!}
 					        </div>

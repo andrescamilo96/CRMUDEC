@@ -26,7 +26,7 @@ class infoPersonalRequest extends FormRequest
         return [
             //
             'telefono'=>'required|numeric',
-            'anograduacion'=>'required|numeric',
+            'anograduacion'=>'required|numeric|',
             'semestregraduacion'=>'required|numeric',
             'residencia' =>'required',
             'estadocivil' =>'required',
@@ -36,6 +36,7 @@ class infoPersonalRequest extends FormRequest
             'user_id'=>'required|numeric',
             'programa_id'=>'required|numeric',
             'ciudadresidencia_id'=>'required|numeric',
+            
 
 
         ];
