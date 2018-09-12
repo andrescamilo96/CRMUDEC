@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\registroestudiantil;
 use App\Http\Requests\infoEstudiantilRequest;
 use Illuminate\Support\Facades\Auth;
-use App\TipoEstudio;
+use App\tipoestudio;
 class AcademicInformationController extends Controller
 {
     /**
@@ -40,7 +40,7 @@ class AcademicInformationController extends Controller
      */
     public function create()
     {   
-        $programas = TipoEstudio::all();
+        $programas = tipoestudio::all();
         return view('infoacademica.create',['programas'=>$programas]);
 
     }
