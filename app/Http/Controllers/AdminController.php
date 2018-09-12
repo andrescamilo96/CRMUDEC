@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Solicitud;
-use \App\Post;
-use \App\User;
-use \App\Ciudad;
-use App\InformacionEmpresa;
-use App\TipoEstudio;
+use \App\solicitud;
+use \App\post;
+use \App\user;
+use \App\ciudad;
+use App\informacionempresa;
+use App\tipoestudio;
 class AdminController extends Controller
 {
     /**
@@ -30,13 +30,13 @@ class AdminController extends Controller
     public function index()
     {
         //
-        $Solicitudes =  Solicitud::where('indrespuesta','=',0)->get();
-        $Posts =  Post::all();
-        $InfoEmpresa = InformacionEmpresa::where('validadorempresa','=',0)->get();
-        $userGraduado = User::where('role_id','=',3)->get();
-        $Ciudad = Ciudad::all();
-        $TipoEstudios = TipoEstudio::all();
-        return view('IndexAdmin.index',[
+        $Solicitudes =  solicitud::where('indrespuesta','=',0)->get();
+        $Posts =  post::all();
+        $InfoEmpresa = informacionempresa::where('validadorempresa','=',0)->get();
+        $userGraduado = user::where('role_id','=',3)->get();
+        $Ciudad = ciudad::all();
+        $TipoEstudios = tipoestudio::all();
+        return view('indexadmin.index',[
             'Solicitudes' =>$Solicitudes,
             'Posts' =>$Posts,
             'InfoEmpresa' => $InfoEmpresa,

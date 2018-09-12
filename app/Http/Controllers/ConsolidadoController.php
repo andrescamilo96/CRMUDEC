@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\InformacionGraduado;
-use App\RegistroEstudiantil;
-use App\HistorialLaboral;
+use App\user;
+use App\informaciongraduado;
+use App\registroestudiantil;
+use App\historiallaboral;
 use PDF;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,10 +62,10 @@ class ConsolidadoController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-        $infopersonal = InformacionGraduado::where('user_id','=',$id)->get(); 
-        $estudios = RegistroEstudiantil::where('usuario_id','=',$id)->get(); 
-        $historialaboral = HistorialLaboral::where('usuario_id','=',$id)->get(); 
+        $user = user::findOrFail($id);
+        $infopersonal = informaciongraduado::where('user_id','=',$id)->get(); 
+        $estudios = registroestudiantil::where('usuario_id','=',$id)->get(); 
+        $historialaboral = historiallaboral::where('usuario_id','=',$id)->get(); 
         /*return view('consolidado.show',compact('user'));*/
         
         if(Auth::user()->hasRoles(['empresa']))
@@ -99,10 +99,10 @@ class ConsolidadoController extends Controller
     public function pdf($id){
         if(Auth::user()->hasRoles(['empresa']))
         {              
-             $user = User::findOrFail($id);
-            $infopersonal = InformacionGraduado::where('user_id','=',$id)->get(); 
-            $estudios = RegistroEstudiantil::where('usuario_id','=',$id)->get(); 
-            $historialaboral = HistorialLaboral::where('usuario_id','=',$id)->get(); 
+             $user = user::findOrFail($id);
+            $infopersonal = informaciongraduado::where('user_id','=',$id)->get(); 
+            $estudios = registroestudiantil::where('usuario_id','=',$id)->get(); 
+            $historialaboral = historiallaboral::where('usuario_id','=',$id)->get(); 
            
             $view = view ('consolidado.pdfgraduado',['infopersonal'=> $infopersonal, 'estudios'=> $estudios,'historialaboral'=>$historialaboral],compact('user'));
             $pdf=\App::make('dompdf.wrapper');
@@ -111,10 +111,10 @@ class ConsolidadoController extends Controller
         }
         if(Auth::user()->hasRoles(['admin']))
         {  
-             $user = User::findOrFail($id);
-            $infopersonal = InformacionGraduado::where('user_id','=',$id)->get(); 
-            $estudios = RegistroEstudiantil::where('usuario_id','=',$id)->get(); 
-            $historialaboral = HistorialLaboral::where('usuario_id','=',$id)->get(); 
+             $user = user::findOrFail($id);
+            $infopersonal = informaciongraduado::where('user_id','=',$id)->get(); 
+            $estudios = registroestudiantil::where('usuario_id','=',$id)->get(); 
+            $historialaboral = historiallaboral::where('usuario_id','=',$id)->get(); 
            
             $view = view ('consolidado.pdf',['infopersonal'=> $infopersonal, 'estudios'=> $estudios,'historialaboral'=>$historialaboral],compact('user'));
             $pdf=\App::make('dompdf.wrapper');

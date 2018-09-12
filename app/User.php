@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPasswordNotification;
-class User extends Authenticatable
+class user extends Authenticatable
 {
     use Notifiable;
 
@@ -27,28 +27,28 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public function role(){
-        return $this->belongsTo(Rol::class);
+        return $this->belongsTo(rol::class);
     }
     public function informaciongraduado(){
-        return $this->hasOne(InformacionGraduado::class);
+        return $this->hasOne(informaciongraduado::class);
     }
     public function registoestudiantil(){
-        return $this->hasMany(RegistroEstudiantil::class);
+        return $this->hasMany(registoestudiantil::class);
     }
     public function historiallaboral(){
-        return $this->hasMany(HistorialLaboral::class);   
+        return $this->hasMany(historiallaboral::class);   
     }
     public function informacionempresa(){
-        return $this->hasOne(InformacionEmpresa::class);
+        return $this->hasOne(informacionempresa::class);
     }
     public function infoempleadoudec(){
-        return $this->hasOne(InfoEmpleadoUdec::class);
+        return $this->hasOne(infoempleadoudec::class);
     }
     public function solicitud(){
-        return $this->hasMany(Solicitud::class);
+        return $this->hasMany(solicitud::class);
     }
     public function notificacion(){
-        return $this->hasMany(Notificacion::class);
+        return $this->hasMany(notificacion::class);
     }
      public function hasRoles( array $roles)
     {

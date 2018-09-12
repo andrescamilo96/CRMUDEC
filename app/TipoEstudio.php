@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TipoEstudio extends Model
+class tipoestudio extends Model
 {
 	  protected $fillable = [
         'tipoestudio'
     ];
     protected $table = 'tipoestudios';
     public function registroestudiantil(){
-        return $this->hasMany(RegistroEstudiantil::class);   
+        return $this->hasMany(registroestudiantil::class);   
     }
 }

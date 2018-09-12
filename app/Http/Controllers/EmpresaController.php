@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\InformacionEmpresa;
-use App\User;
+use App\informacionempresa;
+use App\user;
 class EmpresaController extends Controller
 {
     /**
@@ -29,7 +29,7 @@ class EmpresaController extends Controller
     {
          $iduser = Auth::id();
 
-        $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get(); 
+        $registros = informacionempresa::where('usuario_id','=',$iduser)->get(); 
          
         
         if ($registros->count()==0){
@@ -83,7 +83,7 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        $registro = InformacionEmpresa::findOrFail($id);
+        $registro = informacionempresa::findOrFail($id);
         //dd($registro);
         return view('indexempresa.edit',compact('registro'));
         
@@ -98,7 +98,7 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $registro = InformacionEmpresa::findOrFail($id)->update($request->all());
+        $registro = informacionempresa::findOrFail($id)->update($request->all());
         
         //Redireccionar
         return redirect()->route('indexempresa.index');

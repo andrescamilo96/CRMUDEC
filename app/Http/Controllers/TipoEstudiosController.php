@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\TipoEstudio;
+use App\tipoestudio;
 class TipoEstudiosController extends Controller
 {
     /**
@@ -14,8 +14,8 @@ class TipoEstudiosController extends Controller
     public function index()
     {
         //
-        $tipoestudios = TipoEstudio::all();
-        return view('TipoEstudios.index',compact('tipoestudios'));
+        $tipoestudios = tipoestudio::all();
+        return view('tipoestudios.index',compact('tipoestudios'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TipoEstudiosController extends Controller
     public function create()
     {
         //
-        return view('TipoEstudios.create');
+        return view('tipoestudios.create');
     }
 
     /**
@@ -38,10 +38,10 @@ class TipoEstudiosController extends Controller
     public function store(Request $request)
     {
         //
-         TipoEstudio::create($request->all());
-        $tipoestudios = TipoEstudio::all();
+         tipoestudio::create($request->all());
+        $tipoestudios = tipoestudio::all();
         flashy()->success('Tipo de Estudio  creado exitosamente', '');
-        return redirect()->route('TipoEstudios.index',compact('tipoestudios'));
+        return redirect()->route('tipoestudios.index',compact('tipoestudios'));
         //return view('TipoEstudios.index',compact('tipoestudios'));
     }
 
@@ -65,10 +65,10 @@ class TipoEstudiosController extends Controller
     public function edit($id)
     {
         //
-         $registro = TipoEstudio::findOrFail($id);
+         $registro = tipoestudio::findOrFail($id);
         //dd($registro);
 
-        return view('TipoEstudios.edit',compact('registro'));
+        return view('tipoestudios.edit',compact('registro'));
     }
 
     /**
@@ -81,7 +81,7 @@ class TipoEstudiosController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $registro = TipoEstudio::findOrFail($id)->update($request->all());
+         $registro = tipoestudio::findOrFail($id)->update($request->all());
          flashy()->success('Tipo Estudio actualizado con exito', '');
          return redirect()->route('tipoestudios.index');
     }
@@ -95,7 +95,7 @@ class TipoEstudiosController extends Controller
     public function destroy($id)
     {
         //
-        $registro = TipoEstudio::findOrFail($id)->delete();
+        $registro = tipoestudio::findOrFail($id)->delete();
         flashy()->success('Tipo estudio eliminado exitosamente', '');
         return redirect()-> route('tipoestudios.index');
     }

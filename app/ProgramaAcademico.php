@@ -4,16 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProgramaAcademico extends Model
+class programaacademico extends Model
 {
      protected $table = 'programasacademicos';
 
      public function informaciongraduado(){
-    	return $this->hasMany(InformacionGraduado::class);
+    	return $this->hasMany(informaciongraduado::class);
     }
 
      public function sedeuniversitaria(){
-    	return $this->belongsTo(SedeUniversitaria::class);
+    	return $this->belongsTo(sedeuniversitaria::class);
     }
 
 

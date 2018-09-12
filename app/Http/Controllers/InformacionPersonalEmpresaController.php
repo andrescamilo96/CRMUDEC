@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\infoPersonalEmpresaRequest;
 use Illuminate\Support\Facades\Auth;
-use App\InformacionEmpresa;
-use App\User;
+use App\informacionempresa;
+use App\user;
 use App\Notifications\AprobacionEmpresaSent;
-use App\Notifications\DesAprobacionEmpresaSent;
+use App\Notifications\DesaprobacionEmpresaSent;
 class InformacionPersonalEmpresaController extends Controller
 {
     /**
@@ -31,13 +31,13 @@ class InformacionPersonalEmpresaController extends Controller
     public function index()
     {
          
-        $registro = InformacionEmpresa::where('validadorempresa','=',0)->get();
+        $registro = informacionempresa::where('validadorempresa','=',0)->get();
         
         if(Auth::user()->hasRoles(['empresa']))
         {
              $iduser = Auth::id();
 
-            $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get();
+            $registros = informacionempresa::where('usuario_id','=',$iduser)->get();
             return view('indexempresa.index',compact('registros'));
         }
          if(Auth::user()->hasRoles(['admin']))
@@ -68,10 +68,10 @@ class InformacionPersonalEmpresaController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        InformacionEmpresa::create($request->all()); 
+        informacionempresa::create($request->all()); 
         $iduser = Auth::id();
 
-        $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get(); 
+        $registros = informacionempresa::where('usuario_id','=',$iduser)->get(); 
         //return view('indexempresa.index',compact('registros'));
         return redirect()->route('indexempresa.index',compact('registros'));
     }
@@ -96,10 +96,10 @@ class InformacionPersonalEmpresaController extends Controller
     public function edit($id)
     {
         //
-        $registro = InformacionEmpresa::findOrFail($id);
+        $registro = informacionempresa::findOrFail($id);
         //dd($registro);
 
-        return view('Empresa.edit',compact('registro'));
+        return view('empresa.edit',compact('registro'));
         
 
     }
@@ -114,9 +114,9 @@ class InformacionPersonalEmpresaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $registro = InformacionEmpresa::findOrFail($id)->update($request->all());
+        $registro = informacionempresa::findOrFail($id)->update($request->all());
 
-        $registro = InformacionEmpresa::findOrFail($id);
+        $registro = informacionempresa::findOrFail($id);
         $recipient = User::find($request->usuario_id);
         $recipient->notify(new AprobacionEmpresaSent($registro) );
         flashy()->success('Empresa Validada con exito', '');
@@ -134,12 +134,12 @@ class InformacionPersonalEmpresaController extends Controller
         //
        
 
-        $registro = InformacionEmpresa::findOrFail($id);
+        $registro = informacionempresa::findOrFail($id);
         
-        $recipient = User::find($registro->usuario_id);
+        $recipient = user::find($registro->usuario_id);
         //dd($recipient);
-        $recipient->notify(new DesAprobacionEmpresaSent($registro) );
-        InformacionEmpresa::findOrFail($id)->delete();
+        $recipient->notify(new DesaprobacionEmpresaSent($registro) );
+        informacionempresa::findOrFail($id)->delete();
         flashy()->success('Registro eliminado exitosamente', '');
         return redirect()->route('empresa.index');
     }

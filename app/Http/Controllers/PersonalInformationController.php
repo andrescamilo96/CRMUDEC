@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\InFormacionGraduado; 
-use App\Ciudad; 
-use App\ProgramaAcademico;
+use App\informaciongraduado; 
+use App\ciudad; 
+use App\programaacademico;
 use App\Http\Requests\infoPersonalRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Post;
+use App\post;
 class PersonalInformationController extends Controller
 {
     /**
@@ -31,12 +31,10 @@ class PersonalInformationController extends Controller
     public function index()
     {
         $iduser = Auth::id();
-        $registros = InFormacionGraduado::where('user_id','=',$iduser)->first();
-        
-        
+        $registros = informaciongraduado::where('user_id','=',$iduser)->get();
         if(count($registros)==0){
             $ciudades = Ciudad::all();
-            $programas = ProgramaAcademico::all();
+            $programas = programaacademico::all();
 
             return view('infoPersonal.create',['ciudades'=>$ciudades,'programas'=>$programas],compact('registros'));    
         }
@@ -57,9 +55,9 @@ class PersonalInformationController extends Controller
     public function create()
     {
         //
-        $ciudades = Ciudad::all();
+        $ciudades = ciudad::all();
         
-        return view('infoPersonal.create',compact('ciudades')); 
+        return view('infopersonal.create',compact('ciudades')); 
     }
 
     /**
@@ -71,8 +69,8 @@ class PersonalInformationController extends Controller
     public function store(infoPersonalRequest $request)
     {
         // return $request->all(); 
-        InFormacionGraduado::create($request->all()); 
-        $Posts = Post::latest()->take(4)->get();
+        informaciongraduado::create($request->all()); 
+        $Posts = post::latest()->take(4)->get();
         return view('home.home',compact('Posts'));
     }
 
@@ -95,10 +93,10 @@ class PersonalInformationController extends Controller
      */
     public function edit($id)
     {
-        $registro = InFormacionGraduado::findOrFail($id);
-        $ciudades = Ciudad::all();
+        $registro = informaciongraduado::findOrFail($id);
+        $ciudades = ciudad::all();
         //dd($registro);
-        return view('infoPersonal.edit',compact('registro','ciudades'));
+        return view('infopersonal.edit',compact('registro','ciudades'));
     }
 
     /**
@@ -110,7 +108,7 @@ class PersonalInformationController extends Controller
      */
     public function update(infoPersonalRequest $request, $id)
     {
-        $registro = InFormacionGraduado::findOrFail($id)->update($request->all());
+        $registro = informaciongraduado::findOrFail($id)->update($request->all());
         
         //Redireccionar
         return redirect()->route('infopersonal.index');

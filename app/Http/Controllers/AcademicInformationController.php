@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\RegistroEstudiantil;
+use App\registroestudiantil;
 use App\Http\Requests\infoEstudiantilRequest;
 use Illuminate\Support\Facades\Auth;
-use App\TipoEstudio;
+use App\tipoestudio;
 class AcademicInformationController extends Controller
 {
     /**
@@ -29,7 +29,7 @@ class AcademicInformationController extends Controller
     {
         $iduser = Auth::id();
 
-        $registros = RegistroEstudiantil::where('usuario_id','=',$iduser)->get(); ;
+        $registros = registroestudiantil::where('usuario_id','=',$iduser)->get(); ;
         return view('infoacademica.index',compact('registros'));
     }
 
@@ -40,7 +40,7 @@ class AcademicInformationController extends Controller
      */
     public function create()
     {   
-        $programas = TipoEstudio::all();
+        $programas = tipoestudio::all();
         return view('infoacademica.create',['programas'=>$programas]);
 
     }
@@ -55,7 +55,7 @@ class AcademicInformationController extends Controller
     {
         
         //dd($request->all());
-        $registro = (new RegistroEstudiantil)->fill($request->all());
+        $registro = (new registroestudiantil)->fill($request->all());
         /*RegistroEstudiantil::create($request->all());*/
         $usuario=$request->input('usuario_id');
         if($request->hasFile('adjuntosoporte'))
@@ -83,7 +83,7 @@ class AcademicInformationController extends Controller
     public function show($id)
     {
         //
-         $registro = RegistroEstudiantil::findOrFail($id);
+         $registro = registroestudiantil::findOrFail($id);
         return view('infoacademica.show',compact('registro'));
     }
 
@@ -96,7 +96,7 @@ class AcademicInformationController extends Controller
     public function edit($id)
     {
         //
-        $registro = RegistroEstudiantil::findOrFail($id);
+        $registro = registroestudiantil::findOrFail($id);
         return view('infoacademica.edit',compact('registro'));
     }
 
@@ -110,7 +110,7 @@ class AcademicInformationController extends Controller
     public function update(infoEstudiantilRequest $request, $id)
     {
         //Actualizamos
-        $registro = RegistroEstudiantil::findOrFail($id);
+        $registro = registroestudiantil::findOrFail($id)->update($request->all());
         if($request->hasFile('adjuntosoporte'))
         {
             $registro->adjuntosoporte = $request->file('adjuntosoporte')->store('public/'.$usuario.'/academico/soporte');      
@@ -130,7 +130,7 @@ class AcademicInformationController extends Controller
     public function destroy($id)
     {
         //
-         $registro = RegistroEstudiantil::findOrFail($id)->delete();
+         $registro = registroestudiantil::findOrFail($id)->delete();
         return redirect()-> route('infoacademica.index');
     }
 }

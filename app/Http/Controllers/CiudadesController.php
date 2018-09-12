@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ciudad;
+use App\ciudad;
 
 class CiudadesController extends Controller
 {
@@ -15,7 +15,7 @@ class CiudadesController extends Controller
     public function index()
     {
         //
-        $ciudades = Ciudad::all();
+        $ciudades = ciudad::all();
         return view('ciudades.index',compact('ciudades'));
     }
 
@@ -40,8 +40,8 @@ class CiudadesController extends Controller
     {
         //
 
-        Ciudad::create($request->all());
-        $ciudades = Ciudad::all();
+        ciudad::create($request->all());
+        $ciudades = ciudad::all();
         flashy()->success('Ciudad creada exitosamente', '');
         //flash('Ciudad creada exitosamente!')->success();
         //return view('ciudades.index',compact('ciudades'));
@@ -68,7 +68,7 @@ class CiudadesController extends Controller
     public function edit($id)
     {
         //
-          $registro = Ciudad::findOrFail($id);
+          $registro = ciudad::findOrFail($id);
         //dd($registro);
 
         return view('ciudades.edit',compact('registro'));
@@ -84,7 +84,7 @@ class CiudadesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $registro = Ciudad::findOrFail($id)->update($request->all());
+        $registro = ciudad::findOrFail($id)->update($request->all());
          flashy()->success('Ciudad actualizada con exito', '');
          return redirect()->route('ciudades.index');
     }
@@ -98,7 +98,7 @@ class CiudadesController extends Controller
     public function destroy($id)
     {
         //
-        $registro = Ciudad::findOrFail($id)->delete();
+        $registro = ciudad::findOrFail($id)->delete();
         flashy()->success('Ciudad eliminada exitosamente', '');
         return redirect()-> route('ciudades.index');
     }

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\HistorialLaboral;
-use App\Ciudad;
+use App\historiallaboral;
+use App\ciudad;
 use App\Http\Requests\infoLaboralRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +30,7 @@ class LaboralInformationController extends Controller
     {
         //
         $iduser = Auth::id();
-        $registros = HistorialLaboral::where('usuario_id','=',$iduser)->get(); 
+        $registros = historiallaboral::where('usuario_id','=',$iduser)->get(); 
         
         return view('infolaboral.index',compact('registros'));
 
@@ -43,7 +43,7 @@ class LaboralInformationController extends Controller
      */
     public function create()
     {
-        $ciudades = Ciudad::all();
+        $ciudades = ciudad::all();
         return view('infolaboral.create',compact('ciudades'));
     }
 
@@ -55,7 +55,7 @@ class LaboralInformationController extends Controller
      */
     public function store(infoLaboralRequest $request)
     {
-        $registro = (new HistorialLaboral)->fill($request->all());
+        $registro = (new historiallaboral)->fill($request->all());
         $usuario=$request->input('usuario_id');
         if($request->hasFile('adjuntosoporte'))
         {
@@ -76,7 +76,7 @@ class LaboralInformationController extends Controller
     public function show($id)
     {
         //
-         $registro = HistorialLaboral::findOrFail($id);
+         $registro = historiallaboral::findOrFail($id);
          $ciudades = DB::table('ciudades')->where('id',$registro->ciudadempresa_id)->get();       
         return view('infolaboral.show',['ciudades'=>$ciudades],compact('registro'));
     }
@@ -91,7 +91,7 @@ class LaboralInformationController extends Controller
     {
         //
 
-        $registro = HistorialLaboral::findOrFail($id);
+        $registro = historiallaboral::findOrFail($id);
         //dd($registro);
         return view('infolaboral.edit',compact('registro'));
     }
@@ -107,7 +107,7 @@ class LaboralInformationController extends Controller
     {
         //
         //Actualizamos
-        $registro = HistorialLaboral::findOrFail($id)->update($request->all());
+        $registro = historiallaboral::findOrFail($id)->update($request->all());
         
         //Redireccionar
         return redirect()->route('infolaboral.index');
@@ -122,7 +122,7 @@ class LaboralInformationController extends Controller
     public function destroy($id)
     {
         //
-        $registro = HistorialLaboral::findOrFail($id)->delete();
+        $registro = historiallaboral::findOrFail($id)->delete();
         return redirect()-> route('infolaboral.index');
     }
 }

@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Rol extends Model
+class rol extends Model
 {
     protected $table = 'roles';
 
     public function user(){
-        return $this->hasOne(User::class);
+        return $this->hasOne(user::class);
     }
 }

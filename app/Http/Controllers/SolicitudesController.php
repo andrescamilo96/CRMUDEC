@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Solicitud;
+use App\solicitud;
 use DB;
 use Mail;
-use App\User;
-use App\Post;
+use App\user;
+use App\post;
 use App\Http\Requests\solicitudesRequest;
 use App\Notifications\SolicitudSent;
 use Illuminate\Support\Facades\Auth;
-use App\InformacionEmpresa;
+use App\informacionempresa;
 
 class SolicitudesController extends Controller
 {
@@ -37,7 +37,7 @@ class SolicitudesController extends Controller
         $ind = 0;
 
 /*        $registro = db::table('solicitudes')->where('indrespuesta', $ind)->first();
-*/      $registro = Solicitud::where('indrespuesta','=',0)->get();
+*/      $registro = solicitud::where('indrespuesta','=',0)->get();
         
        
          return view('solicitudes.index',compact('registro'));
@@ -60,8 +60,8 @@ class SolicitudesController extends Controller
         {
             $iduser = Auth::id();
 
-            $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get(); 
-            return view('solicitudes.createEmpresa',compact('registros'));
+            $registros = informacionempresa::where('usuario_id','=',$iduser)->get(); 
+            return view('solicitudes.createempresa',compact('registros'));
         }
          
     }
@@ -75,19 +75,19 @@ class SolicitudesController extends Controller
     public function store(solicitudesRequest $request)
     {
         //return $request->all();
-        $Posts = Post::latest()->take(4)->get();
+        $Posts = post::latest()->take(4)->get();
         //dd($Post);
 
 
         /*$Post = Post::select("posts.*")->whereBetween('created', ['2018-02-01', '2018-02-10'])->get();*/
         
-        Solicitud::create($request->all()); 
+        solicitud::create($request->all()); 
 
         if(Auth::user()->hasRoles(['empresa']))
         {
              $iduser = Auth::id();
 
-            $registros = InformacionEmpresa::where('usuario_id','=',$iduser)->get();
+            $registros = informacionempresa::where('usuario_id','=',$iduser)->get();
            // return view('indexempresa.index',compact('registros'));
              return redirect()->route('indexempresa.index',compact('registros'));
         }
@@ -110,7 +110,7 @@ class SolicitudesController extends Controller
     {
         //
 
-         $registro = Solicitud::findorfail($id);
+         $registro = solicitud::findorfail($id);
          if(Auth::user()->hasRoles(['empresa']))
         {
                 return view('solicitudes.showEmpresa',compact('registro'));
@@ -131,7 +131,7 @@ class SolicitudesController extends Controller
     public function edit($id)
     {
         //
-          $registro = Solicitud::findOrFail($id);
+          $registro = solicitud::findOrFail($id);
         //dd($registro);
 
         return view('solicitudes.edit',compact('registro'));
@@ -149,12 +149,12 @@ class SolicitudesController extends Controller
          //
         //Actualizamos
        
-        $registro = Solicitud::findOrFail($id)->update($request->all());
+        $registro = solicitud::findOrFail($id)->update($request->all());
 
-        $registro = Solicitud::findOrFail($id);
+        $registro = solicitud::findOrFail($id);
         //Redireccionar
 
-        $recipient = User::find($request->usuario_id);
+        $recipient = user::find($request->usuario_id);
 
         $recipient->notify(new SolicitudSent($registro) );
        
