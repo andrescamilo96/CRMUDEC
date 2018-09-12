@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Post;
+use App\post;
 class HomeController extends Controller
 {
     /**
@@ -34,11 +34,11 @@ class HomeController extends Controller
          if(Auth::user()->hasRoles(['admin']))
         {
 
-            return view('/indexAdmin.index');
+            return view('/indexadmin.index');
         }
 
         if(Auth::user()->hasRoles(['graduado'])){
-             $Posts = Post::latest()->take(4)->get();
+             $Posts = post::latest()->take(4)->get();
              return view('/home.home',compact('Posts'));
         }
 

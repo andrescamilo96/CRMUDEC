@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\user;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\UserNotification;
 
@@ -28,10 +28,10 @@ class UsersController extends Controller
     public function index()
     {
         //
-        $users = User::where('role_id','=',3)->get(); 
+        $users = user::where('role_id','=',3)->get(); 
         if(Auth::user()->hasRoles(['empresa']))
         {            
-            return view('users.indexEmpresa',compact('users')); 
+            return view('users.indexempresa',compact('users')); 
         }
         if(Auth::user()->hasRoles(['admin']))
         {
@@ -71,7 +71,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-         $user = User::findOrFail($id);
+         $user = user::findOrFail($id);
         return view('users.show',compact('user'));
     }
 
@@ -107,20 +107,20 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
-        User::findOrFail($id)->delete();
+        user::findOrFail($id)->delete();
         flashy()->success('Registro eliminado exitosamente', '');
         return redirect()->route('empresa.index');
     }
 
     public function Notificar($id)
     {
-        $registro = User::findOrFail($id);
+        $registro = user::findOrFail($id);
         //Redireccionar
         
-        $recipient = User::find($registro->id);
+        $recipient = user::find($registro->id);
 
         $recipient->notify(new UserNotification($registro) );
-       $users = User::where('role_id','=',3)->get();
+       $users = user::where('role_id','=',3)->get();
         flashy()->success('Graduado Notificado con exito', '');
        return view('users.index',compact('users')); 
     }

@@ -4,25 +4,25 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ciudad extends Model
+class ciudad extends Model
 {
       protected $fillable = [
         'ciudad'
     ];
     protected $table = 'ciudades';
     public function informacionempresa(){
-    	return $this->hasOne(InformacionEmpresa::class);
+    	return $this->hasOne(informacionempresa::class);
     }
     public function infoempleadoudec(){
-    	return $this->hasOne(InfoEmpleadoUdec::class);
+    	return $this->hasOne(infoempleadoudec::class);
     }
     public function historiallaboral(){
-    	return $this->hasMany(HistorialLaboral::class);
+    	return $this->hasMany(historiallaboral::class);
     }
     public function sedeuniversitaria(){
-    	return $this->hasOne(SedeUniversitaria::class);
+    	return $this->hasOne(sedeuniversitaria::class);
     }
     public function informaciongraduado(){
-        return   $this->hasOne(InformacionGraduado::class);
+        return   $this->hasOne(informaciongraduado::class);
     }
 }
