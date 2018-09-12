@@ -27,10 +27,10 @@ class infoEstudiantilRequest extends FormRequest
             'titulo' => 'required',
             'anofinalizacion' => 'required|numeric',
             'institucion' => 'required',
-            'adjuntosoporte' => 'required',
+            'adjuntosoporte' => 'required|mimes:pdf',
             'usuario_id' => 'required',
             'tipoestudio_id' => 'required',
-            
+            'certificadoconvalidacion'=>'mimes:pdf',
 
         ];
     }

@@ -107,7 +107,7 @@
 						<div align="center">
 					        	<a class="btn btn-warning" href="{{ route('infopersonal.edit',$registros->id) }}"><small>
 											<i class="glyphicon glyphicon-pencil"></i></small> Editar</a>
-								<a 	href="{{ route('home.index') }}" type="submit" class="btn btn-danger" ><small><i class="glyphicon glyphicon-home"></i> Inicio</a> 
+								<a 	href="{{ route('home.index') }}" type="submit" class="btn btn-danger" ><small><i class="glyphicon glyphicon-home"></i></small> Inicio</a> 
 					        </div>
 				
 				</div>

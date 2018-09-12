@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\registroestudiantil;
 use App\Http\Requests\infoEstudiantilRequest;
 use Illuminate\Support\Facades\Auth;
-
+use App\TipoEstudio;
 class AcademicInformationController extends Controller
 {
     /**
@@ -39,8 +39,9 @@ class AcademicInformationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('infoacademica.create');
+    {   
+        $programas = TipoEstudio::all();
+        return view('infoacademica.create',['programas'=>$programas]);
 
     }
 
@@ -110,9 +111,13 @@ class AcademicInformationController extends Controller
     {
         //Actualizamos
         $registro = registroestudiantil::findOrFail($id)->update($request->all());
+        if($request->hasFile('adjuntosoporte'))
+        {
+            $registro->adjuntosoporte = $request->file('adjuntosoporte')->store('public/'.$usuario.'/academico/soporte');      
+        }
         
-        //Redireccionar
-        return redirect()->route('infoacademica.index');
+        dd($request->all());
+        
         
     }
 

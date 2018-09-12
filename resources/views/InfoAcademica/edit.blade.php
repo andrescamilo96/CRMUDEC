@@ -53,8 +53,9 @@
 					        <div class="form-group" style="position: static;">
 					            <label for="input-id-5">Adjunto Soporte</label>
 					             <div class="input-group">
+
 									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
-									<input required type="file" class="form-control"  name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte su certificado de graduación o finalización del estudio realizado" value="{{ $registro->adjuntosoporte }}"/ >
+									<input text class="form-control"  name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte su certificado de graduación o finalización del estudio realizado" value="{{ Storage::url($registro->adjuntosoporte) }}"/ >
 									{!! $errors->first('adjuntosoporte','<span class=error>:message</span>') !!}
 
 								</div>
@@ -73,8 +74,8 @@
 					    
 					</div>
 						<div align="center">							
-							<input class ="btn btn-success" type="submit" value="Enviar"></input>						
-							<a 	href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-default" >Regresar</a> 
+							<input class ="btn btn-warning" type="submit" value="Enviar"></input>						
+							<a 	href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-danger" ><small><i class="glyphicon glyphicon-home"></i></small> Regresar</a> 
 						</div>
 						<div align="center">
 					        	

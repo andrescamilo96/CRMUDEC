@@ -12,16 +12,11 @@
 					    	<div class="form-group" style="position: static;">
 					            <label for="select-6">Tipo de Estudios</label>
 					            <div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyph	icon-tag" aria-hidden="true"></i></span>
+								<span class="input-group-addon"><i class="glyphicon glyphicon-tag" aria-hidden="true"></i></span>
 					            <select class="form-control" name ="tipoestudio_id" id="tipoestudio_id">
-					                <option value="1">Diplomado</option>
-					            	
-					            	<option value="2" >Certificacion</option>
-					            	 <option value="3">Especializacion</option>
-					            	
-					            	<option value="4" >Maestria</option>
-					            	<option value="5" >Doctorado</option>
-					            	
+					               @foreach($programas as $programa)
+					            	<option value="{{$programa->id}}" >{{$programa->tipoestudio}}</option>
+					            	@endforeach
 					            	</select>
 					            	{{ $errors->first('tipoestudio_id') }}
 					        </div>
@@ -65,10 +60,11 @@
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					            <label for="input-id-5">Certificado Convalidación</label>
+					            <label for="input-id-5">Certificado Convalidación (En caso de haber cursado el estudio en el exterior)</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
 									<input type="file" class="form-control" name="certificadoconvalidacion" id="certificadoconvalidacion"  placeholder="Si sus estudios fueron realizados en el extranjero adjunte certificado de convalidación"/>
+									{!! $errors->first('certificadoconvalidacion','<span class=error>:message</span>') !!}
 								</div>
 					        </div>
 
@@ -80,6 +76,7 @@
 						<div align="center">
 							
 						<input class ="btn btn-success" type="submit" value="Enviar"></input>
+						<a 	href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-danger" ><small><i class="glyphicon glyphicon-home"></i> Volver</a> 
 						
 						</div>
 					</form>
