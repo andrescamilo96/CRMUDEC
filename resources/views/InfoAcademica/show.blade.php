@@ -53,6 +53,7 @@
 									<a class="btn btn-success " onclick="OpenConvalidacion('{{Storage::url($registro->adjuntosoporte) }}')" target="blank">
 											<small><i class="glyphicon glyphicon-file "></i></small>
 									</a>
+									<iframe src="{{Storage::url($registro->adjuntosoporte) }}"></iframe>
 									
 								</div>
 					        </div>
@@ -71,7 +72,7 @@
 					    
 					</div>
 						<div align="center">
-					        	<a 	href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-default" >Regresar</a> 
+					        	<a 	href="{{ route('infoacademica.index') }}" type="submit" class="btn btn-warning" ><small><i class="glyphicon glyphicon-home"></i></small> Regresar</a> 
 					        </div>
 					
 
@@ -79,7 +80,7 @@
 
 			</div>
 
-		</div>
+		</div>	
 
 </div>
 <script type="text/javascript">
