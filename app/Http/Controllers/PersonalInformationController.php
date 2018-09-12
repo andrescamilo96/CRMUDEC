@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\informaciongraduado; 
 use App\ciudad; 
-use App\ProgramaAcademico;
+use App\programaacademico;
 use App\Http\Requests\infoPersonalRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Post;
+use App\post;
 class PersonalInformationController extends Controller
 {
     /**
@@ -34,7 +34,7 @@ class PersonalInformationController extends Controller
         $registros = informaciongraduado::where('user_id','=',$iduser)->get();
         if(count($registros)==0){
             $ciudades = Ciudad::all();
-            $programas = ProgramaAcademico::all();
+            $programas = programaacademico::all();
 
             return view('infoPersonal.create',['ciudades'=>$ciudades,'programas'=>$programas],compact('registros'));    
         }
@@ -70,7 +70,7 @@ class PersonalInformationController extends Controller
     {
         // return $request->all(); 
         informaciongraduado::create($request->all()); 
-        $Posts = Post::latest()->take(4)->get();
+        $Posts = post::latest()->take(4)->get();
         return view('home.home',compact('Posts'));
     }
 
