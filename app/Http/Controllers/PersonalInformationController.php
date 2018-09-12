@@ -31,16 +31,15 @@ class PersonalInformationController extends Controller
     public function index()
     {
         $iduser = Auth::id();
-        $registros = informaciongraduado::where('user_id','=',$iduser)->get();
+        $registros = informaciongraduado::where('user_id','=',$iduser)->first();
         if(count($registros)==0){
             $ciudades = Ciudad::all();
-            $programas = programaacademico::all();
-
+            $programas = programaacademico::all();            
             return view('infoPersonal.create',['ciudades'=>$ciudades,'programas'=>$programas],compact('registros'));    
         }
         if(count($registros)>0)
         {
-            $ciudades = DB::table('ciudades')->where('id',$registros->ciudadresidencia_id)->first();     
+            $ciudades = DB::table('ciudades')->where('id',$registros->ciudadresidencia_id)->first();                 
             return view('infoPersonal.index',['ciudades'=>$ciudades],compact('registros'));    
         }
         
