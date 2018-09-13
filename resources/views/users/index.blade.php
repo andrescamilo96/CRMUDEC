@@ -1,4 +1,4 @@
-@extends('layouts.appAdmin')
+@extends('layouts.appadmin')
 @section('Contenido')
 
 <div class="container" style="width:100%;">

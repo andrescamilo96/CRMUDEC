@@ -1,4 +1,4 @@
-@extends('layouts.appEmpresa')
+@extends('layouts.appempresa')
 @section('Contenido')
 	
 		<div class="container" style="width:100%;">

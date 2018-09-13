@@ -1,4 +1,4 @@
-@extends('layouts.appEmpresa')
+@extends('layouts.appempresa')
 @section('Contenido')
 <div class="panel panel-default">
           <div class="panel-heading" style="background-color:  #02adff;">
