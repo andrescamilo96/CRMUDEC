@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -26,7 +26,7 @@ class PostController extends Controller
     public function index()
     {
         //
-         $registro = Post::all();
+         $registro = post::all();
          return view('posts.index',compact('registro'));
     }
 
@@ -50,7 +50,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        Post::create($request->all());
+        post::create($request->all());
         flashy()->success('Noticia publicada exitosamente', '');
         return redirect()->route('admin.index');
         
@@ -103,7 +103,7 @@ class PostController extends Controller
     {
         //
         
-        Post::findOrFail($id)->delete();
+        post::findOrFail($id)->delete();
         flashy()->success('Registro eliminado exitosamente', '');
         return redirect()->route('posts.index');
     }

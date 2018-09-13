@@ -1,4 +1,4 @@
-@extends('layouts.appEmpresa')
+@extends('layouts.appempresa')
 @section('Contenido')
 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <div class="panel panel-default">
