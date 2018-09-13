@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class infoEstudiantilRequest extends FormRequest
+class editinfoacademicarequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,9 @@ class infoEstudiantilRequest extends FormRequest
         return [
             'titulo' => 'required',
             'anofinalizacion' => 'required|numeric|min:2001|max:2020',
-            'institucion' => 'required',
-            'adjuntosoporte' => 'required|mimes:pdf',
+            'institucion' => 'required',            
             'usuario_id' => 'required',
-            'tipoestudio_id' => 'required',
-            'certificadoconvalidacion'=>'mimes:pdf',
+            'tipoestudio_id' => 'required',            
 
         ];
     }

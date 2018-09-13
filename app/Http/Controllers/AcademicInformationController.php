@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\registroestudiantil;
 use App\Http\Requests\infoEstudiantilRequest;
+use App\Http\Requests\editinfoacademicarequest;
 use Illuminate\Support\Facades\Auth;
 use App\tipoestudio;
+use Illuminate\Support\Facades\Storage;
+
 class AcademicInformationController extends Controller
 {
     /**
@@ -107,16 +110,33 @@ class AcademicInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(infoEstudiantilRequest $request, $id)
+    public function update(editinfoacademicarequest $request, $id)
     {
         //Actualizamos
-        $registro = registroestudiantil::findOrFail($id)->update($request->all());
+        
+        $registro = registroestudiantil::findOrFail($id);
+        $usuario=$request->input('usuario_id');
+        
+        $registro->fill($request->all());
         if($request->hasFile('adjuntosoporte'))
         {
+            $archivo=$registro->adjuntosoporte;
+            
+            Storage::delete($archivo);
             $registro->adjuntosoporte = $request->file('adjuntosoporte')->store('public/'.$usuario.'/academico/soporte');      
         }
+        if($request->hasFile('certificadoconvalidacion'))
+        {
+            $archivo=$registro->certificadoconvalidacion;
+            
+            Storage::delete($archivo);
+            $registro->certificadoconvalidacion = $request->file('certificadoconvalidacion')->store('public/'.$usuario.'/academico/convalidacion');
+        }   
+        $registro->save();
+
+        return redirect()->route('infoacademica.index');
         
-        dd($request->all());
+        
         
         
     }

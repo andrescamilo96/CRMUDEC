@@ -5,7 +5,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Registro Información Académica</h5>
-					<form   action="{{ route('infoacademica.update',$registro->id) }}" method="post">
+					<form   action="{{ route('infoacademica.update',$registro->id) }}" method="post" enctype="multipart/form-data">
 						{!! method_field('PUT') !!}
 
 						{!! csrf_field() !!}
@@ -55,7 +55,8 @@
 					             <div class="input-group">
 
 									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
-									<input text class="form-control"  name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte su certificado de graduación o finalización del estudio realizado" value="{{ Storage::url($registro->adjuntosoporte) }}"/ >
+									<input type="hidden" value="{{$registro->adjuntosoporte}}" id="adjuntosoporte" name="adjuntosoporte"></input>
+									<input type="file" class="form-control"  name="adjuntosoporte" id="adjuntosoporte"  value="{{$registro->adjuntosoporte}}" / >
 									{!! $errors->first('adjuntosoporte','<span class=error>:message</span>') !!}
 
 								</div>
@@ -64,7 +65,8 @@
 					            <label for="input-id-5">Certificado Convalidación</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
-									<input type="file" class="form-control" name="certificadoconvalidacion" id="certificadoconvalidacion"  placeholder="Si sus estudios fueron realizados en el extranjero adjunte certificado de convalidación"/>
+									<input type="hidden" value="{{$registro->certificadoconvalidacion}}" id="certificadoconvalidacion" name="certificadoconvalidacion"></input>
+									<input type="file" class="form-control" name="certificadoconvalidacion" id="certificadoconvalidacion"  value="{{$registro->certificadoconvalidacion}}" />
 								</div>
 					        </div>
 
