@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Events\postcreated;
+use App\Events\PostCreated;
 class post extends Model
 {
     //{}
@@ -11,7 +11,7 @@ class post extends Model
 
    protected $dispatchesEvents = [
 
-    'created' => postcreated::class
+    'created' => PostCreated::class
     
     ];
 }

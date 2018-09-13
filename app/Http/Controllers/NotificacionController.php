@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Notifications\DataBaseNotification; 
+use Illuminate\Notifications\DatabaseNotification; 
 use Illuminate\Support\Facades\Auth;
 use App\informacionempresa;
 class NotificacionController extends Controller
@@ -57,7 +57,7 @@ class NotificacionController extends Controller
     public function read($id)
     {
         //dd($id);
-         DataBaseNotification::find($id)->markAsRead();
+         DatabaseNotification::find($id)->markAsRead();
         flashy()->success('Notificacion Marcada Como leida', ''); 
         return redirect()->route('notificaciones.index');
          
@@ -65,7 +65,7 @@ class NotificacionController extends Controller
     public function destroy($id)
     {
         //
-        DataBaseNotification::find($id)->delete();
+        DatabaseNotification::find($id)->delete();
         flashy()->success('Notificacion Eliminada con exito', ''); 
         return redirect()->route('notificaciones.index');
        
