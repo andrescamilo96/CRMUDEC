@@ -35,12 +35,12 @@ class PersonalInformationController extends Controller
         if(count($registros)==0){
             $ciudades = Ciudad::all();
             $programas = programaacademico::all();            
-            return view('infoPersonal.create',['ciudades'=>$ciudades,'programas'=>$programas],compact('registros'));    
+            return view('infopersonal.create',['ciudades'=>$ciudades,'programas'=>$programas],compact('registros'));    
         }
         if(count($registros)>0)
         {
             $ciudades = DB::table('ciudades')->where('id',$registros->ciudadresidencia_id)->first();                 
-            return view('infoPersonal.index',['ciudades'=>$ciudades],compact('registros'));    
+            return view('infopersonal.index',['ciudades'=>$ciudades],compact('registros'));    
         }
         
         
