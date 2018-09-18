@@ -5,7 +5,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Registro Información Laboral</h5>
-					<form class="" action="{{route('infolaboral.store')}}"  method="post"> 
+					<form class="" action="{{route('infolaboral.store')}}"  method="post" enctype="multipart/form-data"> 
            			 {!! csrf_field() !!} 
 						
 						<div class="row">
@@ -107,6 +107,7 @@
 					</div>
 					<div align="center">
 					        	<input type="submit" class="btn btn-success" value="Guardar"></input> 
+					        	<a 	href="{{ route('infolaboral.index') }}" type="submit" class="btn btn-danger" ><small><i class="glyphicon glyphicon-home"></i></small> Regresar</a> 
 					        </div>
 						
 					</form>

@@ -53,18 +53,32 @@
 									<a class="btn btn-success " onclick="OpenConvalidacion('{{Storage::url($registro->adjuntosoporte) }}')" target="blank">
 											<small><i class="glyphicon glyphicon-file "></i></small>
 									</a>
-									<iframe src="{{Storage::url($registro->adjuntosoporte) }}"></iframe>
+									
 									
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
-					            <label for="input-id-5">Certificado Convalidación</label>
-					             <div class="input-group">									
+					        	<iframe src="{{Storage::url($registro->adjuntosoporte) }}"></iframe>
+					        </div>
+					        
+					        @if($registro->certificadoconvalidacion='Null')					        
+					        <div class="form-group" style="position: static;">
+					        	<label for="input-id-5">No hay certificado convalidacion</label>
+					        </div>
+					        @else
+					        <div class="form-group" style="position: static;">					            
+					             <div class="input-group">
+					             <label for="input-id-5">Certificado Convalidación</label>					     								
 									<a class="btn btn-success " onclick="OpenConvalidacion('{{Storage::url($registro->certificadoconvalidacion) }}')" target="blank">
 											<small><i class="glyphicon glyphicon-file "></i></small>
 									</a>
 								</div>
 					        </div>
+					         <div class="form-group" style="position: static;">
+					        	<iframe src="{{Storage::url($registro->certificadoconvalidacion) }}"></iframe>
+					        </div>
+					        @endif
+					       
 
 					        
 					    </div>

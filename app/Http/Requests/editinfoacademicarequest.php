@@ -26,6 +26,7 @@ class editinfoacademicarequest extends FormRequest
         return [
             'titulo' => 'required',
             'anofinalizacion' => 'required|numeric|min:2001|max:2020',
+            'adjuntosoporte'=>'required',
             'institucion' => 'required',            
             'usuario_id' => 'required',
             'tipoestudio_id' => 'required',            
