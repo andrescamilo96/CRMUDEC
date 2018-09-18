@@ -7,7 +7,7 @@
 			
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h3 class="panel-title">GRADUADOS REGISTRADOS</h3>
+						<h3 class="panel-title"><a href="{{ route('admin.index') }}"><span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip"  title="Inicio"></span> </a> GRADUADOS REGISTRADOS</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Filtrar" data-container="body">
 								<i class="glyphicon glyphicon-filter"></i>

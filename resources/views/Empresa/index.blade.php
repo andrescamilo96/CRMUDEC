@@ -6,7 +6,7 @@
 		{{Session::get('flash_message')}}
 		@endif
           <div class="panel-heading" style="background-color:  #02adff;">
-            <h3 class="panel-title">Control De Empresas</h3>
+            <h3 class="panel-title"><a href="{{ route('admin.index') }}"><span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip" title="Inicio"></span></a> Control De Empresas</h3>
           </div>
           <div class="panel-body">
           	<table  class="table table-hover" id="dev-table">

@@ -4,7 +4,7 @@
 		<div class="container" style="width:100%;">
 			<div class="row">
 				<div class="panel panel-primary">
-			      <div class="panel-heading"><strong><h1 align="center">Consolidado Adjuntos Graduado</h3></strong></div>
+			      <a href="{{ route('usuarios.index') }}"><span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip" title="Inicio"></span></a><div class="panel-heading"><strong><h1 align="center">Consolidado Adjuntos Graduado</h3></strong></div>
 			      <div class="panel-body">
 			      		<div class="col-md-12" style="">						    	
 					        	<label for="name">Usuario:</label>

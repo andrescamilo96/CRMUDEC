@@ -122,6 +122,7 @@ class UsersController extends Controller
         $recipient->notify(new UserNotification($registro) );
        $users = user::where('role_id','=',3)->get();
         flashy()->success('Graduado Notificado con exito', '');
-       return view('users.index',compact('users')); 
+       
+       return redirect()->route('usuarios.index',compact('users'));
     }
 }

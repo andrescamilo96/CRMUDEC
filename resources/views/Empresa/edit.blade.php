@@ -2,7 +2,7 @@
 @section('Contenido')
  <div class="panel panel-default">
           <div class="panel-heading" style="background-color:  #02adff;">
-            <h3 class="panel-title">Control De Solicitudes</h3>
+            <h3 class="panel-title"> <a href="{{ route('empresa.index') }}"><span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip" title="Inicio"></span></a> Control Empresas</h3>
           </div>
           <div class="panel-body">
 <div class ="fondo">

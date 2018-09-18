@@ -2,7 +2,7 @@
 @section('Contenido')
 <div class="panel panel-default">
           <div class="panel-heading" style="background-color:  #02adff;">
-            <h3 class="panel-title">Control De Noticias</h3>
+            <h3 class="panel-title"><a href="{{ route('admin.index') }}"><span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip" title="Inicio"></span></a> Control De Noticias</h3>
           </div>
           <div class="panel-body">
 <div class ="fondo">
@@ -36,7 +36,7 @@
 					        </div>					       
 					      
 					  	<div align="center">
-					        	<input type="submit" class="btn btn-success" value="Responder"></input> 
+					        	<input type="submit" class="btn btn-success" value="Crear"></input> 
 					        </div>
 					</form>
 				</div>

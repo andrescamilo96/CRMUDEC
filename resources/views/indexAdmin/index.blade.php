@@ -3,7 +3,7 @@
 
  <div class="panel panel-default">
            <div class="panel-heading" style="background-color:  #02adff;">
-            <h3 class="panel-title">Menu Principal</h3>
+            <h3 class="panel-title"><a href="{{ route('admin.index') }}"><span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip"  title="Inicio"></span> </a> Menu Principal</h3>
           </div>
           <div class="panel-body">
            <div class="col-md-3">
