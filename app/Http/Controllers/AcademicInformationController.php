@@ -63,11 +63,11 @@ class AcademicInformationController extends Controller
         $usuario=$request->input('usuario_id');
         if($request->hasFile('adjuntosoporte'))
         {
-            $registro->adjuntosoporte = $request->file('adjuntosoporte')->store('public/'.$usuario.'/academico/soporte');      
+            $registro->adjuntosoporte = $request->file('adjuntosoporte')->store(''.$usuario.'/academico/soporte');      
         }
         if($request->hasFile('certificadoconvalidacion'))
         {
-            $registro->certificadoconvalidacion = $request->file('certificadoconvalidacion')->store('public/'.$usuario.'/academico/convalidacion');
+            $registro->certificadoconvalidacion = $request->file('certificadoconvalidacion')->store(''.$usuario.'/academico/convalidacion');
         }   
         
         $registro->save();        
@@ -123,14 +123,14 @@ class AcademicInformationController extends Controller
             $archivo=$registro->adjuntosoporte;
             
             Storage::delete($archivo);
-            $registro->adjuntosoporte = $request->file('adjuntosoporte')->store('public/'.$usuario.'/academico/soporte');      
+            $registro->adjuntosoporte = $request->file('adjuntosoporte')->store(''.$usuario.'/academico/soporte');      
         }
         if($request->hasFile('certificadoconvalidacion'))
         {
             $archivo=$registro->certificadoconvalidacion;
             
             Storage::delete($archivo);
-            $registro->certificadoconvalidacion = $request->file('certificadoconvalidacion')->store('public/'.$usuario.'/academico/convalidacion');
+            $registro->certificadoconvalidacion = $request->file('certificadoconvalidacion')->store(''.$usuario.'/academico/convalidacion');
         }   
         $registro->save();
 
@@ -150,7 +150,7 @@ class AcademicInformationController extends Controller
     public function destroy($id)
     {
         //
-         $registro = registroestudiantil::findOrFail($id)->delete();
+         $registro = registroestudiantil::findOrFail($id)->delete();         
         return redirect()-> route('infoacademica.index');
     }
 }

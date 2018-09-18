@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\historiallaboral;
 use App\ciudad;
 use App\Http\Requests\infoLaboralRequest;
+use App\Http\Requests\editinfolaboralrequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 class LaboralInformationController extends Controller
 {
     /**
@@ -59,7 +61,7 @@ class LaboralInformationController extends Controller
         $usuario=$request->input('usuario_id');
         if($request->hasFile('adjuntosoporte'))
         {
-            $registro->adjuntosoporte = $request->file('adjuntosoporte')->store('public/'.$usuario.'/laboral/soporte');      
+            $registro->adjuntosoporte = $request->file('adjuntosoporte')->store(''.$usuario.'/laboral/soporte');      
         }
          //return $request->all(); 
         /*HistorialLaboral::create($request->all()); */
@@ -92,8 +94,8 @@ class LaboralInformationController extends Controller
         //
 
         $registro = historiallaboral::findOrFail($id);
-        //dd($registro);
-        return view('infolaboral.edit',compact('registro'));
+        $ciudades = DB::table('ciudades')->where('id',$registro->ciudadempresa_id)->first();                 
+        return view('infolaboral.edit',compact('registro','ciudades'));
     }
 
     /**
@@ -103,12 +105,21 @@ class LaboralInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(infoLaboralRequest $request, $id)
+    public function update(editinfolaboralrequest $request, $id)
     {
         //
         //Actualizamos
-        $registro = historiallaboral::findOrFail($id)->update($request->all());
-        
+        $registro = historiallaboral::findOrFail($id);
+        $usuario=$request->input('usuario_id');
+        $registro->fill($request->all());
+        if($request->hasFile('adjuntosoporte'))
+        {
+            $archivo=$registro->adjuntosoporte;
+            
+            Storage::delete($archivo);
+            $registro->adjuntosoporte = $request->file('adjuntosoporte')->store(''.$usuario.'/laboral/soporte');      
+        }
+        $registro->save();
         //Redireccionar
         return redirect()->route('infolaboral.index');
     }

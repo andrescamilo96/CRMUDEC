@@ -5,7 +5,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 				<h5>Registro Información Laboral</h5>
-					<form class="" action="{{route('infolaboral.update',$registro->id)}}"  method="post">
+					<form class="" action="{{route('infolaboral.update',$registro->id)}}"  method="post" enctype="multipart/form-data">
 					{!! method_field('PUT') !!} 
            			 {!! csrf_field() !!} 
 						
@@ -15,7 +15,8 @@
 					        	<label for="usuario_id">Nombre Usuario</label>
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									<input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  placeholder="Usuario"/>
+									<input type="hidden" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  placeholder="Usuario"/>
+									<input type="text" readonly="true" class="form-control" name="nombre" id="nombre" value="{{ Auth::user()->nombre }}"  placeholder="Usuario"/>
 									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
 								</div>
 					        </div>				    	
@@ -58,11 +59,7 @@
 					            <label for="rangoingresos">Rango de Ingresos Obtenidos</label>
 					            <div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i></span>
-					            <select class="form-control" id="rangoingresos" name="rangoingresos">
-					            	<option value="Entre 1 y 2 SMLV">Entre 1 y 2 SMLV</option>
-					            	<option value="Entre 3 y 4 SMLV">Entre 3 y 4 SMLV</option>
-					            	<option value="Superior a 4 SMLV">Superior a 4 SMLV</option>
-					            </select>
+					            <input type="text" readonly="true" class="form-control" name="rangoingresos" id="rangoingresos" value="{{ $registro->rangoingresos }}"  placeholder="Usuario"/>
 					        </div>
 					        </div>
 					    </div>
@@ -80,10 +77,8 @@
 					            <label for="ciudadempresa_id">Ciudad Empresa</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-globe" aria-hidden="true"></i></span>
-									<select class="form-control" id="ciudadempresa_id" name="ciudadempresa_id">
-					            	<option value="1">Bogota</option>
-					            	<option value="2">Medellin</option>
-					            	<option value="3">Cali</option>
+									<input type="hidden" name="ciudadempresa_id" id="ciudadempresa_id" value="{{ $registro->ciudadempresa_id }}"></input>
+									<input type="text" readonly="true" class="form-control" name="ciudad" id="ciudad" value="{{ $ciudades->ciudad }}"  placeholder="Usuario"/>
 					            </select>
 								</div>
 					    	</div>
@@ -100,8 +95,9 @@
 					            <label for="adjuntosoporte">Adjunto Certificado Laboral</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-level-up" aria-hidden="true"></i></span>
-									<input required type="file" class="form-control" name="adjuntosoporte" id="adjuntosoporte"  placeholder="Adjunte certificado Laboral en formato PDF" value="{{ $registro->adjuntosoporte }}"/>
-									{!! $errors->first('adjuntosoporte','<span class=error >:message</span>') !!}
+									<input type="hidden" value="{{$registro->adjuntosoporte}}" id="adjuntosoporte" name="adjuntosoporte"></input>
+									<input type="file" class="form-control"  name="adjuntosoporte" id="adjuntosoporte"  value="{{$registro->adjuntosoporte}}" / >
+									{!! $errors->first('adjuntosoporte','<span class=error>:message</span>') !!}
 								</div>
 					        </div>
 					        

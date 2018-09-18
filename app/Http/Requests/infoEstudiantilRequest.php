@@ -24,9 +24,9 @@ class infoEstudiantilRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo' => 'required',
-            'anofinalizacion' => 'required|numeric|min:2001|max:2020',
-            'institucion' => 'required',
+            'titulo' => 'required|max:200|min:5',
+            'anofinalizacion' => 'required|numeric|min:1990|max:2020',
+            'institucion' => 'required|max:50',
             'adjuntosoporte' => 'required|mimes:pdf',
             'usuario_id' => 'required',
             'tipoestudio_id' => 'required',

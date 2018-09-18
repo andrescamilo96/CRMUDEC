@@ -102,6 +102,9 @@
 									
 								</div>
 					        </div>
+					        <div class="form-group" style="position: static;">
+					        	<iframe src="{{Storage::url($registro->adjuntosoporte) }}"></iframe>
+					        </div>
 					        
 					    </div>
 					    

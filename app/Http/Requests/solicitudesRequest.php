@@ -26,7 +26,7 @@ class solicitudesRequest extends FormRequest
         return [
             'correo'=>'required|email',
             'asunto'=>'required|max:50',
-            'telefono'=>'required|numeric|min:7',
+            'telefono'=>'required|numeric|min:1001010|max:9999999999',
             'solicitud'=>'required',
             'usuario_id'=>'required|numeric',
             'indrespuesta'=>'required',
