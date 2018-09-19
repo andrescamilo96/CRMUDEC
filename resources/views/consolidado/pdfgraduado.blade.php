@@ -51,9 +51,7 @@
 					    <table>
 					    	<tr>
 					    	<th style="width: 20%;">Residencia</td>
-					    	<td style="width: 30%;">{{ $infopersonal->residencia }}</td>
-					    	<th style="width: 20%;">Ciudad</td>
-					    	<td style="width: 30%;">{{ $infopersonal->ciudadresidencia_id }}</td>
+					    	<td style="width: 30%;">{{ $infopersonal->residencia }}</td>					    	
 					    	</tr>
 					    </table>
 					    <table>
