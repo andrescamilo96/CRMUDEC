@@ -15,11 +15,7 @@
 					        	<label for="input-id-4">Cédula:</label>
 									<input readonly="true" type="text" class="form-control" name="cedulausuario" id="cedulausuario"  placeholder="Cédula Usuario" value="{{ $user->cedulausuario }}" />			
 					    </div>
-					    <div class="col-md-6" style="">	
-					        
-					        	<label for="email">Correo Electrónico</label>
-									<input readonly="true" type="text" class="form-control" name="email" id="email"  placeholder="Correo usuario" value="{{ $user->email }}" />									
-					    </div>
+					    
 								    					
 						 				
 					    @foreach ($infopersonal as $infopersonal)					    	
@@ -57,7 +53,7 @@
 					        </div>
 					        <div class="col-md-6" style="">
 						        <div class="form-group" style="position: static;">						        	
-										<a class="btn btn-primary " href="{{ $estudios->adjuntosoporte }}" target="blank">
+										<a class="btn btn-primary " href="{{Storage::url($estudios->adjuntosoporte) }}" target="blank">
 										Adjunto Soporte
 										</a>
 						        </div>
@@ -65,7 +61,7 @@
 					        @if($estudios->certificadoconvalidacion != NULL)
 						        <div class="col-md-6" style="">
 							        <div class="form-group" style="position: static;">						        	
-											<a class="btn btn-primary " href="{{ $estudios->certificadoconvalidacion }}" target="blank">
+											<a class="btn btn-primary " href="{{Storage::url($estudios->certificadoconvalidacion) }}" target="blank">
 											Certificado Convalidación 
 											</a>
 							        </div>
@@ -93,7 +89,7 @@
 					        </div>
 					        <div class="col-md-12" style="">
 						        <div class="form-group" style="position: static;">						        	
-										<a class="btn btn-primary " href="{{ $historialaboral->adjuntosoporte }}" target="blank">
+										<a class="btn btn-primary " href="{{Storage::url($historialaboral->adjuntosoporte) }}" target="blank">
 										Adjunto Soporte
 										</a>
 						        </div>
