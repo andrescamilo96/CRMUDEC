@@ -6,7 +6,7 @@
 		{{Session::get('flash_message')}}
 		@endif
           <div class="panel-heading" style="background-color:  #02adff;">
-            <h3 class="panel-title">Panel Principal</h3>
+            <h3 class="panel-title"><a href="{{ route('indexempresa.index') }}"><span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip" title="Inicio"></span></a> Panel Principal</h3>
           </div>
           <div class="panel-body">
 
@@ -67,9 +67,8 @@
             		</div>
 	         	@elseif($registro->validadorempresa !=0)	         		
 	         		<input type="hidden" value="{{$registro->id}}"></input>
-	         		<span>
-							  <a href="{{ route('usuarios.index')}}" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios </a>
-							</span>
+	         		
+	   
 	        		<!-- code start -->
 	        		<br/>
 				<div class="twPc-div">
@@ -96,6 +95,32 @@
 							<span>
 								<a><span>{{ $registro->email}}</span></a>
 							</span>
+							
+						</div>
+
+						
+					</div>
+				</div>
+				<div class="twPc-div">
+				    <a class=""></a>
+
+					<div>
+						
+						<a title=""  class="twPc-avatarLink">
+							<img alt="" src="http://icons.iconarchive.com/icons/treetog/junior/128/user-group-icon.png" class="twPc-avatarImg">
+						</a>
+
+						<div class="twPc-divUser">
+							<div class="twPc-divName">
+															
+								<br>
+								<a  href="{{ route('usuarios.index') }}">Lista Graduados</a>
+								
+								
+								<br>
+							</div>
+							
+							
 							
 						</div>
 

@@ -30,7 +30,7 @@
      
 </head>
 
-<body onload="nobackbutton();">
+<body onload="nobackbutton();" >
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -81,7 +81,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('register') }}">Registro</a></li>
                         @else
                          @if (auth()->user()->hasroles(['admin']))
                          <li class=""> 
@@ -104,7 +104,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Cerrar Sesión
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -152,7 +152,10 @@
    window.location.hash="Again-No-back-button" //chrome
    window.onhashchange=function(){window.location.hash="no-back-button";}
 }
+
 </script>
+
+
     @include('flashy::message')
 </body>
 </html>

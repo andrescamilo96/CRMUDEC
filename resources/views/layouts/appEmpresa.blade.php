@@ -41,7 +41,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('register') }}">Registro</a></li>
                         @else
                          @if (auth()->user()->hasroles(['empresa']))
                          
@@ -56,7 +56,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Cerrar Sesión
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -120,28 +120,17 @@
               </a>             
             </div>
 
-                <div class="well">
-                  <h4>Disk Space Used</h4>
-                  <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                        60%
-                      </div>
-                    </div>
-                    <h4>Bandwidth Used</h4>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                        40%
-                      </div>
-                    </div>
-                </div>
+             
               </div>
           
       
               <div class="col-md-9">
             @yield('Contenido')
 
-          <footer id="footer">
-            <p>Copyright : Madhav Prasad<br>2017</p>
+           <footer id="footer">
+            
+         <p>©2018 Universidad Cundinamarca | Administracion Empresas Extension Facatativa <a target="_blank">CRM-UDEC</a>
+      
           </footer>
 
                     <!-- Right Side Of Navbar -->

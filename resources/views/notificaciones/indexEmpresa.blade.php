@@ -3,7 +3,7 @@
 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <div class="panel panel-default">
           <div class="panel-heading" style="background-color:  #02adff;">
-            <h3 class="panel-title">Notificaciones</h3>
+            <h3 class="panel-title"><a href="{{ route('indexempresa.index') }}"><span class="glyphicon glyphicon-home" aria-hidden="true" data-toggle="tooltip" title="Inicio"></span></a> Notificaciones</h3>
           </div>
           <div class="panel-body">
  <div class="mail-box">
