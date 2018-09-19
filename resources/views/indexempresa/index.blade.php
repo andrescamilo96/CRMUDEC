@@ -67,7 +67,11 @@
             		</div>
 	         	@elseif($registro->validadorempresa !=0)	         		
 	         		<input type="hidden" value="{{$registro->id}}"></input>
+	         		<span>
+							  <a href="{{ route('usuarios.index')}}" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios </a>
+							</span>
 	        		<!-- code start -->
+	        		<br/>
 				<div class="twPc-div">
 				    <a class="twPc-bg twPc-block"></a>
 
@@ -92,7 +96,7 @@
 							<span>
 								<a><span>{{ $registro->email}}</span></a>
 							</span>
-						
+							
 						</div>
 
 						
