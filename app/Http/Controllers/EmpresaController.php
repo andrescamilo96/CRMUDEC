@@ -37,7 +37,7 @@ class EmpresaController extends Controller
             
         }
         else if($registros->count() > 0){
-            return view('indexempresa.index',compact('registros'));
+            return view('indexempresa.index',compact('registros'));            
             
         }                    
         

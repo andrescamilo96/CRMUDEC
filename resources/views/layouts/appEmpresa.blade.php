@@ -116,26 +116,27 @@
                @if($count = Auth::user()->unreadNotifications->count())
                 <span class="label label-danger pull-10">  {{ $count }}</span>
 
-               @endif 
-              </a>
-              <a href="{{ route('usuarios.index')}}" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuarios <span class="badge">12</span></a>
+               @endif                
+              </a>             
             </div>
 
                 <div class="well">
                   <h4>Disk Space Used</h4>
                   <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-            60%
-          </div>
-        </div>
-        <h4>Bandwidth Used</h4>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-            40%
-          </div>
-        </div>
+                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        60%
+                      </div>
+                    </div>
+                    <h4>Bandwidth Used</h4>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                        40%
+                      </div>
+                    </div>
                 </div>
               </div>
+          
+      
               <div class="col-md-9">
             @yield('Contenido')
 
