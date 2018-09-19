@@ -101,6 +101,7 @@ class EmpresaController extends Controller
         $registro = informacionempresa::findOrFail($id)->update($request->all());
         
         //Redireccionar
+        flashy()->success('Informacion Actualizada Exitosamente', '');  
         return redirect()->route('indexempresa.index');
     }
 

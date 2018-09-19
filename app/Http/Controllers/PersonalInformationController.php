@@ -70,7 +70,9 @@ class PersonalInformationController extends Controller
         // return $request->all(); 
         informaciongraduado::create($request->all()); 
         $Posts = post::latest()->take(4)->get();
-        return view('home.home',compact('Posts'));
+        flashy()->success('Informacion Guardada Exitosamente', '');  
+        //return view('home.home',compact('Posts'));
+        return redirect()-> route('home.index',compact('Posts'));
     }
 
     /**
@@ -110,6 +112,7 @@ class PersonalInformationController extends Controller
         $registro = informaciongraduado::findOrFail($id)->update($request->all());
         
         //Redireccionar
+        flashy()->success('Informacion Actualizada Exitosamente', '');  
         return redirect()->route('infopersonal.index');
     }
 

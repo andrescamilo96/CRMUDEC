@@ -61,6 +61,7 @@ class SolicitudesController extends Controller
             $iduser = Auth::id();
 
             $registros = informacionempresa::where('usuario_id','=',$iduser)->get(); 
+            
             return view('solicitudes.createempresa',compact('registros'));
         }
          
@@ -89,11 +90,14 @@ class SolicitudesController extends Controller
 
             $registros = informacionempresa::where('usuario_id','=',$iduser)->get();
            // return view('indexempresa.index',compact('registros'));
-             return redirect()->route('indexempresa.index',compact('registros'));
+             flashy()->success('Informacion Enviada Exitosamente', '');  
+             return redirect()->route('solicitudes.create',compact('registros'));
         }
         if(Auth::user()->hasRoles(['graduado']))
         {
-            return view('home.home',compact('Posts'));
+            flashy()->success('Informacion Enviada Exitosamente', '');  
+            //return view('home.home',compact('Posts'));
+            return redirect()->route('solicitudes.create',compact('Posts'));
             
         }
         

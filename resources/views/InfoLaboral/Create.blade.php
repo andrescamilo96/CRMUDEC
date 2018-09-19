@@ -44,7 +44,7 @@
 					            <label for="anoslaborados">Años Laborados</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
-									<input required type="number" class="form-control" name="anoslaborados" id="anoslaborados"  placeholder="Cantidad de años laborados (en números, sin comas)"/>
+									<input required type="number" class="form-control" name="anoslaborados" id="anoslaborados"  placeholder="Cantidad de años laborados (en números, sin comas)" value="{{ old('anoslaborados') }}"/>
 									{!! $errors->first('anoslaborados','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
@@ -66,7 +66,7 @@
 					            <label for="direccionempresa">Dirección Empresa</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-road" aria-hidden="true"></i></span>
-									<input  type="text" class="form-control" name="direccionempresa" id="direccionempresa"  placeholder="Dirección de la empresa"/>
+									<input  type="text" class="form-control" name="direccionempresa" id="direccionempresa"  placeholder="Dirección de la empresa" value="{{ old('direccionempresa') }}"/>
 									{!! $errors->first('direccionempresa','<span class=error >:message</span>') !!}
 								</div>
 					    	</div>						    			    	
@@ -88,7 +88,7 @@
 					            <label for="telefonoempresa">Telefono Empresa</label>
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-globe" aria-hidden="true"></i></span>
-									<input type="number" class="form-control" name="telefonoempresa" id="telefonoempresa"  placeholder="Telefono de Contacto"/>
+									<input type="number" class="form-control" name="telefonoempresa" id="telefonoempresa"  placeholder="Telefono de Contacto" value="{{ old('telefonoempresa') }}"/>
 									{!! $errors->first('telefonoempresa','<span class=error >:message</span>') !!}
 								</div>
 					    	</div>

@@ -70,7 +70,8 @@ class AcademicInformationController extends Controller
             $registro->certificadoconvalidacion = $request->file('certificadoconvalidacion')->store(''.$usuario.'/academico/convalidacion');
         }   
         
-        $registro->save();        
+        $registro->save();
+         flashy()->success('Informacion Guardada Exitosamente', '');        
          return redirect()->route('infoacademica.index');
         
         /*return $request ->input("nombre");Acceder a un campo especifico*/
@@ -133,7 +134,7 @@ class AcademicInformationController extends Controller
             $registro->certificadoconvalidacion = $request->file('certificadoconvalidacion')->store(''.$usuario.'/academico/convalidacion');
         }   
         $registro->save();
-
+        flashy()->success('Informacion Actualizada Exitosamente', '');  
         return redirect()->route('infoacademica.index');
         
         
@@ -150,7 +151,8 @@ class AcademicInformationController extends Controller
     public function destroy($id)
     {
         //
-         $registro = registroestudiantil::findOrFail($id)->delete();         
+         $registro = registroestudiantil::findOrFail($id)->delete();
+         flashy()->success('Informacion Borrada Exitosamente', '');           
         return redirect()-> route('infoacademica.index');
     }
 }

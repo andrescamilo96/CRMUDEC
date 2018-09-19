@@ -67,7 +67,7 @@
                            <li><a href="{{ route('infopersonal.index') }}">Informacion Personal</a></li>
                            <li><a href="{{ route('infoacademica.index') }}">Registro Académico</a></li>
                            <li><a href="{{ route('infolaboral.index') }}">Registro Laboral</a></li>
-                           <li><a href="{{ route('solicitudes.create') }}">Solicitudes o Peticiones</a></li>
+                           <li><a href="{{ route('solicitudes.create') }}">PQR</a></li>
                         </ul>
                     @endif
                     @if (auth()->user()->hasroles(['admin']))

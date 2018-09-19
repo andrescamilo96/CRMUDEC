@@ -65,7 +65,8 @@ class LaboralInformationController extends Controller
         }
          //return $request->all(); 
         /*HistorialLaboral::create($request->all()); */
-        $registro->save();        
+        $registro->save();    
+        flashy()->success('Informacion Creada Exitosamente', '');      
         return redirect()->route('infolaboral.index');
     }
 
@@ -121,6 +122,7 @@ class LaboralInformationController extends Controller
         }
         $registro->save();
         //Redireccionar
+        flashy()->success('Informacion Actualizada Exitosamente', '');  
         return redirect()->route('infolaboral.index');
     }
 
@@ -134,6 +136,7 @@ class LaboralInformationController extends Controller
     {
         //
         $registro = historiallaboral::findOrFail($id)->delete();
+        flashy()->success('Informacion Eliminada Exitosamente', '');  
         return redirect()-> route('infolaboral.index');
     }
 }

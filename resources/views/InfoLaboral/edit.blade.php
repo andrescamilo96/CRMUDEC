@@ -16,7 +16,7 @@
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
 									<input type="hidden" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  placeholder="Usuario"/>
-									<input type="text" readonly="true" class="form-control" name="nombre" id="nombre" value="{{ Auth::user()->nombre }}"  placeholder="Usuario"/>
+									<input type="text" readonly="true" class="form-control" name="nombre" id="nombre" value="{{ Auth::user()->name }}" />
 									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
 								</div>
 					        </div>				    	
