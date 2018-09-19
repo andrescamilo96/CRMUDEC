@@ -73,7 +73,9 @@
 									<!-- {!! $errors->first('ciudad_id','<span class=error >:message</span>') !!} -->
 
   								<input type="hidden" readonly="true" class="form-control" name="validadorempresa" id="validadorempresa" value="1"  ></input>
+  								<br/><br/>
 									<!-- {!! $errors->first('validadorempresa','<span class=error >:message</span>') !!} -->
+									
   							</div>
 					        </div>
 					        </div>
@@ -83,8 +85,9 @@
 					    </div>
 					</div>
 						<div align="center">
-							<a   class="btn  btn-danger" href="http://versionanterior.rues.org.co/RUES_Web/Consultas" target="blank"><small>
-										 <i class="glyphicon glyphicon-minus"></i></small> Comprobar</a> 
+						<iframe src="http://versionanterior.rues.org.co/RUES_Web/Consultas" width="100%" height="450px"></iframe>
+							<!-- <a   class="btn  btn-danger" href="http://versionanterior.rues.org.co/RUES_Web/Consultas" target="blank"><small>
+										 <i class="glyphicon glyphicon-minus"></i></small> Comprobar</a>  -->
 					        	<input type="submit" class="btn btn-success" value="Validar Empresa"></input>
 
 					        	

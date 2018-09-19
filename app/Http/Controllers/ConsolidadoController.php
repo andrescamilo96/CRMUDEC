@@ -10,6 +10,7 @@ use App\historiallaboral;
 use PDF;
 use Illuminate\Support\Facades\Auth;
 
+
 class ConsolidadoController extends Controller
 {
     /**
@@ -63,7 +64,7 @@ class ConsolidadoController extends Controller
     public function show($id)
     {
         $user = user::findOrFail($id);
-        $infopersonal = informaciongraduado::where('user_id','=',$id)->get(); 
+        $infopersonal = informaciongraduado::where('user_id','=',$id)->get();         
         $estudios = registroestudiantil::where('usuario_id','=',$id)->get(); 
         $historialaboral = historiallaboral::where('usuario_id','=',$id)->get(); 
         /*return view('consolidado.show',compact('user'));*/
@@ -73,7 +74,8 @@ class ConsolidadoController extends Controller
             return view('consolidado.showgraduado', [
             'infopersonal'=> $infopersonal,
             'estudios'=> $estudios,
-            'historialaboral'=>$historialaboral, 
+            'historialaboral'=>$historialaboral,
+            'ciudadr' =>$ciudadr,
             ],compact('user'));
         }
         if(Auth::user()->hasRoles(['admin']))
@@ -103,8 +105,13 @@ class ConsolidadoController extends Controller
             $infopersonal = informaciongraduado::where('user_id','=',$id)->get(); 
             $estudios = registroestudiantil::where('usuario_id','=',$id)->get(); 
             $historialaboral = historiallaboral::where('usuario_id','=',$id)->get(); 
-           
-            $view = view ('consolidado.pdfgraduado',['infopersonal'=> $infopersonal, 'estudios'=> $estudios,'historialaboral'=>$historialaboral],compact('user'));
+                         
+            $view = view ('consolidado.pdfgraduado',
+                ['infopersonal'=> $infopersonal,
+                 'estudios'=> $estudios,
+                 'historialaboral'=>$historialaboral,
+                 ]
+                 ,compact('user'));
             $pdf=\App::make('dompdf.wrapper');
             $pdf = PDF::loadHTML($view);
             return $pdf->stream('consolidado.pdfgraduado');
@@ -115,8 +122,8 @@ class ConsolidadoController extends Controller
             $infopersonal = informaciongraduado::where('user_id','=',$id)->get(); 
             $estudios = registroestudiantil::where('usuario_id','=',$id)->get(); 
             $historialaboral = historiallaboral::where('usuario_id','=',$id)->get(); 
-           
-            $view = view ('consolidado.pdf',['infopersonal'=> $infopersonal, 'estudios'=> $estudios,'historialaboral'=>$historialaboral],compact('user'));
+            
+            $view = view ('consolidado.pdf',['infopersonal'=> $infopersonal, 'estudios'=> $estudios,'historialaboral'=>$historialaboral,],compact('user'));
             $pdf=\App::make('dompdf.wrapper');
             $pdf = PDF::loadHTML($view);
             return $pdf->stream('consolidado.pdf');

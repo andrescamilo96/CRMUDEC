@@ -57,7 +57,7 @@
 					        </div>
 					        <div class="col-md-6" style="">
 						        <div class="form-group" style="position: static;">						        	
-										<a class="btn btn-primary " href="{{ $estudios->adjuntosoporte }}" target="blank">
+										<a class="btn btn-primary " href="{{Storage::url($estudios->adjuntosoporte) }}" target="blank">
 										Adjunto Soporte
 										</a>
 						        </div>
@@ -65,7 +65,7 @@
 					        @if($estudios->certificadoconvalidacion != NULL)
 						        <div class="col-md-6" style="">
 							        <div class="form-group" style="position: static;">						        	
-											<a class="btn btn-primary " href="{{ $estudios->certificadoconvalidacion }}" target="blank">
+											<a class="btn btn-primary " href="{{Storage::url($estudios->certificadoconvalidacion) }}" target="blank">
 											Certificado Convalidación 
 											</a>
 							        </div>
@@ -93,7 +93,7 @@
 					        </div>
 					        <div class="col-md-12" style="">
 						        <div class="form-group" style="position: static;">						        	
-										<a class="btn btn-primary " href="{{ $historialaboral->adjuntosoporte }}" target="blank">
+										<a class="btn btn-primary " href="{{Storage::url($historialaboral->adjuntosoporte) }}" target="blank">
 										Adjunto Soporte
 										</a>
 						        </div>
