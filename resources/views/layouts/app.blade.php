@@ -154,7 +154,12 @@
 }
 
 </script>
-
+<script type="text/javascript">
+       $(document).ready(function () {
+        $("#myModal2").modal()
+    });
+       
+    </script>
 
     @include('flashy::message')
 </body>

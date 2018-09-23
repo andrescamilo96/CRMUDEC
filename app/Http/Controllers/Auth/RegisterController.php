@@ -49,6 +49,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'cedulausuario'=>'required|numeric|unique:users',
             'role_id'=>'required|integer',
+            'protecciondatos'=>'required'
         ]);
     }
 
