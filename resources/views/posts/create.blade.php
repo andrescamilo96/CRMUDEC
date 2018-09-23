@@ -21,8 +21,8 @@
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></span>
 									
-									<input   class="form-control" name="Titulo" id="Titulo"  placeholder="Titulo Noticia" /> 
-									
+									<input  required="true" class="form-control" name="Titulo" id="Titulo"  placeholder="Titulo Noticia" /> 
+									{!! $errors->first('Titulo','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -32,6 +32,7 @@
 									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></span>
 									<textarea    class="form-control" name="Cuerpo" id="Cuerpo"  placeholder="Cuerpo Noticia"> 
 									</textarea>
+									{!! $errors->first('Cuerpo','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>					       
 					      

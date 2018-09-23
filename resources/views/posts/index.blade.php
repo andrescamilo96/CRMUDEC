@@ -13,8 +13,8 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th style="text-align: center">Titulo </th>
-								<th style="text-align: center">Cuerpo</th>
+								<th style="text-align: center">Titulo Noticia</th>
+								
 								
 									
 							</tr>
@@ -31,7 +31,7 @@
 									<td>		
 										 {{ $registro->Titulo}} 
 									</td>
-									<td>{{ $registro->Cuerpo }}</td>
+									
 																	
 									
 									<td>

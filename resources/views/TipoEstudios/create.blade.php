@@ -20,7 +20,7 @@
 					        	<label for="user">Tipo Estudio</label> 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></span>									
-									<input   class="form-control" name="tipoestudio" id="tipoestudio"  placeholder="Nuevo Tipo Estudio" /> 
+									<input required="true" maxlength="100"  class="form-control" name="tipoestudio" id="tipoestudio"  placeholder="Nuevo Tipo Estudio" /> 
 									
 									</div>
 					        </div>

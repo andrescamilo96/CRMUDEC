@@ -16,7 +16,7 @@
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
 									<input required type="number" class="form-control" name="nit" id="nit"  placeholder="Nit de la Empresa"/>
-									{!! $errors->first('cargo','<span class=error >:message</span>') !!}
+									{!! $errors->first('nit','<span class=error >:message</span>') !!}
 									<input type="hidden" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ Auth::user()->id }}"  placeholder="Usuario"/>
 									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
 								</div>
@@ -62,9 +62,9 @@
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon  glyphicon-globe" aria-hidden="true"></i></span>
 									<select class="form-control" id="ciudad_id" name="ciudad_id">
-					            	<option value="1">Bogota</option>
-					            	<option value="2">Medellin</option>
-					            	<option value="3">Cali</option>
+					            	@foreach ($ciudades as $ciudad )
+										<option value= "{{$ciudad->id}}">{{$ciudad->ciudad}}</option>
+									@endforeach
 					            </select>
 								</div>
 					    	</div>

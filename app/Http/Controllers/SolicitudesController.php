@@ -9,6 +9,7 @@ use Mail;
 use App\user;
 use App\post;
 use App\Http\Requests\solicitudesRequest;
+use App\Http\Requests\solicitudrespuestarequest;
 use App\Notifications\SolicitudSent;
 use Illuminate\Support\Facades\Auth;
 use App\informacionempresa;
@@ -148,7 +149,7 @@ class SolicitudesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(solicitudrespuestarequest $request, $id)
     {
          //
         //Actualizamos

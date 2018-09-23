@@ -67,6 +67,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'cedulausuario'=> $data ['cedulausuario'],
             'role_id' => $data['role_id'],
+            'aceptaleydatos'=>$data['aceptaleydatos'],
         ]);
     }
     public function redirectPath()

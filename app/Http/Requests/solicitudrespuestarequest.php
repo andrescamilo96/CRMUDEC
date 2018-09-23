@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class solicitudesRequest extends FormRequest
+class solicitudrespuestarequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,9 @@ class solicitudesRequest extends FormRequest
             'telefono'=>'required|numeric|min:1001010|max:9999999999',
             'solicitud'=>'required',
             'usuario_id'=>'required|numeric',
-            'indrespuesta'=>'required',            
+            'indrespuesta'=>'required',    
+            'solicitudrespuesta'=>'required|max:500',        
         ];
     }
 }
+

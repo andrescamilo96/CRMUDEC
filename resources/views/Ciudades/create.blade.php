@@ -20,7 +20,7 @@
 					        	<label for="user">Ciudad</label> 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i></span>									
-									<input   class="form-control" name="ciudad" id="ciudad"  placeholder="Nueva ciudad" /> 
+									<input required="true"  class="form-control" name="ciudad" id="ciudad" maxlength="100" placeholder="Nueva ciudad" /> 
 									
 									</div>
 					        </div>
