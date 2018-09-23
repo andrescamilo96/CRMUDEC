@@ -13,7 +13,7 @@ class infoPersonalEmpresaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,15 +25,15 @@ class infoPersonalEmpresaRequest extends FormRequest
     {
         return [
             //
-            'nit'=>'required|numeric',
-            'razonsocial'=>'required',
-            'sigla'=>'required',
-            'email'=>'required',
-            'direccion'=>'required',
+            'nit'=>'required|numeric|max:9999999999999999|min:100000000',
+            'razonsocial'=>'required|max:50',
+            'sigla'=>'required|max:50',
+            'email'=>'required|email',
+            'direccion'=>'required|max:50',
             
             'ciudad_id' =>'required',
             'usuario_id'=>'required',
-            'telefono'=>'required|numeric',
+            'telefono'=>'required|numeric|max:99999999999',
             
         ];
     }

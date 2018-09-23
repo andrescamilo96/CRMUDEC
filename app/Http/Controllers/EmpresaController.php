@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\infoPersonalEmpresaRequest;
 use App\informacionempresa;
+use App\ciudad;
 use App\user;
 class EmpresaController extends Controller
 {
@@ -84,8 +86,9 @@ class EmpresaController extends Controller
     public function edit($id)
     {
         $registro = informacionempresa::findOrFail($id);
+        $ciudades = ciudad::all();
         //dd($registro);
-        return view('indexempresa.edit',compact('registro'));
+        return view('indexempresa.edit',compact('registro','ciudades'));
         
     }
 
@@ -96,7 +99,7 @@ class EmpresaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(infoPersonalEmpresaRequest $request, $id)
     {
         $registro = informacionempresa::findOrFail($id)->update($request->all());
         

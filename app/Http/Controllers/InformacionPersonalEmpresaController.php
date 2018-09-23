@@ -7,6 +7,7 @@ use App\Http\Requests\infoPersonalEmpresaRequest;
 use Illuminate\Support\Facades\Auth;
 use App\informacionempresa;
 use App\user;
+use App\ciudad;
 use App\Notifications\AprobacionEmpresaSent;
 use App\Notifications\DesaprobacionEmpresaSent;
 class InformacionPersonalEmpresaController extends Controller
@@ -56,6 +57,7 @@ class InformacionPersonalEmpresaController extends Controller
      */
     public function create()
     {
+        $ciudades = ciudad::all();
         return view('empresa.create');
     }
 

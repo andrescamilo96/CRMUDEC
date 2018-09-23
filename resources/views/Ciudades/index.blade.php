@@ -34,16 +34,7 @@
 									<td>
 										<a class="btn btn-xs btn-info" href="{{route('ciudades.edit',$ciudad->id)}}"><small>
 											<i class="glyphicon glyphicon-pencil"></i></small> Editar</a>
-									</td>
-									<td>
-										<form  method="POST" action="{{ route('ciudades.destroy',$ciudad->id) }} " style="display:inline">
-											{!! method_field('DELETE') !!}
-											{!! csrf_field() !!}
-											<button class="btn btn-danger btn-xs" type="submit"><small><i class="glyphicon glyphicon-remove"></i></small> Eliminar</button>
-											
-										</form>		
-									</td>
-																					
+									</td>																	
 								</tr>
 
 							@endforeach

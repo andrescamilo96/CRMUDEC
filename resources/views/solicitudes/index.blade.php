@@ -13,11 +13,11 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th style="text-align: center">Nombre Usurio</th>
-								<th style="text-align: center">Correo</th>
+								<th style="text-align: center">Nombre Usuario</th>
+								
 								<th style="text-align: center">Asunto</th>
 								<th style="text-align: center">Telefono</th>
-								<th style="text-align: center">Solicitud</th>
+								
 								<th style="text-align: center"></th>
 									
 							</tr>
@@ -34,10 +34,10 @@
 									<td>		
 										 {{ $registro->usuario->name}} 
 									</td>
-									<td>{{ $registro->correo }}</td>
+									
 									<td>{{ $registro->asunto }}</td>
 									<td>{{ $registro->telefono }}</td>
-									<td>{{ $registro->solicitud }}</td>
+									
 									
 									
 									<td>

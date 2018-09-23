@@ -20,9 +20,9 @@
 					        	<label for="user">Nombre Usuario</label> 
 					            	<div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
-									{{-- <input type="text" readonly="true" class="form-control" name="usuario_id" id="usuario" value="{{$registro->usuario->name}}"  ></input> --}}
+									<input type="text" readonly="true" class="form-control" name="usuario" id="usuario" value="{{$registro->usuario->name}}"  ></input> 
 									<input type="hidden" readonly="true" class="form-control" name="usuario_id" id="usuario_id" value="{{ $registro->usuario_id }}"  ></input>
-									<!-- {!! $errors->first('user_id','<span class=error >:message</span>') !!} -->
+									{!! $errors->first('usuario_id','<span class=error >:message</span>') !!}
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -39,7 +39,7 @@
 					             <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i></span>
 									<input readonly="true" required type="text" class="form-control" name="asunto" id="asunto"  placeholder="Asunto de Contacto"  value="{{ $registro->asunto }}" />
-									<!-- {!! $errors->first('asunto','<span class=error >:message</span>') !!}  -->
+									{!! $errors->first('asunto','<span class=error >:message</span>') !!} 
 								</div>
 					        </div>
 					        <div class="form-group" style="position: static;">
@@ -47,7 +47,7 @@
 					            <div class="input-group">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i></span>
 									<input readonly="true" required type="text" class="form-control" name="telefono" id="telefono"  placeholder="Telefono de Contacto"  value="{{ $registro->telefono }}" />
-									<!-- {!! $errors->first('telefonocontacto','<span class=error >:message</span>') !!}  -->
+									{!! $errors->first('telefono','<span class=error >:message</span>') !!} 
 								</div>
 								<div class="form-group" style="position: static;">
 					             <label for="solicitud">Solicitud</label> 
@@ -61,7 +61,7 @@
 					             <label for="solicitud">Responder Solicitud</label> 
 					        	 <textarea required class= "form-control"  name="solicitudrespuesta" data-toggle="tooltip" title="Respuesta Solicitud max 250"  " > 
   								</textarea> {{ old('solicitudrespuesta') }}
-  								<!-- {!! $errors->first('solicitudrespuesta','<span class=help-block >:message</span>') !!} -->
+  								{!! $errors->first('solicitudrespuesta','<span class=help-block >:message</span>') !!}
 
   								<input type="hidden" readonly="true" class="form-control" name="indrespuesta" id="indrespuesta" value="1"  ></input>
 									<!-- {!! $errors->first('user_id','<span class=error >:message</span>') !!} -->
@@ -74,6 +74,7 @@
 					</div>
 						<div align="center">
 					        	<input type="submit" class="btn btn-success" value="Responder"></input> 
+					        	<a 	href="{{ route('solicitudes.index') }}" type="submit" class="btn btn-default" >Regresar</a> 
 					        </div>
 					</form>
 				</div>
