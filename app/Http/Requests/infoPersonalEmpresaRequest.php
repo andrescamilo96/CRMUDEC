@@ -37,4 +37,13 @@ class infoPersonalEmpresaRequest extends FormRequest
             
         ];
     }
+    public function messages()
+{
+  return [
+    'nit.min' => 'El nit debe ser un número entre 9 y 15 digitos',
+    'nit.max' => 'El nit debe ser un número entre 9 y 15 digitos',
+    'email.email'=>'Debe digitar un correo electrónico valido',
+    'telefono.numeric'=>'El telefono debe tener entre 7 y 11 digitos'
+  ];
+}
 }

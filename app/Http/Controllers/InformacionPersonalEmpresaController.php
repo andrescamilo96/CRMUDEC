@@ -67,7 +67,7 @@ class InformacionPersonalEmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(infoPersonalEmpresaRequest $request)
     {
         //dd($request);
         informacionempresa::create($request->all()); 
@@ -75,7 +75,7 @@ class InformacionPersonalEmpresaController extends Controller
 
         $registros = informacionempresa::where('usuario_id','=',$iduser)->get(); 
         //return view('indexempresa.index',compact('registros'));
-        flashy()->success('Informacion Creada Exitosamente', '');  
+        flashy()->success('Informacion Enviada Exitosamente', '');  
         return redirect()->route('indexempresa.index',compact('registros'));
     }
 

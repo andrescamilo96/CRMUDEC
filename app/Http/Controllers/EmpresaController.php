@@ -30,12 +30,12 @@ class EmpresaController extends Controller
     public function index()
     {
          $iduser = Auth::id();
-
+         $ciudades = ciudad::all();
         $registros = informacionempresa::where('usuario_id','=',$iduser)->get(); 
          
         
         if ($registros->count()==0){
-            return view('empresa.create');
+            return view('empresa.create',compact('ciudades'));
             
         }
         else if($registros->count() > 0){
