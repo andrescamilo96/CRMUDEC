@@ -49,6 +49,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'cedulausuario'=>'required|numeric|unique:users',
             'role_id'=>'required|integer',
+            'aceptaleydatos'=>'required|integer',
         ]);
     }
 
@@ -66,6 +67,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'cedulausuario'=> $data ['cedulausuario'],
             'role_id' => $data['role_id'],
+            'aceptaleydatos'=>$data['aceptaleydatos'],
         ]);
     }
     public function redirectPath()

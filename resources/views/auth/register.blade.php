@@ -92,6 +92,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('aceptaleydatos') ? ' has-error' : '' }}">                                   
+                            <div class="form-group" align="center">
+                        
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                                &nbsp;&nbsp;&nbsp;<strong><label >
+                                <input id="aceptaleydatos" type="checkbox" class="form-control" name="aceptaleydatos" value="1" >Acepto las disposiciones de manejo de datos acorde a la ley 1581 de protección de datos personales</label></strong>
+                                @if ($errors->has('aceptaleydatos'))
+                                    <span class="help-block">
+                                        <strong>Para registrarse exitosamente debe aceptar el tratamiento de datos acorde a ley 1581<br/> para protección de datos personales</strong>
+                                    </span>
+                                @endif
+                        
+                            </div>
+
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
