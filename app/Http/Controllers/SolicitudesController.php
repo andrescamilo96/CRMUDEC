@@ -92,13 +92,13 @@ class SolicitudesController extends Controller
             $registros = informacionempresa::where('usuario_id','=',$iduser)->get();
            // return view('indexempresa.index',compact('registros'));
              flashy()->success('Informacion Enviada Exitosamente', '');  
-             return redirect()->route('solicitudes.create',compact('registros'));
+             return redirect()->route('indexempresa.index',compact('registros'));
         }
         if(Auth::user()->hasRoles(['graduado']))
         {
             flashy()->success('Informacion Enviada Exitosamente', '');  
             //return view('home.home',compact('Posts'));
-            return redirect()->route('solicitudes.create',compact('Posts'));
+            return redirect()->route('home.index',compact('Posts'));
             
         }
         
