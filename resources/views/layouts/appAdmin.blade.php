@@ -17,6 +17,7 @@
             <title>{{ config('app.name', 'Laravel') }}</title>
 
             <!-- Styles -->
+            <link rel="icon" type="image/png" href="../img/icon.png" />
             <link href="{{ asset('cssAdmin/app.css') }}" rel="stylesheet">
         </head>
         <body  onload="nobackbutton();">

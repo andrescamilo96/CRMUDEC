@@ -18,6 +18,7 @@
 
             <!-- Styles -->
             <link href="{{ asset('cssAdmin/app.css') }}" rel="stylesheet">
+            <link rel="icon" type="image/png" href="../img/icon.png" />
         </head>
         <body onload="nobackbutton();">
            <nav class="navbar navbar-default">

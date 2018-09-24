@@ -33,7 +33,7 @@
       <link href="cssGraduado/css/style.css" rel='stylesheet' type='text/css' media="all">
       <!--//stylesheets-->
       <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
-      
+      <link rel="icon" type="image/png" href="../img/icon.png" />
    </head>
    <body>
       <div class="header-outs" id="home">
@@ -118,7 +118,7 @@
             <div class="callbacks_container">
                <ul class="rslides" id="slider4">
                   <li>
-                     <div class="slider-img one-img">
+                     <div class="slider-img three-img">
                         <div class="container">
                            <div class="slider-info ">
                               <div class="upper-info text-left">
@@ -133,13 +133,13 @@
                      </div>
                   </li>
                   <li>
-                     <div class="slider-img two-img">
+                     <div class="slider-img one-img">
                         <div class="container">
                            <div class="slider-info ">
                               <div class="upper-info text-left">
-                                 <h5>Share Your Ideas </h5>
+                                 <h5>UDEC SIEMPRE CONTIGO</h5>
                                  <div class="bottom-info">
-                                    <h4>Funding And Aims</h4>
+                                    <h4>Registrate</h4>
                                  </div>
                               </div>
                               
@@ -148,14 +148,14 @@
                      </div>
                   </li>
                   <li>
-                     <div class="slider-img three-img">
+                     <div class="slider-img two-img">
                         <div class="container">
                            <div class="slider-info">
                               <div class="upper-info text-left">
-                                 <h5>Face Your Challenge</h5>
+                                 <h5>LAS OPORTUNIDADES TE ESPERAN</h5>
                                  <div class="bottom-info">
                                     <h4>
-                                       Become a Winner
+                                       Comparte tu hoja de vida
                                     </h4>
                                  </div>
                               </div>
@@ -186,8 +186,8 @@
                         <span class="fas fa-lightbulb banner-icon"></span>
                      </div>
                      <div class="col-md-9 col-sm-9 white-right">
-                        <h4>Service 1</h4>
-                        <p>delectus reiciendis maiores alias consequatur aut.maiores alias consequatur aut.</p>
+                        <h4>Servicio 1</h4>
+                        <p>Ingresa tu información personal.</p>
                      </div>
                   </div>
                   <div class="row white-shadow rounded p-lg-4 p-md-4 p-sm-3 p-3 mb-3 clr-two">
@@ -195,8 +195,8 @@
                         <span class="fas fa-chart-pie banner-icon"></span>
                      </div>
                      <div class="col-md-9 col-sm-9 white-right">
-                        <h4>Service 2</h4>
-                        <p>delectus reiciendis maiores alias consequatur aut.maiores alias consequatur aut.</p>
+                        <h4>Servicio 2</h4>
+                        <p>Ingresa tu progreso académico y experencia laboral.</p>
                      </div>
                   </div>
                   <div class="row white-shadow rounded p-lg-4 p-md-4 p-sm-3 p-3 clr-three">
@@ -204,8 +204,8 @@
                         <span class="fab fa-slideshare banner-icon"></span>
                      </div>
                      <div class="col-md-9 col-sm-9 white-right">
-                        <h4>Service 3</h4>
-                        <p>delectus reiciendis maiores alias consequatur aut.maiores alias consequatur aut.</p>
+                        <h4>Servicio 3</h4>
+                        <p>Realiza solicitudes, peticiones, quejas y reclamos al programa</p>
                      </div>
                   </div>
                </div>
@@ -226,8 +226,8 @@
                         <span class="fas fa-chart-line banner-icon"></span>
                      </div>
                      <div class="col-md-9 col-sm-9 white-right">
-                        <h4>Service 4</h4>
-                        <p>delectus reiciendis maiores alias consequatur aut.maiores alias consequatur aut.</p>
+                        <h4>Servicio 4</h4>
+                        <p>Las empresas veran hoja de vida y perfiles segun lo requieran.</p>
                      </div>
                   </div>
                   <div class="row white-shadow rounded p-lg-4 p-md-4 p-sm-3 p-3 mb-3 clr-five">
@@ -235,8 +235,8 @@
                         <span class="fab fa-cloudscale banner-icon"></span>
                      </div>
                      <div class="col-md-9 col-sm-9 white-right">
-                        <h4>Service 5</h4>
-                        <p>delectus reiciendis maiores alias consequatur aut.maiores alias consequatur aut.</p>
+                        <h4>Servicio 5</h4>
+                        <p>Publicación de noticias del programa y respuesta a solicitudes realizadas</p>
                      </div>
                   </div>
                   <div class="row white-shadow rounded p-lg-4 p-md-4 p-sm-3 p-3 clr-six">
@@ -244,8 +244,8 @@
                         <span class="fas fa-users banner-icon"></span>
                      </div>
                      <div class="col-md-9 col-sm-9 white-right">
-                        <h4>Service 6</h4>
-                        <p>delectus reiciendis maiores alias consequatur aut.maiores alias consequatur aut.</p>
+                        <h4>Servicio 6</h4>
+                        <p>Innovación en bolsa de empleo, la empresa te contacta de acuerdo a su necesidad y a tu perfil.</p>
                      </div>
                   </div>
                </div>
@@ -312,70 +312,39 @@
                         <ul>
                            <li  class="d-flex pb-md-3 pb-3">
                               <span class="fas fa-map-marker-alt d-flex"></span>
-                              <p class="d-flex">333 Broome St New York</p>
+                              <p class="d-flex">Calle 14 con avenida 15</p>
                            </li>
                            <li class="d-flex pb-md-3 pb-3">
                               <span class="fas fa-phone-volume d-flex" aria-hidden="true"></span>
-                              <p class="d-flex">+11 256 5486</p>
+                              <p class="d-flex">892-0706</p>
                            </li>
                            <li  class="d-flex pb-md-3 pb-3">
                               <span class="far fa-envelope d-flex"></span>
-                              <p class="d-flex"><a href="mailto:info@example.com">mail@example.com</a></p>
+                              <p class="d-flex"><a href="mailto:info@example.com">admonempresasfacatativa@gmail.com</a></p>
                            </li>
                            <li class="d-flex pb-md-3 pb-3">
                               <span class="fas fa-fax d-flex"></span>
-                              <p class="d-flex">(000)1122333</p>
+                              <p class="d-flex">892-0707</p>
                            </li>
                            <li  class="d-flex">
                               <span class="fab fa-windows d-flex" aria-hidden="true"></span>
-                              <p class="d-flex">http//example.com</p>
+                              <p class="d-flex">http//crmgraduadosadmonfaca.com.co</p>
                            </li>
                         </ul>
                      </div>
                      <div class="icons mt-4">
-                        <ul>
-                           <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                           <li><a href="#"><span class="fas fa-envelope"></span></a></li>
-                           <li><a href="#"><span class="fas fa-rss"></span></a></li>
-                           <li><a href="#"><span class="fab fa-vk"></span></a></li>
-                        </ul>
+                       
                      </div>
                   </div>
                   <div class="wthree-left-right col-lg-4 col-md-4 col-sm-12">
-                     <h4 class="pb-lg-3 pb-3">Galeria</h4>
+                     <h4 class="pb-lg-3 pb-3"></h4>
                      <div class="footer-post d-flex mb-2">
                         <div class="agileinfo_footer_grid1 mr-2">
-                           <a href="gallery.html">
-                           <img src="images/f1.jpg" alt=" " class="img-fluid">
+                           <a href="">
+                           <img src="../img/logo.png" alt=" " class="img-fluid">
                            </a>
                         </div>
-                        <div class="agileinfo_footer_grid1 mr-2">
-                           <a href="gallery.html">
-                           <img src="images/f2.jpg" alt=" " class="img-fluid">
-                           </a>
-                        </div>
-                        <div class="agileinfo_footer_grid1">
-                           <a href="gallery.html">
-                           <img src="images/f3.jpg" alt=" " class="img-fluid">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="footer-post d-flex">
-                        <div class="agileinfo_footer_grid1 mr-2">
-                           <a href="gallery.html">
-                           <img src="images/f4.jpg" alt=" " class="img-fluid">
-                           </a>
-                        </div>
-                        <div class="agileinfo_footer_grid1 mr-2">
-                           <a href="gallery.html">
-                           <img src="images/f5.jpg" alt=" " class="img-fluid">
-                           </a>
-                        </div>
-                        <div class="agileinfo_footer_grid1">
-                           <a href="gallery.html">
-                           <img src="images/f6.jpg" alt=" " class="img-fluid">
-                           </a>
-                        </div>
+                        
                      </div>
                   </div>
                </div>
@@ -383,7 +352,7 @@
          </div>
       </section>
       <footer>
-         <p>©2018 Universidad Cundinamarcar | Administracion Empresas Extension Facatativa <a target="_blank">CRM-UDEC</a></p>
+         <p>©2018 Universidad Cundinamarca | Administracion Empresas Extension Facatativa <a target="_blank">CRM-UDEC</a></p>
       </footer>
       <!-- //Footer -->
       <!--js working-->
@@ -735,11 +704,11 @@
          Morris.Donut({
            element: 'graph4',
            data: [
-           {value: 20, label: 'Team', formatted: 'at least 20%' },
-            {value: 50, label: 'Start Up', formatted: 'at least 50%' },
-            {value: 10, label: 'Business', formatted: 'approx. 10%' },
-            {value: 10, label: 'Plan', formatted: 'approx. 10%' },
-            {value: 10, label: 'A really really long label', formatted: 'Sucess 10%' }
+           {value: 20, label: 'Mantente Informado', formatted: '' },
+            {value: 50, label: 'Registros', formatted: '' },
+            {value: 10, label: 'Empresas', formatted: '' },
+            {value: 10, label: 'Administracion', formatted: '' },
+            {value: 10, label: 'Solicitudes', formatted: '' }
            ],
            formatter: function (x, data) { return data.formatted; }
          });

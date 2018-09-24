@@ -19,6 +19,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="../img/icon.png" />
       <!--//booststrap end-->
       <!-- font-awesome icons -->
      
