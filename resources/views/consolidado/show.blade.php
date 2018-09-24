@@ -34,7 +34,13 @@
 						        	<label for="estadocivil">Semestre:</label>										
 										<input readonly="true" type="text" class="form-control" name="semestre" id="semestre"  placeholder="" value="{{ $infopersonal->semestregraduacion }}" />
 						        </div>
-					        </div>						    		        
+					        </div>	
+					        <div class="col-md-6" style="">
+						        <div class="form-group" style="position: static;">
+						        	<label for="estadocivil">Telefono Contacto:</label>										
+										<input readonly="true" type="text" class="form-control" name="telefono" id="telefono"  placeholder="" value="{{ $infopersonal->telefono }}" />
+						        </div>
+					        </div>					    		        
 					    @endforeach 
 			      	
 			      </div>
