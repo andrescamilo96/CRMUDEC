@@ -30,10 +30,11 @@ App\User::create([
 ]);
 */
 
-Route::get('/', function () {
-    return view('index/index');
+/*Route::get('/', function () {
+    return view('index/login');
 });
-
+*/
+Route::get('/', 'IndexController@index')->name('index');
 Route::resource('infopersonal','PersonalInformationController');
 
 Route::resource('usuarios','UsersController');

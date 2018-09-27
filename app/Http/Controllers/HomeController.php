@@ -42,6 +42,9 @@ class HomeController extends Controller
              return view('/home.home',compact('Posts'));
         }
 
+        
+           
+        
        //$Posts = Post::all(); 
 
        
@@ -52,4 +55,5 @@ class HomeController extends Controller
 
         
     }
+    
 }
