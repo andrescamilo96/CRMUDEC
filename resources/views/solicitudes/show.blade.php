@@ -87,7 +87,7 @@
                   </aside>
                   <aside class="lg-side">
                       <div class="inbox-head">
-                          <h3><i class="fa fa-envelope-o" aria-hidden="true"></i> Mensaje para {{ $registro->usuario->name }} coordial saludo </h3>
+                          <h3><i class="fa fa-envelope-o" aria-hidden="true"></i> Mensaje para {{ $registro->usuario->name }} cordial saludo </h3>
                       </div>
                       <div class="inbox-body">
                          <div class="mail-option">

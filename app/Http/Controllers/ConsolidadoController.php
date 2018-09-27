@@ -75,7 +75,7 @@ class ConsolidadoController extends Controller
             'infopersonal'=> $infopersonal,
             'estudios'=> $estudios,
             'historialaboral'=>$historialaboral,
-            'ciudadr' =>$ciudadr,
+            
             ],compact('user'));
         }
         if(Auth::user()->hasRoles(['admin']))
