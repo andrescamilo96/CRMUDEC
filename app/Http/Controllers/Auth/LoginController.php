@@ -32,6 +32,9 @@ class LoginController extends Controller
      *
      * @return void
      */
+    public $maxAttempts = 3; // change to the max attemp you want.
+    public $decayMinutes = 1; // change to the minutes you want.
+
     public function __construct()
     {
          $this->middleware('guest')->except('logout');
