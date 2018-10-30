@@ -42,7 +42,7 @@ class NotificacionController extends Controller
              $iduser = Auth::id();
 
             $registros = informacionempresa::where('usuario_id','=',$iduser)->get(); 
-             return view('notificaciones.indexEmpresa',compact('registros'),[
+             return view('notificaciones.indexempresa',compact('registros'),[
 
             'unreadNotifications' => auth()->user()->unreadNotifications,
             'readNotifications' => auth()->user()->readNotifications

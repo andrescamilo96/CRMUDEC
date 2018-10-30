@@ -174,7 +174,13 @@
          </div>
       </div>
       <!-- //banner -->
-      
+      <div class="modal fade bd-example-modal-lg" tabindex="1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal2">
+         <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">      
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/Pjo81vYv0EY?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
       <!--services-->
       <section class="service py-lg-4 py-md-3 py-sm-3 py-3">
          <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
@@ -394,6 +400,12 @@
       <!-- //OnScroll-Number-Increase-JavaScript -->
       <!--FlexSlider-JavaScript -->
       <script defer src="cssGraduado/js/jquery.flexslider.js"></script>
+       <script type="text/javascript">
+       $(document).ready(function () {
+        $("#myModal2").modal()
+    });
+       
+    </script>
       <script>
          $(window).load(function(){
          $('.flexslider').flexslider({
